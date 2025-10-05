@@ -1,40 +1,175 @@
-/* ===========================
-   BIG BROTHER WEB APP STYLE
-   Author: superwhooo x Avi
-   =========================== */
+/* Big Brother Warm Theme v1.0 — superwhooo x Avi */
 
-/* ---- Root Variables ---- */
+/* Root Colors */
 :root {
-  --lavender: #EAE7FF;
-  --coral: #E84141;
-  --navy: #1C1F4A;
-  --gold: #FFD97D;
-  --teal: #45B8B0;
-  --white: #ffffff;
+  --red: #E84A5F;
+  --peach: #F8B195;
+  --ivory: #F7EDE2;
+  --mauve: #C06C84;
+  --text: #2E1E23;
+  --white: #FFFFFF;
+  --radius: 24px;
+  --transition: 0.5s ease;
   --font-primary: 'Poppins', sans-serif;
   --font-secondary: 'Inter', sans-serif;
-  --radius: 24px;
-  --transition: 0.3s ease;
 }
 
-/* ---- Reset + Base ---- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
+  background: radial-gradient(circle at 50% 50%, var(--ivory), var(--peach));
+  color: var(--text);
   font-family: var(--font-secondary);
-  background-color: var(--lavender);
-  color: var(--navy);
-  line-height: 1.6;
-  overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
 }
 
-/* ---- Header ---- */
-header {
-  width: 100%;
+/* Logo */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart {
+  width: 24px;
+  height: 24px;
+  background: var(--red);
+  position: relative;
+  transform: rotate(-45deg);
+  border-radius: 50% 50% 0 0;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: var(--red);
+  border-radius: 50%;
+}
+
+.heart::before { top: 0; left: 12px; }
+.heart::after { top: 12px; left: 0; }
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--white);
+  border-radius: 50%;
+  margin-left: 8px;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 8px rgba(232, 74, 95, 0.6);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Screens */
+main {
+  width: 90%;
+  max-width: 500px;
+}
+
+.screen {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.screen.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1 {
+  font-family: var(--font-primary);
+  color: var(--red);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: var(--mauve);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.btn {
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 10px rgba(232, 74, 95, 0.3);
+}
+
+.btn:hover {
+  background: var(--mauve);
+  box-shadow: 0 4px 14px rgba(192, 108, 132, 0.4);
+}
+
+/* Guardians Orbit */
+.orbit {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.guardian {
+  width: 24px;
+  height: 24px;
+  background: var(--red);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center -80px;
+  animation: orbit 6s linear infinite;
+}
+
+.guardian.orbit-2 { animation-delay: 2s; }
+.guardian.orbit-3 { animation-delay: 4s; }
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+/* Landing page */
+#screen5 {
+  background: var(--ivory);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}  width: 100%;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
