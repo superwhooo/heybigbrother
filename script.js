@@ -1,77 +1,17 @@
-/* ===============================
-   BIG BROTHER WEB APP INTERACTIONS
-   Author: superwhooo x Avi
-   =============================== */
+// Big Brother Interactions — superwhooo x Avi
 
-// Log initialization
-console.log("Big Brother web app loaded 🫶");
+document.addEventListener("DOMContentLoaded", () => {
+  const screens = document.querySelectorAll(".screen");
+  const buttons = document.querySelectorAll(".btn.next");
 
-// 🌈 Fade-in sections on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const nextId = btn.getAttribute("data-next");
+      screens.forEach(s => s.classList.remove("active"));
+      document.getElementById(`screen${nextId}`).classList.add("active");
 
-document.querySelectorAll('section').forEach(section => {
-  observer.observe(section);
-});
-
-// ❤️ Heartbeat SOS button (vibration + ripple)
-const sosButton = document.querySelector('.sos');
-if (sosButton) {
-  sosButton.addEventListener('click', () => {
-    sosButton.classList.add('sos-pressed');
-
-    // Simulate a haptic vibration (for supported devices)
-    if (navigator.vibrate) {
-      navigator.vibrate([100, 50, 100]);
-    }
-
-    // Simple ripple animation
-    const ripple = document.createElement('span');
-    ripple.classList.add('ripple');
-    sosButton.appendChild(ripple);
-
-    setTimeout(() => {
-      ripple.remove();
-      sosButton.classList.remove('sos-pressed');
-    }, 800);
-
-    // Placeholder for SOS action
-    alert("Big Brother Alert Triggered ⚠️ (This is a test)");
-  });
-}
-
-// 🫀 Continuous heartbeat pulse for hero section
-let heartbeat = 0;
-function pulseHero() {
-  const hero = document.getElementById('hero');
-  if (hero) {
-    heartbeat += 0.02;
-    hero.style.background = `linear-gradient(180deg, rgba(234,231,255,${0.8 + Math.sin(heartbeat)*0.05}), rgba(255,255,255,1))`;
-    requestAnimationFrame(pulseHero);
-  }
-}
-pulseHero();
-
-// 🌐 Smooth scroll for nav links
-document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+      // Light haptic vibration (if supported)
+      if (navigator.vibrate) navigator.vibrate([60]);
+    });
   });
 });
-
-// 🌒 Accessibility: Reduce motion preference
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.querySelectorAll('*').forEach(el => {
-    el.style.transition = 'none';
-    el.style.animation = 'none';
-  });
-}
