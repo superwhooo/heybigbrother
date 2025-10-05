@@ -368,3 +368,132 @@ section.visible {
   0% { transform: scale(0); opacity: 1; }
   100% { transform: scale(1.5); opacity: 0; }
 }
+
+/* --- Emergency Screen --- */
+#screen0 {
+  background: var(--red);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+#screen0 h1 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+#screen0 h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+#screen0 p {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* --- Heart Reveal Screen --- */
+#screen1 {
+  background: radial-gradient(circle at 50% 50%, var(--peach), var(--ivory));
+  overflow: hidden;
+}
+
+.pulse-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.central-heart {
+  width: 60px;
+  height: 60px;
+  background: var(--red);
+  position: absolute;
+  transform: rotate(-45deg) scale(0);
+  animation: heartZoom 3s forwards;
+  border-radius: 50% 50% 0 0;
+}
+
+.central-heart::before,
+.central-heart::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--red);
+  border-radius: 50%;
+}
+
+.central-heart::before { top: 0; left: 30px; }
+.central-heart::after { top: 30px; left: 0; }
+
+@keyframes heartZoom {
+  0% { transform: rotate(-45deg) scale(0); opacity: 0; }
+  60% { transform: rotate(-45deg) scale(1.2); opacity: 1; }
+  100% { transform: rotate(-45deg) scale(1); opacity: 1; }
+}
+
+/* Rings */
+.ring {
+  position: absolute;
+  border: 2px dotted var(--red);
+  border-radius: 50%;
+  opacity: 0;
+  animation: ringExpand 6s infinite ease-out;
+}
+
+.ring1 { width: 150px; height: 150px; animation-delay: 0.5s; }
+.ring2 { width: 250px; height: 250px; animation-delay: 1.5s; }
+.ring3 { width: 350px; height: 350px; animation-delay: 2.5s; }
+
+@keyframes ringExpand {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  80% { transform: scale(1.4); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Blips */
+.blip {
+  width: 14px;
+  height: 14px;
+  background: var(--red);
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  animation: blipOrbit 8s infinite linear;
+}
+
+.blip1 { top: 40%; left: 20%; animation-delay: 1s; }
+.blip2 { top: 70%; left: 70%; animation-delay: 2.5s; }
+.blip3 { top: 25%; left: 75%; animation-delay: 4s; }
+
+@keyframes blipOrbit {
+  0% { opacity: 0; transform: scale(0.5); }
+  20% { opacity: 1; transform: scale(1.2); }
+  50% { transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+
+/* Text */
+.welcome-text {
+  position: relative;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 3s ease 2s forwards;
+  color: var(--text);
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+                              }
