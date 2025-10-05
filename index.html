@@ -17,27 +17,38 @@
 
   <!-- Screens -->
   <main>
-    <!-- Screen 0 -->
-    <section class="screen active" id="screen0">
-      <h1>In case of emergency</h1>
-      <h2>Dial <span class="emergency">112</span></h2>
-      <p>Your safety is our priority. Big Brother is an aid to the police system — not a replacement.</p>
-      <button class="btn next" data-next="1">I’m Safe, Continue</button>
-    </section>
+    <!-- Screen 0 – Emergency -->
+<section class="screen active" id="screen0">
+  <div class="alert-wrapper">
+    <h1>IN THE CASE OF AN ACTIVE EMERGENCY</h1>
+    <h2>DIAL 112</h2>
+    <p>
+      That’s India’s official emergency helpline.
+      <strong>BIG BROTHER</strong> is not the police system —
+      we’re an aid to it, built to help you and your loved ones stay connected and get help faster.
+    </p>
+    <p>If you’re safe right now, let’s get you set up to stay that way.</p>
+    <button id="startBtn" class="btn primary">Say Hey Big Brother</button>
+  </div>
+</section>
 
-    <!-- Screen 1 -->
-    <section class="screen" id="screen1">
-      <h1>Your security is in your hands.</h1>
-      <p>We’re here to help make life a little safer. Not to monitor, but to protect.</p>
-      <button class="btn next" data-next="2">Next</button>
-    </section>
-
-    <!-- Screen 2 -->
-    <section class="screen" id="screen2">
-      <h1>With respect for privacy</h1>
-      <p>You will not try to access anyone else’s information.<br><strong>You can’t. We don’t either.</strong></p>
-      <button class="btn next" data-next="3">Next</button>
-    </section>
+<!-- Screen 1 – Heart Reveal -->
+<section class="screen" id="screen1">
+  <div class="pulse-container">
+    <div class="central-heart"></div>
+    <div class="ring ring1"></div>
+    <div class="ring ring2"></div>
+    <div class="ring ring3"></div>
+    <div class="blip blip1"></div>
+    <div class="blip blip2"></div>
+    <div class="blip blip3"></div>
+    <div class="welcome-text">
+      <h1>You’re at the heart of it.</h1>
+      <p>Welcome to your safe place.</p>
+      <button class="btn next" data-next="2">Let’s Begin</button>
+    </div>
+  </div>
+</section>
 
     <!-- Screen 3 -->
     <section class="screen" id="screen3">
