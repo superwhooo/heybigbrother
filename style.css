@@ -1,0 +1,235 @@
+/* ===========================
+   BIG BROTHER WEB APP STYLE
+   Author: superwhooo x Avi
+   =========================== */
+
+/* ---- Root Variables ---- */
+:root {
+  --lavender: #EAE7FF;
+  --coral: #E84141;
+  --navy: #1C1F4A;
+  --gold: #FFD97D;
+  --teal: #45B8B0;
+  --white: #ffffff;
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  --radius: 24px;
+  --transition: 0.3s ease;
+}
+
+/* ---- Reset + Base ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--lavender);
+  color: var(--navy);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---- Header ---- */
+header {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header .logo {
+  height: 40px;
+}
+
+nav a {
+  color: var(--navy);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: var(--coral);
+}
+
+nav .cta {
+  background: var(--coral);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+}
+
+/* ---- Hero Section ---- */
+#hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, var(--lavender), var(--white));
+  padding: 2rem;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  font-family: var(--font-primary);
+  color: var(--coral);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+#hero p {
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  color: var(--navy);
+}
+
+.primary-btn {
+  background: var(--coral);
+  color: var(--white);
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: 0 4px 10px rgba(232, 65, 65, 0.3);
+}
+
+.primary-btn:hover {
+  background: var(--navy);
+  box-shadow: 0 4px 14px rgba(28, 31, 74, 0.2);
+}
+
+/* ---- Features ---- */
+#features {
+  background: var(--white);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+#features h2 {
+  font-size: 2rem;
+  color: var(--navy);
+  font-family: var(--font-primary);
+  margin-bottom: 2rem;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature {
+  background: var(--lavender);
+  padding: 2rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.feature h3 {
+  color: var(--coral);
+  font-family: var(--font-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Footer ---- */
+footer {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ---- SOS Button (Floating) ---- */
+.sos {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--coral);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--white);
+  box-shadow: 0 0 20px rgba(232,65,65,0.4);
+  cursor: pointer;
+  transition: var(--transition);
+  animation: pulse 2s infinite;
+}
+
+.sos:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ---- Animations ---- */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(232,65,65,0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(232,65,65,0); }
+  100% { box-shadow: 0 0 0 0 rgba(232,65,65,0); }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 2.2rem;
+  }
+  nav a {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+/* --- Fade-in Sections --- */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- SOS Ripple Effect --- */
+.sos span.ripple {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  animation: ripple-expand 0.8s ease-out;
+}
+
+@keyframes ripple-expand {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
