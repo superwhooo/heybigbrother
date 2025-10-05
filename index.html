@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Big Brother — Onboarding</title>
+
+  <!-- Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Screen 0 -->
+  <main id="screen0" class="screen active red-bg" aria-live="polite">
+    <div class="content">
+      <h1>In the case of an active emergency, dial 112.</h1>
+      <p class="muted">BIG BROTHER is not the police system. We are an aid — a liaison — to their system and you.</p>
+      <p>If you are ready, feeling safe and calm,</p>
+      <button class="cta" onclick="nextScreen(1)" aria-label="Say hey Big Brother">Say Hey, BIG BROTHER</button>
+    </div>
+  </main>
+
+  <!-- Screen 1 -->
+  <section id="screen1" class="screen" aria-hidden="true">
+    <div class="content">
+      <h1>Your safety is in your hands.</h1>
+      <p>Remember to stay vigilant of your surroundings.</p>
+      <button onclick="nextScreen(2)">Next</button>
+    </div>
+  </section>
+
+  <!-- Screen 2 -->
+  <section id="screen2" class="screen" aria-hidden="true">
+    <div class="content">
+      <h1>It’s not that we don’t want to get to know you…</h1>
+      <p>We just believe that doesn’t stop us from helping create a safer environment.<br>We’re not here to monitor. We’re here to protect.</p>
+      <button onclick="nextScreen(3)">Next</button>
+    </div>
+  </section>
+
+  <!-- Screen 3 -->
+  <section id="screen3" class="screen" aria-hidden="true">
+    <div class="content">
+      <h1>With respect for privacy.</h1>
+      <p>You will not try to access anyone else’s information.<br><strong>You can’t. We don’t either.</strong></p>
+      <button onclick="nextScreen(4)">Next</button>
+    </div>
+  </section>
+
+  <!-- Screen 4 - Glossary -->
+  <section id="screen4" class="screen" aria-hidden="true">
+    <div class="content">
+      <h1>Before you begin, here’s what we mean when we say…</h1>
+      <div class="glossary">
+        <p><strong>Guardian</strong> — Someone who’s got your back when it matters.</p>
+        <p><strong>Blip</strong> — Someone nearby in your Big Brother network. You can reach out to a blip, but you can’t interact directly with it.</p>
+        <p><strong>Panic</strong> — A quick alert to your Guardians when you feel unsafe.</p>
+        <p><strong>SOS</strong> — A call for help when you need the cavalry.</p>
+      </div>
+      <button onclick="nextScreen(5)">Continue</button>
+    </div>
+  </section>
+
+  <!-- Screen 5 - Guardians -->
+  <section id="screen5" class="screen" aria-hidden="true">
+    <div class="content">
+      <h1>Who would you like to have your back?</h1>
+      <p>You can set up as many Guardians as you want, but to continue, start with your first.</p>
+      <button onclick="nextScreen(6)">Add Guardian</button>
+    </div>
+  </section>
+
+  <!-- Screen 6 - Blips -->
+  <section id="screen6" class="screen" aria-hidden="true">
+    <div class="content">
+      <h1>You’re never alone.</h1>
+      <p>Every blip you see represents someone like you — anonymous, safe, connected.<br>You can reach out to a blip, but you can’t interact directly with it — together, you make the world a little safer.</p>
+      <button onclick="nextScreen(7)">Continue</button>
+    </div>
+    <div class="blip-bg" aria-hidden="true"></div>
+  </section>
+
+  <!-- Screen 7 - Welcome + Zoom-out Heart -->
+  <section id="screen7" class="screen" aria-hidden="true">
+    <div class="heart-stage">
+      <!-- rings behind heart -->
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+
+      <!-- central heart (the user) -->
+      <div class="heart-container" id="heartContainer" aria-hidden="true">
+        <div class="heart-shape"></div>
+      </div>
+
+      <!-- blips around (soft) -->
+      <div class="orbit-blip blip-a"></div>
+      <div class="orbit-blip blip-b"></div>
+      <div class="orbit-blip blip-c"></div>
+
+      <div class="welcome-copy">
+        <h2>If you’re in a calm, safe space — welcome to Big Brother.</h2>
+        <p>A little safer.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
