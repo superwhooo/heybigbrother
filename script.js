@@ -29,3 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+window.addEventListener("load", () => {
+  const heart = document.querySelector(".central-heart");
+  if (heart) {
+    heart.addEventListener("animationend", () => {
+      document.querySelector(".welcome-text").style.opacity = 1;
+    });
+  }
+});
