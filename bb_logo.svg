@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- radar-logo.svg
+     Self-contained SVG: heart + sweep + rings + blips + guardian.
+     Contains CSS animations and classes for runtime toggles:
+       .state-safe  (default)
+       .state-panic
+       .state-sos
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 600"
+     width="600" height="600"
+     role="img" aria-label="Big Brother radar: central heart with sweeping safety band"
+     id="bb-radar">
+
+  <style>
+    /* --- theme colors --- */
+    :root{
+      --navy: #0A1E3F;
+      --heart-red: #E63946;
+      --cream: #FFF9F4;
+      --muted: #BFC6CC;
+      --bg: #F6F6F6;
+    }
+
+    svg#bb-radar { background: transparent; overflow: visible; }
+
+    /* rotate sweep */
+    .sweep {
+      transform-origin: 300px 300px;
+      animation: sweep-rotate 4s linear infinite;
+      mix-blend-mode: screen;
+      opacity: 0.95;
+    }
+    @keyframes sweep-rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* subtle ring pulse */
+    .ring { fill: none; stroke: var(--muted); stroke-width: 2; opacity: 0.14; }
+    .ring.r1 { animation: ring-pulse 3.6s ease-in-out infinite; }
+    .ring.r2 { animation: ring-pulse 4.2s ease-in-out infinite; }
+    .ring.r3 { animation: ring-pulse 5s ease-in-out infinite; }
+
+    @keyframes ring-pulse {
+      0% { opacity: 0.12; transform-origin: 300px 300px; transform: scale(1); }
+      50%{ opacity: 0.06; transform: scale(1.02); }
+      100%{ opacity: 0.12; transform: scale(1); }
+    }
+
+    /* heart styles (we animate fill via classes) */
+    .heart-core { transition: fill 260ms ease, r 260ms ease; filter: drop-shadow(0 8px 16px rgba(10,29,55,0.08)); }
+
+    /* heartbeat scale (calm) */
+    .heart-pulse { animation: heart-beat 1.6s ease-in-out infinite; transform-origin: 300px 300px; }
+    @keyframes heart-beat {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.06); }
+      60% { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
+
+    /* sweep band visual */
+    .sweep-band { fill: rgba(255,255,255,0.12); stroke: none; }
+    .sweep-beam { fill: rgba(255,255,255,0.08); }
+
+    /* blip base */
+    .blip { fill: white; opacity: 0.95; filter: drop-shadow(0 6px 12px rgba(10,29,55,0.08)); }
+    .blip-aura { fill: none; stroke: rgba(255,255,255,0.12); stroke-width: 6; opacity: 0.9; transition: opacity .3s ease, transform .3s ease; }
+
+    /* guardian bracket (square brackets) */
+    .guardian-bracket { fill: none; stroke: var(--navy); stroke-width: 3; }
+    .guardian-heart { fill: var(--heart-red); }
+
+    /* state classes */
+    svg#bb-radar.state-safe .heart-core { fill: var(--heart-red); }
+    svg#bb-radar.state-safe .sweep-band { fill: rgba(255,255,255,0.10); }
+    svg#bb-radar.state-safe .bg-overlay { fill: transparent; }
+
+    svg#bb-radar.state-panic .heart-core { fill: white; stroke: none; }
+    svg#bb-radar.state-panic .panic-ring { stroke: var(--heart-red); stroke-width: 18; opacity: 0.18; animation: panic-bloom 1.6s ease-out infinite; transform-origin: 300px 300px; }
+    svg#bb-radar.state-panic .sweep { animation-duration: 2s; } /* sweep faster */
+    @keyframes panic-bloom {
+      0% { transform: scale(0.9); opacity: 0.12; }
+      50%{ transform: scale(1.12); opacity: 0.22; }
+      100%{ transform: scale(0.9); opacity: 0.12; }
+    }
+
+    svg#bb-radar.state-sos .heart-core { fill: white; }
+    svg#bb-radar.state-sos .bg-overlay { fill: var(--heart-red); opacity: 0.18; transition: opacity 320ms ease; }
+    svg#bb-radar.state-sos .sweep { display: none; } /* sweep stops */
+    svg#bb-radar.state-sos .ring { stroke: rgba(255,255,255,0.08); }
+    svg#bb-radar.state-sos .blip { opacity: 0.95; filter: none; }
+
+    /* small hover / touch wiggle for blips */
+    .blip:hover + .blip-aura, .blip:active + .blip-aura { transform: scale(1.15); opacity: 0.22; }
+
+    /* accessibility focus */
+    .focus-outline { outline: 3px solid rgba(10,29,55,0.06); outline-offset: 6px; border-radius: 6px; }
+
+    /* ensure protective panic-ring sits above */
+    .panic-ring { pointer-events: none; }
+
+  </style>
+
+  <!-- background overlay used for SOS full-screen tint -->
+  <rect class="bg-overlay" x="0" y="0" width="600" height="600" fill="transparent" />
+
+  <!-- concentric radar-like rings -->
+  <circle class="ring r1" cx="300" cy="300" r="90" />
+  <circle class="ring r2" cx="300" cy="300" r="150" />
+  <circle class="ring r3" cx="300" cy="300" r="230" />
+
+  <!-- panic buffer ring (visible in panic state) -->
+  <circle class="panic-ring" cx="300" cy="300" r="80" fill="none" stroke="none" opacity="0.0" />
+
+  <!-- sweep group (rotates) -->
+  <g class="sweep" id="sweepGroup">
+    <!-- a triangular beam shaped as a wedge -->
+    <path class="sweep-band" d="M300 300 L 560 280 A 320 320 0 0 1 560 320 Z" opacity="0.12" />
+    <!-- softer feather / beam -->
+    <path class="sweep-beam" d="M300 300 L 560 278 A 320 320 0 0 1 560 322 Z" opacity="0.06" />
+  </g>
+
+  <!-- central heart (core) -->
+  <g id="heartGroup" transform="translate(0,0)">
+    <!-- subtle shadow -->
+    <ellipse cx="300" cy="330" rx="58" ry="18" fill="rgba(10,29,55,0.06)" />
+    <!-- the heart path -->
+    <path id="heartCore" class="heart-core heart-pulse" d="M300 260
+             C286 238, 250 238, 250 265
+             C250 290, 300 322, 300 322
+             C300 322, 350 290, 350 265
+             C350 238, 314 238, 300 260 Z" fill="#E63946" />
+  </g>
+
+  <!-- small blips (example positions) -->
+  <!-- Blip 1 -->
+  <g class="blip-wrap" transform="translate(380,210)" >
+    <circle class="blip" r="8" />
+    <circle class="blip-aura" r="20" />
+  </g>
+
+  <!-- Blip 2 -->
+  <g class="blip-wrap" transform="translate(230,380)" >
+    <circle class="blip" r="8" />
+    <circle class="blip-aura" r="22" />
+  </g>
+
+  <!-- Guardian (bracket + heart) -->
+  <g id="guardian" transform="translate(460,320)" >
+    <!-- square bracket top-left -->
+    <path class="guardian-bracket" d="M-30 -30 h18 a6 6 0 0 1 6 6 v18" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- square bracket bottom-right -->
+    <path class="guardian-bracket" d="M30 30 h-18 a6 6 0 0 1 -6 -6 v-18" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- small heart inside -->
+    <path class="guardian-heart" d="M0 -2 C-6 -22, -36 -22, -36 -2 C-36 18, 0 44, 0 44 C0 44, 36 18, 36 -2 C36 -22, 6 -22, 0 -2 Z" transform="scale(0.14) translate(-62, -180)" />
+  </g>
+
+  <!-- labels (optional, keep minimal) -->
+  <g font-family="Poppins, sans-serif" font-size="14" fill="#0A1E3F" text-anchor="middle">
+    <text x="300" y="520" opacity="0.85">BIG BROTHER</text>
+    <text x="300" y="540" opacity="0.5" font-size="12">a little safer</text>
+  </g>
+
+  <!-- small scriptable hint (not executed in SVG) -->
+  <!--
+    To toggle states via JS from your HTML page:
+      document.getElementById('bb-radar').classList.remove('state-safe','state-panic','state-sos');
+      document.getElementById('bb-radar').classList.add('state-panic'); // or state-sos / state-safe
+  -->
+
+</svg>
