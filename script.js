@@ -1,37 +1,106 @@
-const screens = document.querySelectorAll(".screen");
-let current = 0;
+// script.js - onboarding and basic transition control
 
-// screen navigation
-function showScreen(n) {
-  screens.forEach((s, i) => s.classList.toggle("active", i === n));
-  current = n;
-  if (n === 7) playHeart();
-}
+document.addEventListener('DOMContentLoaded', function(){
+  const screens = Array.from(document.querySelectorAll('.screen'));
+  let current = screens.findIndex(s => s.classList.contains('active'));
+  if(current === -1) current = 0;
 
-function nextScreen(n) {
-  if (n < screens.length) showScreen(n);
-}
+  function showScreen(idx){
+    screens.forEach((s,i)=> s.classList.toggle('active', i===idx));
+    // simple scroll to top for mobile
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
 
-// privacy pledge
-document.addEventListener("DOMContentLoaded", () => {
-  showScreen(0);
-  const nameInput = document.getElementById("pledgeName");
-  const signBtn = document.getElementById("signBtn");
-  if (nameInput && signBtn) {
-    nameInput.addEventListener("input", () => {
-      signBtn.disabled = nameInput.value.trim().length < 2;
+  // next buttons
+  document.querySelectorAll('.next-btn').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const parent = e.target.closest('.screen');
+      const idx = screens.indexOf(parent);
+      const next = Math.min(screens.length-1, idx+1);
+      showScreen(next);
     });
-    signBtn.addEventListener("click", () => {
-      localStorage.setItem("bb_user_name", nameInput.value.trim());
-      nextScreen(4);
+  });
+
+  document.querySelectorAll('.prev-btn').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const parent = e.target.closest('.screen');
+      const idx = screens.indexOf(parent);
+      const prev = Math.max(0, idx-1);
+      showScreen(prev);
+    });
+  });
+
+  // guardian add
+  const gList = document.getElementById('guardianList');
+  const gName = document.getElementById('gName');
+  const gPhone = document.getElementById('gPhone');
+  const addBtn = document.querySelector('.add-guardian-btn');
+  let guardians = [];
+
+  if(localStorage.getItem('bb_guardians')){
+    try { guardians = JSON.parse(localStorage.getItem('bb_guardians')) || []; } catch(e){ guardians = []; }
+    renderGuardians();
+  }
+
+  addBtn && addBtn.addEventListener('click', ()=>{
+    const name = gName.value && gName.value.trim();
+    const phone = gPhone.value && gPhone.value.trim();
+    if(!name || !phone) { alert('Please add name and phone'); return; }
+    guardians.push({name,phone});
+    localStorage.setItem('bb_guardians', JSON.stringify(guardians));
+    gName.value=''; gPhone.value='';
+    renderGuardians();
+  });
+
+  function renderGuardians(){
+    if(!gList) return;
+    gList.innerHTML = '';
+    guardians.forEach((g,idx)=>{
+      const div = document.createElement('div'); div.className='guardian-item';
+      div.innerHTML = `<div>${g.name} • ${g.phone}</div><button class="btn" data-i="${idx}">Remove</button>`;
+      gList.appendChild(div);
+    });
+    gList.querySelectorAll('button').forEach(b=>{
+      b.addEventListener('click', (e)=>{
+        const i = +e.target.dataset.i;
+        guardians.splice(i,1);
+        localStorage.setItem('bb_guardians', JSON.stringify(guardians));
+        renderGuardians();
+      });
     });
   }
-});
 
-// heart animation trigger
-function playHeart() {
-  const heart = document.getElementById("heartContainer");
-  const ring = heart.querySelector(".pulse-ring");
-  heart.style.animation = "heartZoom 1.5s cubic-bezier(.22,.9,.44,1) forwards";
-  ring.style.animation = "ringPulse 1.6s ease-in-out infinite 1s";
-}
+  // sign pledge
+  const pledgeInput = document.getElementById('pledgeName');
+  const signBtn = document.querySelector('.sign-pledge-btn');
+  signBtn && signBtn.addEventListener('click', ()=>{
+    const name = pledgeInput.value && pledgeInput.value.trim();
+    if(!name){ alert('Please type your name to sign the pledge'); return; }
+    localStorage.setItem('bb_pledge_name', name);
+    // go to next
+    const parent = signBtn.closest('.screen');
+    const idx = screens.indexOf(parent);
+    showScreen(Math.min(screens.length-1, idx+1));
+  });
+
+  // finish onboarding
+  const finishBtn = document.querySelector('.finish-btn');
+  finishBtn && finishBtn.addEventListener('click', ()=>{
+    localStorage.setItem('bb_onboarded','true');
+    // small delay for UX
+    setTimeout(()=>{ window.location.href='dashboard.html'; }, 400);
+  });
+
+  // initialize first view
+  showScreen(current);
+
+  // optional: allow clicking Add Guardian then continue
+  // keyboard accessibility: allow Enter to click focused button
+  document.addEventListener('keydown',(e)=>{
+    if(e.key === 'Enter' && document.activeElement && document.activeElement.classList.contains('next-btn')){
+      document.activeElement.click();
+    }
+  });
+});
