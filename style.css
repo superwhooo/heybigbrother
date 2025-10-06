@@ -1,117 +1,144 @@
-/* Big Brother — Onboarding styles (Poppins) */
-:root{
-  --red:#e30613;
-  --warm-ivory:#fff2f0;
-  --text:#1f1f1f;
+/* Big Brother — Onboarding */
+
+:root {
+  --red: #e30613;
+  --warm-ivory: #fff2f0;
+  --text: #1f1f1f;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:"Poppins",sans-serif;
-  background:var(--warm-ivory);
-  color:var(--text);
-  overflow:hidden;
-  -webkit-font-smoothing:antialiased;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--warm-ivory);
+  color: var(--text);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-.screen{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:2rem;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .6s ease;
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
 }
-.screen.active{
-  opacity:1;
-  pointer-events:auto;
+.screen.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.red-bg{background:var(--red);color:#fff}
+.red-bg { background: var(--red); color: #fff; }
 
-button{
-  background:#fff;
-  color:var(--red);
-  border:none;
-  border-radius:40px;
-  padding:.8rem 1.6rem;
-  font-weight:600;
-  cursor:pointer;
-  margin-top:1rem;
-  box-shadow:0 4px 20px rgba(0,0,0,0.1);
-  transition:transform .2s ease,opacity .2s ease;
+button {
+  background: #fff;
+  color: var(--red);
+  border: none;
+  border-radius: 40px;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
-button:hover{transform:translateY(-2px)}
+button:hover { transform: translateY(-2px); }
 
-/* Heart + zoom animation */
-#screen7{
-  background:radial-gradient(circle,#ffeaea,#fdd5d5);
-  overflow:hidden;
+input {
+  border: none;
+  border-bottom: 2px solid var(--red);
+  outline: none;
+  padding: 4px 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: transparent;
 }
-.heart-container{
-  position:relative;
-  width:120px;
-  height:120px;
-  transform:scale(5);
-  opacity:0;
+input::placeholder { color: #aaa; }
+input:focus { border-bottom-color: var(--text); }
+
+.glossary p {
+  margin: 0.4rem auto;
+  max-width: 520px;
+  text-align: left;
+  padding: 0 1rem;
+  font-size: 0.98rem;
 }
-.heart-shape{
-  position:absolute;
-  width:80px;
-  height:80px;
-  background:var(--red);
-  transform:rotate(-45deg);
-  top:20px;
-  left:20px;
-  border-radius:40% 40% 0 0;
+
+/* Blip background */
+.blip-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 25%, rgba(227,6,19,0.06) 0%, transparent 35%),
+    radial-gradient(circle at 75% 40%, rgba(227,6,19,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 45% 75%, rgba(227,6,19,0.06) 0%, transparent 45%);
+  animation: blipPulse 5s infinite ease-in-out;
+}
+@keyframes blipPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Heart screen */
+#screen7 { background: radial-gradient(circle, #ffeaea, #fff2f0); }
+.heart-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.heart-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  transform: scale(6);
+  opacity: 0;
+}
+.heart-shape {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: var(--red);
+  transform: rotate(-45deg);
+  top: 20px;
+  left: 20px;
+  border-radius: 40% 40% 0 0;
 }
 .heart-shape::before,
-.heart-shape::after{
-  content:"";
-  position:absolute;
-  width:80px;
-  height:80px;
-  background:var(--red);
-  border-radius:50%;
+.heart-shape::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: var(--red);
+  border-radius: 50%;
 }
-.heart-shape::before{top:-40px;left:0}
-.heart-shape::after{left:40px;top:0}
+.heart-shape::before { top: -40px; left: 0; }
+.heart-shape::after { left: 40px; top: 0; }
 
-@keyframes heartZoom{
-  0%{transform:scale(5);opacity:0}
-  100%{transform:scale(1);opacity:1}
-}
-@keyframes pulse{
-  0%{transform:scale(1);opacity:.7}
-  50%{transform:scale(1.2);opacity:0}
-  100%{transform:scale(1);opacity:.7}
-}
-.pulse-ring{
-  position:absolute;
-  width:150px;
-  height:150px;
-  border:2px dotted var(--red);
-  border-radius:50%;
-  animation:pulse 1.8s infinite;
-  top:-15px;left:-15px;
+.pulse-ring {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 2px dotted var(--red);
+  border-radius: 50%;
+  opacity: 0;
 }
 
-/* Blip background pulse */
-.blip-bg{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(circle at 10% 25%, rgba(227,6,19,0.08) 0%, transparent 35%),
-    radial-gradient(circle at 75% 40%, rgba(227,6,19,0.08) 0%, transparent 40%),
-    radial-gradient(circle at 45% 75%, rgba(227,6,19,0.08) 0%, transparent 45%);
-  opacity:0.4;
-  animation:blipPulse 4s infinite ease-in-out;
+@keyframes heartZoom {
+  0% { transform: scale(6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
-@keyframes blipPulse{
-  0%,100%{opacity:0.3}
-  50%{opacity:0.8}
+@keyframes ringPulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.4); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.6; }
 }
