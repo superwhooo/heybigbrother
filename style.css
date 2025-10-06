@@ -1,144 +1,103 @@
-/* Big Brother — Onboarding */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
-:root {
-  --red: #e30613;
-  --warm-ivory: #fff2f0;
-  --text: #1f1f1f;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  background: #e61c23;
+  overflow-x: hidden;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: "Poppins", sans-serif;
-  background: var(--warm-ivory);
-  color: var(--text);
-  overflow: hidden;
-  -webkit-font-smoothing: antialiased;
+.logo {
+  text-align: center;
+  padding: 1rem;
+}
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  text-align: center;
 }
 
 .screen {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s ease;
+  display: none;
+  max-width: 480px;
+  margin: auto;
+  transition: opacity 0.8s ease;
 }
 .screen.active {
+  display: block;
   opacity: 1;
-  pointer-events: auto;
 }
-
-.red-bg { background: var(--red); color: #fff; }
 
 button {
   background: #fff;
-  color: var(--red);
+  color: #e61c23;
   border: none;
-  border-radius: 40px;
-  padding: 0.8rem 1.6rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 25px;
   font-weight: 600;
+  margin-top: 1.5rem;
   cursor: pointer;
-  margin-top: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: all 0.3s ease;
 }
-button:hover { transform: translateY(-2px); }
-
-input {
-  border: none;
-  border-bottom: 2px solid var(--red);
-  outline: none;
-  padding: 4px 6px;
-  font-family: inherit;
-  font-size: 1rem;
-  color: var(--text);
-  background: transparent;
-}
-input::placeholder { color: #aaa; }
-input:focus { border-bottom-color: var(--text); }
-
-.glossary p {
-  margin: 0.4rem auto;
-  max-width: 520px;
-  text-align: left;
-  padding: 0 1rem;
-  font-size: 0.98rem;
+button:hover {
+  background: #fef1f1;
+  transform: scale(1.05);
 }
 
-/* Blip background */
-.blip-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 10% 25%, rgba(227,6,19,0.06) 0%, transparent 35%),
-    radial-gradient(circle at 75% 40%, rgba(227,6,19,0.06) 0%, transparent 40%),
-    radial-gradient(circle at 45% 75%, rgba(227,6,19,0.06) 0%, transparent 45%);
-  animation: blipPulse 5s infinite ease-in-out;
-}
-@keyframes blipPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+.ripple-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  height: 200vh;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  animation: ripple 4s infinite ease-in-out;
+  transform: translate(-50vw, -50vh);
+  z-index: 1;
 }
 
-/* Heart screen */
-#screen7 { background: radial-gradient(circle, #ffeaea, #fff2f0); }
-.heart-stage {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
+@keyframes ripple {
+  0% { transform: translate(-50vw, -50vh) scale(1); opacity: 0.8; }
+  50% { transform: translate(-50vw, -50vh) scale(1.1); opacity: 0.5; }
+  100% { transform: translate(-50vw, -50vh) scale(1); opacity: 0.8; }
 }
+
 .heart-container {
   position: relative;
-  width: 120px;
-  height: 120px;
-  transform: scale(6);
-  opacity: 0;
+  width: 100px;
+  height: 100px;
+  margin: 2rem auto;
 }
-.heart-shape {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background: var(--red);
-  transform: rotate(-45deg);
-  top: 20px;
-  left: 20px;
-  border-radius: 40% 40% 0 0;
+.heart {
+  width: 100px;
+  height: 100px;
+  background: #ff4a57;
+  clip-path: path("M50 15C50 0 100 0 100 35C100 70 50 100 50 100C50 100 0 70 0 35C0 0 50 0 50 15Z");
+  animation: beat 1.5s infinite;
 }
-.heart-shape::before,
-.heart-shape::after {
-  content: "";
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+.pulse {
   position: absolute;
-  width: 80px;
-  height: 80px;
-  background: var(--red);
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  border: 2px solid #fff;
+  animation: pulse 2s infinite;
 }
-.heart-shape::before { top: -40px; left: 0; }
-.heart-shape::after { left: 40px; top: 0; }
-
-.pulse-ring {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  border: 2px dotted var(--red);
-  border-radius: 50%;
-  opacity: 0;
-}
-
-@keyframes heartZoom {
-  0% { transform: scale(6); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-@keyframes ringPulse {
+@keyframes pulse {
   0% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.4); opacity: 0.2; }
-  100% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
 }

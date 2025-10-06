@@ -1,100 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Big Brother — Onboarding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <title>Big Brother — Splash</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-
-  <!-- 0 — Emergency info -->
-  <main id="screen0" class="screen active red-bg">
-    <div class="content">
-      <h1>In case of an active emergency, dial 112.</h1>
-      <p>BIG BROTHER is not the police system. We are an aid — a liaison — between their system and you.</p>
-      <p>If you are ready, feeling safe and calm,</p>
-      <button class="cta" onclick="nextScreen(1)">Say Hey, BIG BROTHER</button>
+<body class="splash-body">
+  <div class="splash-center">
+    <!-- Logo (decorative) -->
+    <div class="logo-wrap" aria-hidden="true">
+      <svg class="bb-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0" stop-color="#E63946"/>
+            <stop offset="1" stop-color="#FF6B6B"/>
+          </linearGradient>
+        </defs>
+        <circle cx="60" cy="60" r="44" fill="none" stroke="url(#g1)" stroke-width="3" opacity="0.15"/>
+        <path d="M60 36c7-10 24-8 28 4 4 14-10 28-28 44-18-16-32-30-28-44 4-12 21-14 28-4z" fill="#E63946"/>
+        <circle cx="60" cy="60" r="6" fill="#0A1D37" />
+      </svg>
     </div>
-  </main>
 
-  <!-- 1 — Awareness -->
-  <section id="screen1" class="screen">
-    <div class="content">
-      <h1>Your safety is in your hands.</h1>
-      <p>Remember to stay vigilant of your surroundings.</p>
-      <button onclick="nextScreen(2)">Next</button>
-    </div>
-  </section>
+    <!-- Hidden label for screen readers on splash -->
+    <span class="visually-hidden">Big Brother</span>
 
-  <!-- 2 — Promise -->
-  <section id="screen2" class="screen">
-    <div class="content">
-      <h1>It’s not that we don’t want to get to know you…</h1>
-      <p>We just believe that doesn’t stop us from helping create a safer environment.<br>We’re not here to monitor. We’re here to protect.</p>
-      <button onclick="nextScreen(3)">Next</button>
-    </div>
-  </section>
+    <h1 class="splash-title">Big Brother</h1>
+    <p class="splash-sub">Building a safer tomorrow, one pulse at a time.</p>
+  </div>
 
-  <!-- 3 — Privacy pledge -->
-  <section id="screen3" class="screen">
-    <div class="content">
-      <h1>With respect for privacy</h1>
-      <p>I, <input id="pledgeName" type="text" placeholder="your name" maxlength="40" />, promise that I will not attempt to access anyone else’s information.</p>
-      <p><strong>Big Brother does not, and cannot, either.</strong></p>
-      <small class="muted">Your pledge helps keep this space safe for everyone.</small><br/>
-      <button id="signBtn" disabled>Sign & Continue</button>
-    </div>
-  </section>
-
-  <!-- 4 — Glossary -->
-  <section id="screen4" class="screen">
-    <div class="content">
-      <h1>Before you begin, here’s what we mean when we say…</h1>
-      <div class="glossary">
-        <p><strong>Guardian</strong> — Someone who’s got your back when it matters.</p>
-        <p><strong>Blip</strong> — Someone nearby in your Big Brother network. You can reach out to a blip, but you can’t interact directly with it.</p>
-        <p><strong>Panic</strong> — A quick alert to your Guardians when you feel unsafe.</p>
-        <p><strong>SOS</strong> — A call for help when you need the cavalry.</p>
-      </div>
-      <button onclick="nextScreen(5)">Continue</button>
-    </div>
-  </section>
-
-  <!-- 5 — Guardians -->
-  <section id="screen5" class="screen">
-    <div class="content">
-      <h1>Who would you like to have your back?</h1>
-      <p>You can set up as many Guardians as you want, but to continue, start with your first.</p>
-      <button onclick="nextScreen(6)">Add Guardian</button>
-    </div>
-  </section>
-
-  <!-- 6 — Blips -->
-  <section id="screen6" class="screen">
-    <div class="content">
-      <h1>You’re never alone.</h1>
-      <p>Every blip you see represents someone like you — anonymous, safe, connected.<br>You can reach out to a blip, but you can’t interact directly with it — together, you make the world a little safer.</p>
-      <button onclick="nextScreen(7)">Continue</button>
-    </div>
-    <div class="blip-bg"></div>
-  </section>
-
-  <!-- 7 — Welcome -->
-  <section id="screen7" class="screen">
-    <div class="heart-stage">
-      <div class="heart-container" id="heartContainer">
-        <div class="heart-shape"></div>
-        <div class="pulse-ring"></div>
-      </div>
-      <div class="welcome-copy">
-        <h2>If you’re in a calm, safe space — welcome to Big Brother.</h2>
-        <p>A little safer.</p>
-      </div>
-    </div>
-  </section>
-
-  <script src="script.js"></script>
+  <script>
+    // simple splash redirect logic
+    (function(){
+      try {
+        const onboarded = localStorage.getItem('bb_onboarded') === 'true';
+        setTimeout(()=>{
+          if(onboarded) window.location.href = 'dashboard.html';
+          else window.location.href = 'onboarding.html';
+        }, 900); // short splash
+      } catch(e) {
+        window.location.href = 'onboarding.html';
+      }
+    })();
+  </script>
 </body>
 </html>
