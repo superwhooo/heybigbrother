@@ -8,119 +8,24 @@
   <script defer src="script.js"></script>
 </head>
 <body class="onboarding">
-  <!-- Ripple background -->
   <div class="ripple-bg"></div>
-
-  <!-- Logo -->
-  <header class="logo">
-    <img src="logo.svg" alt="Big Brother logo — A Little Safer" />
-  </header>
 
   <main id="onboard">
     <!-- Screen 0 -->
-    <section class="screen active">
-      <h2>In case of an active emergency, dial <strong>112</strong>.</h2>
-      <p>BIG BROTHER is not the police system. We are an aid — a liaison — between their system and you.</p>
-      <p>If you are ready, feeling safe and calm,</p>
-      <button class="next-btn">Say Hey, BIG BROTHER</button>
-    </section>
-
-    <!-- Screen 1 -->
-    <section class="screen">
-      <h2>Your safety is in your hands.</h2>
-      <p>Remember to stay vigilant of your surroundings.</p>
-      <button class="next-btn">Continue</button>
-    </section>
-
-    <!-- Screen 2 -->
-    <section class="screen">
-      <h2>Our Promise</h2>
-      <p>It’s not that we don’t want to get to know you — we want you to feel safe being yourself, confident that your life is in your control.</p>
-      <p>Our purpose isn’t to collect your personal life; it’s to help make the world around safer, for you and everyone you love.</p>
-      <p>Big Brother’s purpose is insight-driven living, using anonymous patterns and community alerts to make your routes, your city, and your choices a little safer every day.</p>
-      <button class="next-btn">I Understand</button>
-    </section>
-
-    <!-- Screen 3 -->
-    <section class="screen">
-      <h2>Your Part of the Promise</h2>
-      <ul>
-        <li><strong>With respect for privacy.</strong> You will not try to access anyone else’s information. You can’t. We don’t either.</li>
-        <li><strong>For genuine safety only.</strong> False alerts can divert real help from those who need it.</li>
-        <li><strong>With consent.</strong> Add Guardians only with their knowledge.</li>
-        <li><strong>With truth.</strong> The details you share during an alert help rescuers reach you faster.</li>
-      </ul>
-      <h3>What We Promise You in Return</h3>
-      <ul>
-        <li>We don’t collect or sell your personal data.</li>
-        <li>Your information stays on your device, shared with authorities only when an SOS is triggered.</li>
-        <li>You can delete your account data at any time.</li>
-        <li>Every feature exists to keep you safe — nothing more, nothing less.</li>
-      </ul>
-      <button class="next-btn">Continue</button>
-    </section>
-
-    <!-- Screen 4 -->
-    <section class="screen">
-      <h2>Glossary</h2>
-      <p><strong>Guardian:</strong> Someone you trust to watch over you and get notified in case of distress.</p>
-      <p><strong>Blip:</strong> An anonymised pulse representing another active user near you.</p>
-      <p><strong>Vault:</strong> Your secure space to store and encrypt data or recordings.</p>
-      <button class="next-btn">Next</button>
-    </section>
-
-    <!-- Screen 5 -->
-    <section class="screen">
-      <h2>Who would you like to have your back?</h2>
-      <p>You can set up as many Guardians as you like, but to continue, start with one.</p>
-      <input type="text" id="gName" placeholder="Guardian Name" />
-      <input type="tel" id="gPhone" placeholder="Guardian Phone" />
-      <button class="add-guardian-btn">Add Guardian</button>
-      <div id="guardianList"></div>
-    </section>
-
-    <!-- Screen 6 -->
-    <section class="screen">
-      <h2>You can reach out to a blip, but not interact directly with it.</h2>
-      <p>They are here to remind you — you’re never alone, even when you move alone.</p>
-      <button class="next-btn">Continue</button>
-    </section>
-
-    <!-- Screen 7 -->
-    <section class="screen">
-      <h2>Before we begin</h2>
-      <p>To make sure Big Brother can protect you, please grant access:</p>
-      <ul>
-        <li>Location Access — so we can guide help to you.</li>
-        <li>Motion & Sensor Access — to monitor your calm and trigger SOS when needed.</li>
-        <li>Microphone Access — to record evidence during distress.</li>
-      </ul>
-      <button class="next-btn">Continue</button>
-    </section>
-
-    <!-- Screen 8 -->
-    <section class="screen">
-      <h2>Sign the Pledge</h2>
-      <p>With respect for privacy, I, <input id="pledgeName" type="text" placeholder="type your name" />, will not try to access anyone else’s information. You can’t. We don’t either.</p>
-      <button class="sign-pledge-btn">Sign the Pledge</button>
-    </section>
-
-    <!-- Screen 9 -->
-    <section class="screen">
-      <h2>The entire universe runs through... You.</h2>
-      <div class="heart-container">
-        <div class="heart"></div>
-        <div class="pulse"></div>
+    <section class="screen active" id="screen0">
+      <div class="center-content">
+        <h1>IN THE CASE OF AN ACTIVE EMERGENCY<br><span class="highlight">DIAL 112</span></h1>
+        <p class="desc">
+          That’s India’s official emergency helpline.
+          <strong>BIG BROTHER</strong> is not the police system — we’re an aid to their system, built to help you
+          and your loved ones stay connected and get help faster.
+        </p>
+        <p class="desc2">
+          If you’re safe right now, let’s get you set up to stay that way.
+        </p>
+        <button class="sayhey-btn">SAY HEY<br><strong>BIG BROTHER</strong></button>
       </div>
-      <button class="next-btn">Continue</button>
-    </section>
-
-    <!-- Screen 10 -->
-    <section class="screen">
-      <h2>Welcome to your safe place.</h2>
-      <p>One of the rings carries the mark <strong>112</strong>. The world beats a little calmer when you do.</p>
-      <button class="finish-btn">Enter Dashboard</button>
     </section>
   </main>
 </body>
-  </html>
+</html>
