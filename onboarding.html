@@ -1,189 +1,126 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Big Brother — Onboarding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
-<body class="onboard-body">
+<body class="onboarding">
+  <!-- Ripple background -->
+  <div class="ripple-bg"></div>
 
-  <header class="topbar">
-    <div class="logo-wrap" aria-hidden="true">
-      <!-- tiny logo -->
-      <svg class="bb-logo-small" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="42" height="42">
-        <path d="M60 36c7-10 24-8 28 4 4 14-10 28-28 44-18-16-32-30-28-44 4-12 21-14 28-4z" fill="#E63946"/>
-      </svg>
-    </div>
+  <!-- Logo -->
+  <header class="logo">
+    <img src="logo.svg" alt="Big Brother logo — A Little Safer" />
   </header>
 
-  <main class="onboard-main">
-    <!-- Each screen is a section with id screen0..screen10 -->
-    <section id="screen0" class="screen active red-bg">
-      <div class="screen-inner">
-        <h2>In case of an active emergency, dial 112.</h2>
-        <p class="lead"><strong>BIG BROTHER</strong> is not the police system. We are an aid (liaison?) to their system and you.</p>
-        <p class="calm">IF you are ready, feeling safe and calm, say <strong>hey BIG BROTHER</strong></p>
-        <div class="nav-row">
-          <button class="btn btn-primary next-btn">I understand</button>
-        </div>
-      </div>
+  <main id="onboard">
+    <!-- Screen 0 -->
+    <section class="screen active">
+      <h2>In case of an active emergency, dial <strong>112</strong>.</h2>
+      <p>BIG BROTHER is not the police system. We are an aid — a liaison — between their system and you.</p>
+      <p>If you are ready, feeling safe and calm,</p>
+      <button class="next-btn">Say Hey, BIG BROTHER</button>
     </section>
 
-    <section id="screen1" class="screen red-bg">
-      <div class="screen-inner">
-        <h2>Your safety is in your hands.</h2>
-        <p>Remember to stay vigilant of your surroundings.</p>
-        <div class="nav-row">
-          <button class="btn btn-ghost prev-btn">Back</button>
-          <button class="btn btn-primary next-btn">Next</button>
-        </div>
-      </div>
+    <!-- Screen 1 -->
+    <section class="screen">
+      <h2>Your safety is in your hands.</h2>
+      <p>Remember to stay vigilant of your surroundings.</p>
+      <button class="next-btn">Continue</button>
     </section>
 
-    <section id="screen2" class="screen red-bg">
-      <div class="screen-inner">
-        <h2>BB Promise</h2>
-        <p>It’s not that we don’t want to get to know you, we want you to feel safe being yourself, confident that your life is in your control.</p>
-        <p>Our purpose isn’t to collect your personal life; it’s to help make the world around safer, for you and everyone you love.</p>
-        <p class="muted">Big Brother’s purpose is insight-driven living, using anonymous patterns and community alerts to make your routes, your city, and your choices a little safer every day.</p>
-        <div class="nav-row">
-          <button class="btn btn-ghost prev-btn">Back</button>
-          <button class="btn btn-primary next-btn">I understand</button>
-        </div>
-      </div>
+    <!-- Screen 2 -->
+    <section class="screen">
+      <h2>Our Promise</h2>
+      <p>It’s not that we don’t want to get to know you — we want you to feel safe being yourself, confident that your life is in your control.</p>
+      <p>Our purpose isn’t to collect your personal life; it’s to help make the world around safer, for you and everyone you love.</p>
+      <p>Big Brother’s purpose is insight-driven living, using anonymous patterns and community alerts to make your routes, your city, and your choices a little safer every day.</p>
+      <button class="next-btn">I Understand</button>
     </section>
 
-    <section id="screen3" class="screen red-bg">
-      <div class="screen-inner">
-        <h2>Your Part of the Promise</h2>
-        <ul class="promise-list">
-          <li><strong>With respect for privacy.</strong> You will not try to access anyone else’s information. You can’t. We don’t either.</li>
-          <li><strong>For genuine safety only.</strong> False alerts can divert real help from those who need it.</li>
-          <li><strong>With consent.</strong> Add Guardians only with their knowledge.</li>
-          <li><strong>With truth.</strong> The details you share during an alert help rescuers reach you faster.</li>
-        </ul>
-
-        <h3>What We Promise You in Return</h3>
-        <ul class="promise-list">
-          <li>We don’t collect or sell your personal data.</li>
-          <li>Your information stays on your device, shared with authorities only when an SOS is triggered and help must reach you.</li>
-          <li>You can delete your account data at any time.</li>
-          <li>Every feature you see exists to keep you safe — nothing more, nothing less.</li>
-        </ul>
-
-        <div class="nav-row">
-          <button class="btn btn-ghost prev-btn">Back</button>
-          <button class="btn btn-primary next-btn">Continue</button>
-        </div>
-      </div>
+    <!-- Screen 3 -->
+    <section class="screen">
+      <h2>Your Part of the Promise</h2>
+      <ul>
+        <li><strong>With respect for privacy.</strong> You will not try to access anyone else’s information. You can’t. We don’t either.</li>
+        <li><strong>For genuine safety only.</strong> False alerts can divert real help from those who need it.</li>
+        <li><strong>With consent.</strong> Add Guardians only with their knowledge.</li>
+        <li><strong>With truth.</strong> The details you share during an alert help rescuers reach you faster.</li>
+      </ul>
+      <h3>What We Promise You in Return</h3>
+      <ul>
+        <li>We don’t collect or sell your personal data.</li>
+        <li>Your information stays on your device, shared with authorities only when an SOS is triggered.</li>
+        <li>You can delete your account data at any time.</li>
+        <li>Every feature exists to keep you safe — nothing more, nothing less.</li>
+      </ul>
+      <button class="next-btn">Continue</button>
     </section>
 
-    <section id="screen4" class="screen red-bg">
-      <div class="screen-inner">
-        <h2>Glossary</h2>
-        <dl class="gloss">
-          <dt>Guardians</dt><dd>Trusted people you name to receive alerts.</dd>
-          <dt>Blips</dt><dd>Anonymous presence markers on the map — no identities shown.</dd>
-          <dt>Vault</dt><dd>Encrypted space for evidence and important files.</dd>
-          <dt>Panic / SOS</dt><dd>Panic alerts Guardians. SOS contacts emergency services.</dd>
-        </dl>
-        <div class="nav-row">
-          <button class="btn btn-ghost prev-btn">Back</button>
-          <button class="btn btn-primary next-btn">Next</button>
-        </div>
-      </div>
+    <!-- Screen 4 -->
+    <section class="screen">
+      <h2>Glossary</h2>
+      <p><strong>Guardian:</strong> Someone you trust to watch over you and get notified in case of distress.</p>
+      <p><strong>Blip:</strong> An anonymised pulse representing another active user near you.</p>
+      <p><strong>Vault:</strong> Your secure space to store and encrypt data or recordings.</p>
+      <button class="next-btn">Next</button>
     </section>
 
-    <section id="screen5" class="screen red-bg">
-      <div class="screen-inner">
-        <h2>Guardian setup</h2>
-        <p>Please add at least one Guardian. They will be notified during Panic or SOS events.</p>
-        <form id="guardianForm" class="guardian-form" onsubmit="return false;">
-          <div class="field">
-            <label>Guardian name</label>
-            <input id="gName" type="text" placeholder="e.g. Meera" required>
-          </div>
-          <div class="field">
-            <label>Guardian phone</label>
-            <input id="gPhone" type="tel" placeholder="+91..." required>
-          </div>
-          <div class="nav-row">
-            <button class="btn btn-ghost prev-btn">Back</button>
-            <button class="btn btn-primary add-guardian-btn">Add Guardian</button>
-          </div>
-        </form>
-        <div id="guardianList" class="guardian-list"></div>
-      </div>
+    <!-- Screen 5 -->
+    <section class="screen">
+      <h2>Who would you like to have your back?</h2>
+      <p>You can set up as many Guardians as you like, but to continue, start with one.</p>
+      <input type="text" id="gName" placeholder="Guardian Name" />
+      <input type="tel" id="gPhone" placeholder="Guardian Phone" />
+      <button class="add-guardian-btn">Add Guardian</button>
+      <div id="guardianList"></div>
     </section>
 
-    <section id="screen6" class="screen red-bg">
-      <div class="screen-inner">
-        <h2>Blips intro</h2>
-        <p>You will see anonymous blips of other people who use Big Brother nearby. You cannot identify or interact with them — they are there to reassure you that you are not alone.</p>
-        <div class="map-mock">
-          <div class="blip" style="left:22%;top:30%"></div>
-          <div class="blip" style="left:56%;top:40%"></div>
-          <div class="blip" style="left:70%;top:60%"></div>
-        </div>
-        <div class="nav-row">
-          <button class="btn btn-ghost prev-btn">Back</button>
-          <button class="btn btn-primary next-btn">Next</button>
-        </div>
-      </div>
+    <!-- Screen 6 -->
+    <section class="screen">
+      <h2>You can reach out to a blip, but not interact directly with it.</h2>
+      <p>They are here to remind you — you’re never alone, even when you move alone.</p>
+      <button class="next-btn">Continue</button>
     </section>
 
-    <section id="screen7" class="screen red-bg">
-      <div class="screen-inner">
-        <h2>Access priming</h2>
-        <p>We will ask for some permissions (location, microphone, notifications) so the app can help when it matters. You can control these anytime in settings.</p>
-        <div class="nav-row">
-          <button class="btn btn-ghost prev-btn">Back</button>
-          <button class="btn btn-primary next-btn">Allow & Continue</button>
-        </div>
-      </div>
+    <!-- Screen 7 -->
+    <section class="screen">
+      <h2>Before we begin</h2>
+      <p>To make sure Big Brother can protect you, please grant access:</p>
+      <ul>
+        <li>Location Access — so we can guide help to you.</li>
+        <li>Motion & Sensor Access — to monitor your calm and trigger SOS when needed.</li>
+        <li>Microphone Access — to record evidence during distress.</li>
+      </ul>
+      <button class="next-btn">Continue</button>
     </section>
 
-    <section id="screen8" class="screen red-bg">
-      <div class="screen-inner">
-        <h2>Pledge</h2>
-        <p>Sign the pledge to promise responsible use of Big Brother.</p>
-        <label for="pledgeName" class="visually-hidden">Name for pledge</label>
-        <input id="pledgeName" type="text" placeholder="Type your name to sign" class="pledge-input">
-        <div class="nav-row">
-          <button class="btn btn-ghost prev-btn">Back</button>
-          <button class="btn btn-primary sign-pledge-btn">Sign the Pledge</button>
-        </div>
-      </div>
+    <!-- Screen 8 -->
+    <section class="screen">
+      <h2>Sign the Pledge</h2>
+      <p>With respect for privacy, I, <input id="pledgeName" type="text" placeholder="type your name" />, will not try to access anyone else’s information. You can’t. We don’t either.</p>
+      <button class="sign-pledge-btn">Sign the Pledge</button>
     </section>
 
-    <section id="screen9" class="screen red-bg">
-      <div class="screen-inner">
-        <h2>The entire universe runs through... <em>You.</em></h2>
-        <p>Animated map showing blips, a pulsing ring surrounding our zoomed-out heart. Pulsing rings, maybe a blip or two.</p>
-        <div class="heart-zoom-wrap">
-          <div class="zoom-heart"></div>
-        </div>
-        <div class="nav-row">
-          <button class="btn btn-ghost prev-btn">Back</button>
-          <button class="btn btn-primary next-btn">Continue</button>
-        </div>
+    <!-- Screen 9 -->
+    <section class="screen">
+      <h2>The entire universe runs through... You.</h2>
+      <div class="heart-container">
+        <div class="heart"></div>
+        <div class="pulse"></div>
       </div>
+      <button class="next-btn">Continue</button>
     </section>
 
-    <section id="screen10" class="screen calm-bg">
-      <div class="screen-inner calm">
-        <h2>Welcome to your safe place</h2>
-        <p>One of the rings has the text <strong>112</strong> in it. The heart pulsing. A gentle calm.</p>
-        <div class="nav-row">
-          <button class="btn btn-primary finish-btn">Enter Big Brother</button>
-        </div>
-      </div>
+    <!-- Screen 10 -->
+    <section class="screen">
+      <h2>Welcome to your safe place.</h2>
+      <p>One of the rings carries the mark <strong>112</strong>. The world beats a little calmer when you do.</p>
+      <button class="finish-btn">Enter Dashboard</button>
     </section>
-
   </main>
-
-  <script src="script.js"></script>
 </body>
-</html>
+  </html>
