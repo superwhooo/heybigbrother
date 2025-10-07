@@ -36,8 +36,11 @@ BigBrother/
 ├── logo/             # Logos, icons, and SVGs
 │    
 └── background/       # Background textures and patterns
+
 ├── onboarding.html         # First-time setup and pledge flow
+
 ├── dashboard.html          # Main user dashboard (home screen) 
+
 └── README.md               # This file
 
 ---
