@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #e63946;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  color: #fff;
+}
+
+.onboarding-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+.logo {
+  width: 180px;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.text-sequence h1 {
+  opacity: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+#continueBtn {
+  opacity: 0;
+  padding: 12px 24px;
+  background: #1a2550;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#continueBtn:hover {
+  background: #22337f;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
