@@ -1,0 +1,38 @@
+/* Big Brother Radar Animation Styles */
+.heart {
+  transform-origin: center;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.sweep {
+  transform-origin: 200px 200px;
+  animation: sweepRotate 60s linear infinite;
+}
+
+@keyframes sweepRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.blips circle {
+  animation: blipPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes blipPulse {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+body {
+  background: #fdfdfd;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  }
