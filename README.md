@@ -26,8 +26,14 @@ Our purpose: to make every moment *a little safer.*
 ### 🚀 Project Structure
 
 BigBrother/ 
-├── assets/ │    
-├── css/              # Stylesheets │    ├── js/               # Scripts │    ├── logo/             # Logos, icons, and SVGs │    
+├── assets/ 
+│    
+├── css/              # Stylesheets 
+│    
+├── js/               # Scripts 
+│   
+├── logo/             # Logos, icons, and SVGs
+│    
 └── background/       # Background textures and patterns
 ├── onboarding.html         # First-time setup and pledge flow
 ├── dashboard.html          # Main user dashboard (home screen) 
