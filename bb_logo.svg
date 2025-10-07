@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Save this file as assets/bb_logo.svg and open in a browser to see the animations. -->
 <svg id="bb-logo" xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 600 600" width="600" height="600" role="img"
-     aria-label="Big Brother living emblem: heart at center with dotted radar sweep, pulsing blips, and layered terrain lines.">
-
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 600 600" width="600" height="600"
+     role="img"
+     aria-label="Big Brother living emblem: heart at center with radar sweep and terrain lines.">
   <style><![CDATA[
     /* Font: Poppins preferred; fallback to system sans */
     .label { font-family: "Poppins", "Helvetica Neue", Arial, sans-serif; font-weight: 800; fill: #11315F; text-anchor: middle; letter-spacing: 1px; }
