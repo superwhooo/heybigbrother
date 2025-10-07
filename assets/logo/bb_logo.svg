@@ -1,0 +1,57 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Background gradient -->
+  <defs>
+    <radialGradient id="bb-bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#FAFAFA"/>
+      <stop offset="100%" stop-color="#ECECEC"/>
+    </radialGradient>
+
+    <!-- Dotted background pattern -->
+    <pattern id="dots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#CFCFCF"/>
+    </pattern>
+
+    <!-- Terrain-style contour lines -->
+    <path id="contour" d="M100,250 C180,150 220,150 300,250" fill="none" stroke="#D8D8D8" stroke-width="1"/>
+  </defs>
+
+  <!-- background -->
+  <rect width="400" height="400" fill="url(#bb-bg)"/>
+  <rect width="400" height="400" fill="url(#dots)" opacity="0.2"/>
+
+  <!-- repeating contour rings -->
+  <use href="#contour" transform="translate(0,-60)" opacity="0.25"/>
+  <use href="#contour" transform="translate(0,-30)" opacity="0.3"/>
+  <use href="#contour" opacity="0.35"/>
+  <use href="#contour" transform="translate(0,30)" opacity="0.3"/>
+  <use href="#contour" transform="translate(0,60)" opacity="0.25"/>
+
+  <!-- Radar circles -->
+  <g stroke="#1A2550" stroke-width="1" fill="none" opacity="0.6">
+    <circle cx="200" cy="200" r="60"/>
+    <circle cx="200" cy="200" r="100"/>
+    <circle cx="200" cy="200" r="140"/>
+  </g>
+
+  <!-- Sweeping dotted line -->
+  <g>
+    <path id="sweep-line" d="M200,200 L200,20" stroke="#1A2550" stroke-width="2" stroke-dasharray="2,6" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="60s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Heart -->
+  <g transform="translate(200,200)">
+    <path id="heart" d="M0,-10 C5,-20 20,-20 20,0 C20,10 0,30 0,30 C0,30 -20,10 -20,0 C-20,-20 -5,-20 0,-10 Z"
+          fill="#E63946">
+      <animateTransform attributeName="transform" attributeType="XML" type="scale"
+                        values="1;1.1;1" dur="2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Text -->
+  <text x="200" y="100" text-anchor="middle" font-family="Poppins" font-size="28" font-weight="700" fill="#1A2550">BIG</text>
+  <text x="200" y="135" text-anchor="middle" font-family="Poppins" font-size="28" font-weight="700" fill="#1A2550">BROTHER</text>
+
+</svg>
