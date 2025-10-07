@@ -4,6 +4,13 @@
 
 ---
 
+### ❤️ Our Promise
+We believe technology should protect, not intrude.  
+BIG BROTHER exists to make sure no one ever feels alone when it matters most.  
+Every alert, every blip, every heartbeat on our radar — that’s someone’s story, and we’re here to help keep them safe.
+
+---
+
 ### 🧩 Overview  
 **Big Brother** is a safety companion designed for modern India —  
 built on empathy, privacy, and human connection.  
@@ -61,10 +68,32 @@ BigBrother/
 
 ---
 
+### 🧠 Developer Notes
+- Frontend: Vanilla HTML, CSS, JS (lightweight and deployable)
+- Backend: To be modularized for integration with authenticated government APIs
+- Map Layer: Secure anonymized route prediction (Mission Shakthi protocol)
+- Version Control: GitHub (public dev build), private branch for audit tools
+
+> PRs and contributions are welcome post v1.0 release.
+> For access or collaboration under Mission Shakthi, please contact the admin node.
+
+---
+
 ### 🛡️ Guiding Promise
 With respect for privacy.  
 You will not try to access anyone else’s information.  
 **You can’t. We don’t either.**
+
+---
+
+### 🧩 Compliance and Data Ethics
+BIG BROTHER follows the principles of:
+- **Data Minimization:** Only store what’s essential for safety response.
+- **Sovereign Storage:** All information hosted within India.
+- **Voluntary Consent:** Guardians and data sharing require explicit user permission.
+- **Auditability:** All emergency overrides (police use) are logged and reviewed.
+
+> “Privacy is not a feature — it’s the foundation.”
 
 ---
 
