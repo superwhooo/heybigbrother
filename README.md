@@ -26,6 +26,7 @@ Our purpose: to make every moment *a little safer.*
 ### 🚀 Project Structure
 
 BigBrother/ 
+
 ├── assets/ 
 │    
 ├── css/              # Stylesheets 
