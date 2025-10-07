@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink"
      viewBox="0 0 400 400"
-     width="400" height="400">  <defs>
+     width="400" height="400">
+
+  <defs>
     <radialGradient id="bb-bg" cx="50%" cy="45%" r="70%">
       <stop offset="0%" stop-color="#FBFBFB"/>
       <stop offset="100%" stop-color="#ECECEC"/>
@@ -15,7 +16,7 @@
   <!-- background -->
   <rect width="100%" height="100%" fill="url(#bb-bg)"/>
 
-  <!-- terrain paths -->
+  <!-- terrain lines -->
   <g fill="none" stroke="#D6D6D6" stroke-width="1.2" opacity="0.38">
     <path d="M200,56 C262,56 322,96 330,165 C338,234 290,290 200,296 C110,302 70,252 70,190 C70,128 140,56 200,56 Z">
       <animate attributeName="opacity" values="0.32;0.42;0.32" dur="6s" repeatCount="indefinite"/>
@@ -35,6 +36,40 @@
     <circle cx="200" cy="200" r="140"/>
   </g>
 
+  <!-- rotating wedge -->
+  <path d="M200,200 L286,120 A180,180 0 0,1 200,20 Z"
+        fill="url(#sweepFill)"
+        stroke="#A4C89A" stroke-width="1" stroke-dasharray="2 4" opacity="0.9">
+    <animateTransform attributeName="transform" type="rotate"
+                      from="0 200 200" to="360 200 200"
+                      dur="60s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- heart -->
+  <g transform="translate(200,210)">
+    <path d="M0,-18 C6,-28 22,-28 22,-6 C22,8 0,30 0,30 C0,30 -22,8 -22,-6 C-22,-28 -6,-28 0,-18 Z"
+          fill="#E63946">
+      <animateTransform attributeName="transform" type="scale"
+                        values="1;1.08;1" dur="1.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- text -->
+  <text x="200" y="92" text-anchor="middle" font-family="Poppins, Arial, sans-serif"
+        font-weight="700" font-size="30" fill="#1A2550" letter-spacing="0.5">
+    <tspan x="200" dy="0">BIG</tspan>
+    <tspan x="200" dy="36">BROTHER</tspan>
+  </text>
+
+  <!-- blips -->
+  <g fill="#FFFFFF" stroke="#A8A8A8" stroke-width="1" opacity="0.9">
+    <circle cx="120" cy="150" r="6"/>
+    <circle cx="260" cy="130" r="4"/>
+    <circle cx="260" cy="270" r="8"/>
+    <circle cx="150" cy="260" r="4"/>
+  </g>
+
+</svg>
   <!-- rotating wedge -->
   <g>
     <path d="M200,200 L286,120 A180,180 0 0,1 200,20 Z"
