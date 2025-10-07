@@ -1,57 +1,76 @@
-<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 400 400" width="400" height="400"
+     role="img" aria-label="Big Brother radar logo">
 
-  <!-- Background gradient -->
+  <!-- ===== defs ===== -->
   <defs>
-    <radialGradient id="bb-bg" cx="50%" cy="50%" r="60%">
-      <stop offset="0%" stop-color="#FAFAFA"/>
+    <!-- background gradient -->
+    <radialGradient id="bb-bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#FBFBFB"/>
       <stop offset="100%" stop-color="#ECECEC"/>
     </radialGradient>
 
-    <!-- Dotted background pattern -->
-    <pattern id="dots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-      <circle cx="1" cy="1" r="1" fill="#CFCFCF"/>
-    </pattern>
-
-    <!-- Terrain-style contour lines -->
-    <path id="contour" d="M100,250 C180,150 220,150 300,250" fill="none" stroke="#D8D8D8" stroke-width="1"/>
+    <!-- soft green sweep fill -->
+    <linearGradient id="sweepFill" x1="0" x2="1">
+      <stop offset="0%" stop-color="#CFE6C6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#CFE6C6" stop-opacity="0.15"/>
+    </linearGradient>
   </defs>
 
-  <!-- background -->
-  <rect width="400" height="400" fill="url(#bb-bg)"/>
-  <rect width="400" height="400" fill="url(#dots)" opacity="0.2"/>
+  <!-- ===== clean background (no dots) ===== -->
+  <rect width="100%" height="100%" fill="url(#bb-bg)"/>
 
-  <!-- repeating contour rings -->
-  <use href="#contour" transform="translate(0,-60)" opacity="0.25"/>
-  <use href="#contour" transform="translate(0,-30)" opacity="0.3"/>
-  <use href="#contour" opacity="0.35"/>
-  <use href="#contour" transform="translate(0,30)" opacity="0.3"/>
-  <use href="#contour" transform="translate(0,60)" opacity="0.25"/>
+  <!-- ===== terrain / contour rings ===== -->
+  <g id="terrain" fill="none" stroke="#D6D6D6" stroke-width="1.2" opacity="0.38">
+    <path d="M200,56 C262,56 322,96 330,165 C338,234 290,290 200,296 C110,302 70,252 70,190 C70,128 140,56 200,56 Z"/>
+    <path d="M200,72 C254,72 308,106 318,165 C328,224 286,274 200,278 C114,282 82,242 82,190 C82,138 146,72 200,72 Z" opacity="0.9"/>
+    <path d="M200,90 C244,90 296,116 306,165 C316,214 282,250 200,256 C118,262 92,232 92,190 C92,148 156,90 200,90 Z" opacity="0.95"/>
+  </g>
 
-  <!-- Radar circles -->
-  <g stroke="#1A2550" stroke-width="1" fill="none" opacity="0.6">
+  <animate xlink:href="#terrain" attributeName="opacity" values="0.32;0.42;0.32" dur="6s" repeatCount="indefinite"/>
+
+  <!-- ===== radar rings ===== -->
+  <g stroke="#1A2550" stroke-width="1" fill="none" opacity="0.65">
     <circle cx="200" cy="200" r="60"/>
     <circle cx="200" cy="200" r="100"/>
     <circle cx="200" cy="200" r="140"/>
   </g>
 
-  <!-- Sweeping dotted line -->
-  <g>
-    <path id="sweep-line" d="M200,200 L200,20" stroke="#1A2550" stroke-width="2" stroke-dasharray="2,6" opacity="0.8">
-      <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="60s" repeatCount="indefinite"/>
+  <!-- ===== rotating sweep wedge ===== -->
+  <g id="sweepGroup">
+    <path id="sweepWedge"
+          d="M200,200 L286,120 A180,180 0 0,1 200,20 Z"
+          fill="url(#sweepFill)"
+          stroke="#A4C89A" stroke-width="1" stroke-dasharray="2 4" opacity="0.9">
+      <animateTransform attributeName="transform" type="rotate"
+                        from="0 200 200" to="360 200 200"
+                        dur="60s" repeatCount="indefinite"/>
     </path>
   </g>
 
-  <!-- Heart -->
-  <g transform="translate(200,200)">
-    <path id="heart" d="M0,-10 C5,-20 20,-20 20,0 C20,10 0,30 0,30 C0,30 -20,10 -20,0 C-20,-20 -5,-20 0,-10 Z"
+  <!-- ===== heart ===== -->
+  <g transform="translate(200,210)">
+    <path d="M0,-18 C6,-28 22,-28 22,-6 C22,8 0,30 0,30 C0,30 -22,8 -22,-6 C-22,-28 -6,-28 0,-18 Z"
           fill="#E63946">
-      <animateTransform attributeName="transform" attributeType="XML" type="scale"
-                        values="1;1.1;1" dur="2s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale"
+                        values="1;1.08;1" dur="1.8s" repeatCount="indefinite"/>
     </path>
   </g>
 
-  <!-- Text -->
-  <text x="200" y="100" text-anchor="middle" font-family="Poppins" font-size="28" font-weight="700" fill="#1A2550">BIG</text>
-  <text x="200" y="135" text-anchor="middle" font-family="Poppins" font-size="28" font-weight="700" fill="#1A2550">BROTHER</text>
+  <!-- ===== title text ===== -->
+  <text x="200" y="92" text-anchor="middle" font-family="Poppins, Arial, sans-serif"
+        font-weight="700" font-size="30" fill="#1A2550" letter-spacing="0.5">
+    <tspan x="200" dy="0">BIG</tspan>
+    <tspan x="200" dy="36">BROTHER</tspan>
+  </text>
+
+  <!-- ===== sample blips ===== -->
+  <g id="blips" fill="#FFFFFF" stroke="#A8A8A8" stroke-width="1" opacity="0.9">
+    <circle cx="120" cy="150" r="6"/>
+    <circle cx="260" cy="130" r="4"/>
+    <circle cx="260" cy="270" r="8"/>
+    <circle cx="150" cy="260" r="4"/>
+  </g>
 
 </svg>
