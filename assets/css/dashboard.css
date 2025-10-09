@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f9fafb;
+  color: #111;
+  overflow: hidden;
+}
+
+header {
+  text-align: center;
+  background-color: #002b5b;
+  color: white;
+  padding: 1rem;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+.radar {
+  position: relative;
+  margin: 2rem auto;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ffffff 0%, #e6e6e6 100%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.radar-sweep {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: rgba(0, 120, 255, 0.25);
+  transform-origin: bottom right;
+  border-radius: 100% 0 0 0;
+  animation: rotate 6s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #e63946;
+}
+
+footer {
+  text-align: center;
+  color: #666;
+  font-size: 0.8rem;
+  padding: 1rem;
+}
