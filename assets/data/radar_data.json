@@ -1,34 +1,9 @@
 {
-  "user": {
-    "id": "bb001",
-    "name": "You",
-    "status": "safe",
-    "panicTriggered": false,
-    "location": { "lat": 12.9716, "lng": 77.5946 }
-  },
-  "guardians": [
-    {
-      "id": "g01",
-      "name": "Guardian One",
-      "relationship": "Friend",
-      "active": true,
-      "distance": 0.3
-    },
-    {
-      "id": "g02",
-      "name": "Guardian Two",
-      "relationship": "Family",
-      "active": true,
-      "distance": 0.8
-    }
-  ],
-  "communityBlips": [
-    { "id": "c01", "type": "user", "visible": true, "distance": 0.5 },
-    { "id": "c02", "type": "guardian", "visible": true, "distance": 0.9 },
-    { "id": "c03", "type": "user", "visible": false, "distance": 0.7 }
-  ],
-  "alert": {
-    "status": "none",
-    "lastTriggered": null
-  }
+  "user": {"id":"u001","status":"safe"},
+  "guardians":[{"name":"Anu","active":true},{"name":"Ravi","active":true}],
+  "communityBlips":[
+    {"id":"c01","type":"guardian","visible":true},
+    {"id":"c02","type":"user","visible":true},
+    {"id":"c03","type":"user","visible":true}
+  ]
 }
