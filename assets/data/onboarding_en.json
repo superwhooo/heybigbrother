@@ -1,55 +1,14 @@
 {
-  "language": "English",
   "slides": [
-    {
-      "id": "s0",
-      "title": "In case of an active emergency, dial 112.",
-      "body": "BIG BROTHER is not the police system. We are a bridge — built to keep you safe and to make sure safety systems are never out of reach.\n\nIf you are ready, feeling safe and calm — say hey, BIG BROTHER."
-    },
-    {
-      "id": "s1",
-      "title": "Your Safety Is in Your Hands.",
-      "body": "Always trust your instincts. Stay aware of your surroundings, and remember — BIG BROTHER is your quiet companion, helping you stay safe step by step."
-    },
-    {
-      "id": "s2",
-      "title": "Our Promise.",
-      "body": "It’s not that we don’t want to get to know you — we want you to feel safe being yourself, confident that you are in control.\n\nOur purpose is to make the world safer for you, your loved ones, and those around you.\n\nBIG BROTHER is built on insight-driven safety — using anonymous patterns and community alerts to make your routes and your city a little safer every day."
-    },
-    {
-      "id": "s3",
-      "title": "Your Part of the Promise.",
-      "body": "By continuing, you agree to use BIG BROTHER responsibly:\n\n– With respect for privacy. You will not try to access anyone else’s information. You can’t. We don’t either.\n\n– For genuine safety only. False alerts divert real help.\n\n– With consent. Add guardians only with their knowledge.\n\n– With truth. The details you share during an alert help rescuers reach you faster."
-    },
-    {
-      "id": "s4",
-      "title": "Glossary",
-      "body": "• Guardians – Your trusted circle who can see your alerts.\n• Blips – Other users visible only when you’re stationary, ensuring you’re not alone.\n• Vault – A secure, encrypted space for evidence or sensitive uploads.\n• Panic – A distress alert sent to guardians.\n• SOS – Emergency escalation connecting you with authorities."
-    },
-    {
-      "id": "s5",
-      "title": "Who Would You Like to Have Your Back?",
-      "body": "BIG BROTHER is your circle of trust. Add your guardians — those who will be notified in case of emergencies."
-    },
-    {
-      "id": "s6",
-      "title": "The Blips Around You.",
-      "body": "The moving dots you’ll see on your map are others who’ve agreed to offer their help if needed. You can’t identify them, but know they’re part of your extended circle."
-    },
-    {
-      "id": "s7",
-      "title": "Access Priming.",
-      "body": "To work best, BIG BROTHER needs access to location, microphone, and sensors.\n\nThis ensures your guardians and first responders can reach you when you need help."
-    },
-    {
-      "id": "s8",
-      "title": "The Pledge.",
-      "body": "I promise to use BIG BROTHER responsibly, with honesty and empathy.\n\nI understand that every alert may be a lifeline, and I will treat it as one."
-    },
-    {
-      "id": "s9",
-      "title": "Welcome to Your Safe Place.",
-      "body": "The universe of safety runs through you.\n\nTake a deep breath.\n\nYou’re not alone anymore."
-    }
+    {"title":"In case of an active emergency, dial 112.","body":"BIG BROTHER is not the police. We are a bridge — built to keep you safe and ensure help reaches you quickly."},
+    {"title":"Your Safety Is In Your Hands","body":"Trust your instincts. BIG BROTHER is your companion — a little more confidence for every step you take."},
+    {"title":"Our Promise","body":"We prioritise privacy. We share personal data only when you trigger an SOS. We do not sell personally identifiable information."},
+    {"title":"Your Part of the Promise","body":"Use this tool responsibly. False alerts divert help. Add guardians only with their consent."},
+    {"title":"Glossary","body":"Guardians: trusted contacts. Blips: community members visible during emergencies. Vault: secure evidence area."},
+    {"title":"Who Would You Like To Have Your Back?","body":"Add your guardians — the people who will be notified first if you need help."},
+    {"title":"The Blips Around You","body":"Blips are anonymous indicators of people who’ve opted in to be visible while stationary. You cannot identify them; they exist to reassure you."},
+    {"title":"Access Priming","body":"BIG BROTHER requests location and sensors to work effectively. We will ask you for permissions during onboarding."},
+    {"title":"The Pledge","body":"I promise to use BIG BROTHER responsibly. I will not misuse alerts and will act in the community's interest."},
+    {"title":"Welcome to Your Safe Place","body":"You are not alone. Take a breath. You’re on your way."}
   ]
 }
