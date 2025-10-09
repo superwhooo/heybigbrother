@@ -19,3 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
     radar.appendChild(blip);
   }
 });
+
+
+document.getElementById("panic-btn").addEventListener("click", () => {
+  const heart = document.querySelector(".heart");
+  const panicButton = document.getElementById("panic-btn");
+  const currentState = heart.classList.toggle("pulse");
+
+  if (currentState) {
+    panicButton.classList.add("active");
+    console.log("Panic mode activated!");
+  } else {
+    panicButton.classList.remove("active");
+    console.log("Panic mode deactivated!");
+  }
+});
