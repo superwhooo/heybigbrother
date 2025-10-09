@@ -1,40 +1,49 @@
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background-color: #f9fafb;
-  color: #111;
-  overflow: hidden;
+.db-header {
+  background: var(--brand-navy);
+  color: var(--white);
+  padding: 12px;
+  display: flex; justify-content: center; align-items: center; gap: 10px;
 }
+.logo-small { width: 42px; }
+.db-main { padding: 18px; text-align: center; }
 
-header {
-  text-align: center;
-  background-color: #002b5b;
-  color: white;
-  padding: 1rem;
-  font-size: 1.25rem;
-  letter-spacing: 0.5px;
-}
-
+.radar-wrap { display: flex; justify-content: center; align-items: center; margin: 20px 0; }
 .radar {
   position: relative;
-  margin: 2rem auto;
-  width: 320px;
-  height: 320px;
+  width: 340px; height: 340px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, #ffffff 0%, #e6e6e6 100%);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  background: radial-gradient(circle at center, #f9f9f9 0%, #e9edf2 90%);
+  overflow: hidden;
 }
-
-.radar-sweep {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  background: rgba(0, 120, 255, 0.25);
-  transform-origin: bottom right;
-  border-radius: 100% 0 0 0;
-  animation: rotate 6s linear infinite;
+.heart {
+  position: absolute; left:50%; top:50%;
+  transform: translate(-50%,-50%);
+  width:36px; height:36px;
+  border-radius:50%;
+  background: var(--brand-red);
+  box-shadow: 0 0 10px rgba(179,0,0,0.4);
 }
+.heart.pulse { animation: heartbeat 1s infinite ease-in-out; }
+@keyframes heartbeat { 0%,100%{transform:translate(-50%,-50%)scale(1)}50%{transform:translate(-50%,-50%)scale(1.25)} }
 
+.blip {
+  position: absolute; width:10px; height:10px;
+  border-radius:50%;
+  background:#0077b6;
+  box-shadow:0 3px 8px rgba(0,0,0,0.12);
+}
+.blip.guardian { background:#2a9d8f; }
+
+.status-row { display:flex; justify-content:center; align-items:center; gap:20px; margin-top:12px; }
+.guardian-bracket {
+  padding:8px 12px; border-radius:8px; font-weight:600;
+  background:#fff; color:var(--brand-navy);
+}
+.panic-btn {
+  background: var(--brand-red); color: #fff;
+  border:none; border-radius:999px;
+  padding:10px 24px; font-weight:700;
+}
 @keyframes rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
