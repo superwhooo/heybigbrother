@@ -15,5 +15,33 @@
     </div>
   </div>
   <script src="assets/js/script.js"></script>
+<script>
+  const basePath = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/');
+  const jsonPath = basePath + '/assets/data/onboarding_en.json?v=' + new Date().getTime();
+
+  fetch(jsonPath)
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById('slide');
+      const nextBtn = document.getElementById('nextBtn');
+      let current = 0;
+
+      function renderSlide(i) {
+        const s = data.slides[i];
+        container.innerHTML = `<h1>${s.title}</h1><p>${s.body.replace(/\n/g, "<br>")}</p>`;
+      }
+
+      renderSlide(current);
+      nextBtn.addEventListener('click', () => {
+        current++;
+        if (current < data.slides.length) renderSlide(current);
+        else window.location.href = 'dashboard.html';
+      });
+    })
+    .catch(err => {
+      document.body.innerHTML = "<h2 style='color:white;text-align:center;'>⚠️ Unable to load onboarding data</h2>";
+      console.error('Error fetching onboarding JSON:', err);
+    });
+    </script>
 </body>
 </html>
