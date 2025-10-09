@@ -1,40 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome | BIG BROTHER</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="assets/js/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIG BROTHER | Onboarding</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/onboarding.js" defer></script>
 </head>
 <body>
-
-  <!-- Onboarding Screen -->
-  <section id="screen-1" class="onboard-hero">
-    <img src="assets/logo/bb_logo.svg" alt="Big Brother Logo" width="100" height="100" />
-    <h1>Welcome to <strong>BIG BROTHER</strong></h1>
-    <p>Your safety, your circle, your control.</p>
-    <button class="btn-primary" onclick="nextScreen()">Begin</button>
-  </section>
-
-  <!-- Safety Disclaimer -->
-  <section id="screen-2" class="onboard-hero" style="display:none; background:var(--bb-red);">
-    <h2>In case of an active emergency, dial <strong>112</strong>.</h2>
-    <p>We’re a bridge to keep you safe — not to replace emergency services.</p>
-    <button class="btn-primary" onclick="nextScreen()">Continue</button>
-  </section>
-
-  <!-- Privacy & Control -->
-  <section id="screen-3" class="onboard-hero" style="display:none;">
-    <h2>You are in control here.</h2>
-    <p>Our purpose is to make the world safer for you, your loved ones, and those around you.</p>
-    <button class="btn-primary" onclick="nextScreen()">Next</button>
-  </section>
-
-  <!-- Guardian Setup -->
-  <section id="screen-4" class="onboard-hero" style="display:none;">
-    <h2>You’re not alone.</h2>
-    <p>BIG BROTHER is your circle of trust.  
+  <div class="onboard-container">
+    <div id="screen" class="onboard-screen"></div>
+    <button id="nextBtn" class="btn-primary">Loading...</button>
+  </div>
+</body>
+</html>    <p>BIG BROTHER is your circle of trust.  
        Tell us — who would you like to have your back?</p>
     <button class="btn-primary" onclick="nextScreen()">Set Guardians</button>
   </section>
