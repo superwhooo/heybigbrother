@@ -13,39 +13,4 @@
     <button id="nextBtn" class="btn-primary">Loading...</button>
   </div>
 </body>
-</html>    <p>BIG BROTHER is your circle of trust.  
-       Tell us — who would you like to have your back?</p>
-    <button class="btn-primary" onclick="nextScreen()">Set Guardians</button>
-  </section>
-
-  <!-- Blips and Map -->
-  <section id="screen-5" class="onboard-hero" style="display:none;">
-    <h2>See those blips?</h2>
-    <p>They represent volunteers who have agreed to be visible  
-    during emergencies to help keep the community safe.</p>
-    <button class="btn-primary" onclick="nextScreen()">Understood</button>
-  </section>
-
-  <!-- Pledge -->
-  <section id="screen-6" class="onboard-hero" style="display:none;">
-    <h2>The BB Pledge</h2>
-    <p>I promise to use this app responsibly, to help others during emergencies,  
-       and never put myself in harm’s way.</p>
-    <label>
-      <input type="checkbox" id="pledgeBox" /> I accept the pledge
-    </label><br><br>
-    <button class="btn-primary" onclick="finishOnboarding()">Enter Dashboard</button>
-  </section>
-
-</body>
-</html>        if (current < data.slides.length) renderSlide(current);
-        else window.location.href = 'dashboard.html';
-      });
-    })
-    .catch(err => {
-      document.body.innerHTML = "<h2 style='color:white;text-align:center;'>⚠️ Unable to load onboarding data</h2>";
-      console.error('Error fetching onboarding JSON:', err);
-    });
-    </script>
-</body>
 </html>
