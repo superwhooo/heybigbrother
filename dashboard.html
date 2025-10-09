@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIG BROTHER Dashboard</title>
-<link rel="stylesheet" href="assets/css/dashboard.css">
-<script src="assets/js/dashboard.js" defer></script></head>
-<body class="dashboard">
-  <div class="radar">
-    <div class="ring r1"></div>
-    <div class="ring r2"></div>
-    <div class="ring r3"></div>
-    <div class="sweep"></div>
-    <div class="heart center">❤️</div>
-    <div class="blip" style="top:30%;left:65%;"></div>
-    <div class="blip" style="top:65%;left:35%;"></div>
-    <h1 class="logo">BIG<br>BROTHER</h1>
-  </div>
-  <div class="status-bar">
-  <button id="panic-btn" class="panic">PANIC</button>
-  <div class="guardian-bracket">[ 🛡️ Guardian Active ]</div>
-  </div>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard | Big Brother</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <script type="module" src="assets/js/dashboard.js" defer></script>
+</head>
+<body>
+  <header class="db-header">
+    <img class="logo-small" src="assets/logo/bb_logo.svg" alt="BIG BROTHER" />
+    <h1>BIG BROTHER</h1>
+  </header>
+
+  <main class="db-main">
+    <section class="radar-wrap" id="radarWrap">
+      <div id="radar" class="radar">
+        <div class="heart" id="userHeart" title="You"></div>
+      </div>
+    </section>
+
+    <aside class="status-row">
+      <div id="guardianBracket" class="guardian-bracket">Guardian status</div>
+      <button id="panicBtn" class="panic-btn">PANIC</button>
+    </aside>
+  </main>
+
+  <footer class="db-footer">If this is an active emergency call 112</footer>
 </body>
 </html>
