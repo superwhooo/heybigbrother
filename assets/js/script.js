@@ -1,38 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const slideContainer = document.getElementById("slide");
-  const nextBtn = document.getElementById("nextBtn");
-  let slides = [];
-  let currentSlide = 0;
+// Simple onboarding flow controller
+let current = 1;
+const total = 6;
 
-  fetch("assets/data/onboarding_en.json")
-    .then(res => res.json())
-    .then(data => {
-      slides = data.slides;
-      showSlide(currentSlide);
-    });
-
-  function showSlide(index) {
-    const slide = slides[index];
-    slideContainer.innerHTML = `
-      <h1>${slide.title}</h1>
-      <p>${slide.body.replace(/\n/g, "<br>")}</p>
-    `;
-    animateRipple();
+function nextScreen() {
+  document.getElementById(`screen-${current}`).style.display = 'none';
+  current++;
+  if (current <= total) {
+    document.getElementById(`screen-${current}`).style.display = 'flex';
   }
+}
 
-  nextBtn.addEventListener("click", () => {
-    currentSlide++;
-    if (currentSlide < slides.length) {
-      showSlide(currentSlide);
-    } else {
-      window.location.href = "dashboard.html";
-    }
-  });
+function finishOnboarding() {
+  const pledgeAccepted = document.getElementById('pledgeBox').checked;
+  if (!pledgeAccepted) {
+    alert("Please accept the BB pledge before continuing.");
+    return;
+  }
+  localStorage.setItem('onboardingSeen', 'true');
+  window.location.href = "dashboard.html";
+}
 
-  function animateRipple() {
-    const ripple = document.querySelector(".ripple-bg");
-    ripple.classList.remove("active");
-    void ripple.offsetWidth;
-    ripple.classList.add("active");
+// Auto-skip onboarding for returning users
+window.addEventListener('load', () => {
+  if (localStorage.getItem('onboardingSeen') === 'true') {
+    window.location.href = "dashboard.html";
   }
 });
