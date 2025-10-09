@@ -3,6 +3,7 @@
     "id": "bb001",
     "name": "You",
     "status": "safe",
+    "panicTriggered": false,
     "location": { "lat": 12.9716, "lng": 77.5946 }
   },
   "guardians": [
