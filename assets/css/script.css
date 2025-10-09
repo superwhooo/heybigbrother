@@ -139,6 +139,50 @@ button:hover { background: #ffcccc; }
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
+
+/* assets/css/style.css */
+:root{
+  --bb-red: #e5393e;   /* onboarding red */
+  --bb-navy: #10204a;  /* navy for headings */
+  --bg-dot: url('/assets/background/dots.svg');
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-color:#f7f5f6;
+  background-image: var(--bg-dot);
+  background-repeat: repeat;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Full-screen onboarding red hero */
+.onboard-hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  background:var(--bb-red);
+  padding:2rem;
+}
+
+/* CTA button */
+.btn-primary{
+  background:var(--bb-navy);
+  color:#fff;
+  border-radius:28px;
+  padding:14px 28px;
+  font-weight:600;
+  display:inline-block;
+  border:none;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(16,32,74,0.18);
+}
 #continueBtn:hover {
   background: #22337f;
   transform: scale(1.05);
