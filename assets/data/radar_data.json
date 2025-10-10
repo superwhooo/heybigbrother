@@ -1,7 +1,0 @@
-{
-  "blips":[
-    {"name":"Anu","angle":-1.2,"radius":0.55,"seed":0.4,"color":"#2a9df4"},
-    {"name":"Ravi","angle":0.3,"radius":0.7,"seed":0.8,"color":"#2a9df4"},
-    {"name":"Meera","angle":2.0,"radius":0.45,"seed":0.2,"color":"#0da57a"}
-  ]
-}
