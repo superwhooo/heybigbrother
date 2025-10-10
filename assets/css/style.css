@@ -1,0 +1,67 @@
+/* Mobile-first base styles for BIG BROTHER demo
+   One stylesheet holding global + onboarding + dashboard overrides
+*/
+
+:root{
+  --red:#b80a0a; /* deep red (tweak to match art) */
+  --red-strong:#c90a0a;
+  --white:#fff;
+  --navy:#0b2540;
+  --muted:#9aa0a6;
+  --card-radius:14px;
+  --container-pad:20px;
+  --maxwidth:760px;
+  --shadow: 0 12px 22px rgba(0,0,0,0.15);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:#fff;color:#111;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+
+/* centered page layout for index */
+.centered{max-width:var(--maxwidth);margin:0 auto;padding:48px 20px;text-align:left}
+.logo-small{width:56px;height:56px;object-fit:contain}
+.brand{font-size:28px;margin:8px 0 4px;font-weight:800;letter-spacing:0.5px}
+.lead{color:var(--muted);margin:0 0 20px;font-size:16px}
+
+/* buttons */
+.btn{display:inline-block;padding:12px 20px;border-radius:26px;text-decoration:none;font-weight:600;border:2px solid transparent}
+.btn.primary{background:var(--navy);color:var(--white)}
+.btn.ghost{background:transparent;color:var(--navy);border:2px solid rgba(11,37,64,0.08)}
+.btn.pulse{box-shadow:0 6px 18px rgba(200,10,10,0.28)}
+
+.cta-row{display:flex;gap:12px;margin-top:20px}
+
+/* onboarding page root */
+.onboard-root{min-height:100vh;background:var(--red);padding:28px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:20px}
+.logo-thumb{width:92px;border-radius:6px;background:rgba(255,255,255,0.95);padding:6px;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+.card{width:100%;max-width:640px;padding:20px;border-radius:18px;background:rgba(255,255,255,0.06);backdrop-filter: blur(2px)}
+.red-card{background:rgba(0,0,0,0.08);}
+
+/* card content */
+.card-title{margin:0 0 8px;color:#fff;font-size:22px;text-align:center;font-weight:800}
+.card-copy{color:rgba(255,255,255,0.95);line-height:1.5;font-size:16px;text-align:center;margin:10px 0 16px}
+.cta-wrap{display:flex;justify-content:center;gap:12px;padding-top:8px}
+.btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.12)}
+
+/* dashboard */
+.topbar{display:flex;align-items:center;gap:12px;padding:12px 18px;background:var(--navy);color:var(--white)}
+.dashboard-main{padding:22px;max-width:720px;margin:0 auto}
+.radar-wrap{position:relative;display:flex;justify-content:center;align-items:center;margin:18px auto}
+#radar-canvas{width:92vw;max-width:520px;border-radius:50% !important;box-shadow:var(--shadow);background:linear-gradient(180deg,#fbfbfd,#f3f5f6)}
+.radar-center-heart{position:absolute;font-size:32px;color:var(--red-strong);background:#fff;border-radius:100%;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+.controls{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.nearest{color:var(--navy);font-weight:700}
+.panic-btn{background:var(--red-strong);color:#fff;padding:12px 18px;border-radius:12px;border:0;font-weight:800;box-shadow:0 6px 18px rgba(200,10,10,0.18)}
+
+/* misc */
+.muted{color:var(--muted);font-size:13px;text-align:center;margin-top:20px}
+.small{font-size:12px;color:var(--muted)}
+
+/* Responsive tweaks */
+@media(min-width:720px){
+  .onboard-root{padding:40px 48px}
+  .card{padding:36px}
+  .card-copy{font-size:18px}
+}
