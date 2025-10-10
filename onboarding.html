@@ -3,15 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIG BROTHER | Safe Begins Here</title>
+  <title>BIG BROTHER | Onboarding</title>
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
+  <script defer src="js/onboarding.js"></script>
 </head>
-<body class="center onboarding">
-  <div>
-    <img src="assets/logo.svg" alt="BIG BROTHER logo" width="140">
-    <h1>BIG BROTHER</h1>
-    <p>Loading your safe space...</p>
-  </div>
+
+<body class="onboarding">
+  <main id="onboarding-container">
+
+    <section class="screen active" id="screen0">
+      <h1>In case of an active emergency, <br> dial 112</h1>
+      <p>BIG BROTHER is not the police system.<br>
+      We are a bridge — built to help you stay connected,<br>
+      and to make sure safety systems are never overloaded or out of reach.</p>
+      <p>If you are ready, feeling safe and calm,<br> say <strong>Hey, BIG BROTHER</strong>.</p>
+      <button class="cta" data-next="1">Continue</button>
+    </section>
+
+    <section class="screen" id="screen1">
+      <h2>Your Safety Is in Your Hands</h2>
+      <p>Your safety is in your hands — and always trust your instincts.<br>
+      Stay aware of your surroundings, and remember, BIG BROTHER is your quiet companion, helping keep you safe, step by step.</p>
+      <button class="cta" data-next="2">Continue</button>
+    </section>
+
+    <section class="screen" id="screen2">
+      <h2>Our Promise</h2>
+      <p>We’re not here to collect your personal life. Our priority is simple — to help keep you safe.<br>
+      We’re here to remind you that you are in control, and that feeling safe should never depend on constant monitoring.</p>
+      <p>BIG BROTHER is built on the idea that safety comes from connection — that community is our greatest strength.<br>
+      Our purpose is to make the world a little safer for you, your loved ones, and everyone else around us, a single heartbeat at a time.</p>
+      <button class="cta" data-next="3">I Understand</button>
+    </section>
+
+    <section class="screen" id="screen3">
+      <h2>Your Part of the Promise</h2>
+      <p>By continuing, you agree to use BIG BROTHER responsibly:</p>
+      <ul>
+        <li>With respect for privacy. You will not try to access anyone else’s information. You can’t. We don’t either.</li>
+        <li>For genuine safety only. False alerts can divert real help from those who need it.</li>
+        <li>With consent. Add Guardians only with their knowledge.</li>
+        <li>With truth. The details you share during an alert help rescuers reach you faster.</li>
+      </ul>
+      <p>What We Promise You in Return:</p>
+      <ul>
+        <li>We don’t collect or sell your personal data.</li>
+        <li>Your information stays on your device, shared only when help must reach you.</li>
+        <li>You can delete your account data at any time.</li>
+        <li>No unwanted emails or promotions — ever.</li>
+      </ul>
+      <button class="cta" data-next="4">I Accept</button>
+    </section>
+
+    <section class="screen" id="screen4">
+      <h2>Know Your Tools</h2>
+      <p><strong>SOS:</strong> When you trigger an emergency, we reach your Guardians and emergency services instantly.<br>
+      <strong>Walk With Me:</strong> Share your live journey with your Guardians until you reach home.<br>
+      <strong>Panic:</strong> Hold to record and alert your Guardians.<br>
+      <strong>Vault:</strong> Where sensitive data stays encrypted and under your control.<br>
+      <strong>Down Time:</strong> Guided calm rituals to help steady your breath and emotions.</p>
+      <button class="cta" data-next="5">Next</button>
+    </section>
+
+    <section class="screen" id="screen5">
+      <h2>Guardians</h2>
+      <p>You are never alone. BIG BROTHER is your circle of trust — built by you, around you, for you.<br>
+      Before we begin, think of the people who make you feel safe. Which one of yours will help us have your back?</p>
+      <button class="cta" data-next="6">Add My Guardian</button>
+    </section>
+
+    <section class="screen" id="screen6">
+      <h2>Access & Permissions</h2>
+      <p>To help keep you safe, BIG BROTHER will require access to:</p>
+      <ul>
+        <li>Location — to guide responders when you need help.</li>
+        <li>Motion & Sensors — for Down Time feedback and detecting distress.</li>
+        <li>Microphone — to record only during panic mode.</li>
+        <li>Notifications — to keep you informed when help is needed.</li>
+      </ul>
+      <button class="cta" data-next="7">Allow Access</button>
+    </section>
+
+    <section class="screen" id="screen7">
+      <h2>The Pledge</h2>
+      <p>With respect for privacy, honesty, and safety —</p>
+      <p>I, <input type="text" placeholder="Your Name" style="border:none;border-bottom:1px solid white;background:transparent;color:white;text-align:center;width:60%;">, pledge to use BIG BROTHER responsibly.</p>
+      <label><input type="checkbox"> I agree to this pledge.</label>
+      <button class="cta" data-next="8">Sign the Pledge</button>
+    </section>
+
+    <section class="screen" id="screen8">
+      <h2>The Heartbeat</h2>
+      <p>The entire universe runs through you.</p>
+      <p>The red screen ripples softly — zooming out to reveal the pulsing heart at the center of it all: you.</p>
+      <button class="cta" data-next="9">Continue</button>
+    </section>
+
+    <section class="screen" id="screen9">
+      <h2>Welcome to Your Safe Space</h2>
+      <p>The screen glows softly, showing a faint “112” ring, the heartbeat steady and calm.</p>
+      <button class="cta" onclick="window.location.href='dashboard.html'">Enter App</button>
+    </section>
+
+  </main>
 </body>
 </html>
