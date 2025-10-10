@@ -1,40 +1,37 @@
-// dashboard.js - simple radar + blips demo + panic button behavior
-(async function(){
-  if (!document.body.classList.contains('dashboard-page')) return;
+// BIG BROTHER — Dashboard JS
+// Controls radar animation, panic button, and blip movement
 
-  const canvas = document.getElementById('radar-canvas');
-  const ctx = canvas.getContext('2d');
-  const devicePixelRatio = window.devicePixelRatio || 1;
-  const size = Math.min(window.innerWidth * 0.92, 520);
-  canvas.width = size * devicePixelRatio;
-  canvas.height = size * devicePixelRatio;
-  canvas.style.width = size + 'px';
-  canvas.style.height = size + 'px';
-  ctx.scale(devicePixelRatio, devicePixelRatio);
+document.addEventListener("DOMContentLoaded", () => {
+  const radar = document.getElementById("radar");
+  const blips = document.querySelectorAll(".blip");
+  const panicBtn = document.querySelector(".panic-btn");
 
-  const center = {x:size/2,y:size/2,r: size*0.45};
+  // Radar sweep (CSS-free animation)
+  setInterval(() => {
+    radar.style.background = `radial-gradient(circle at center, #fff 30%, #f5f5f5 100%)`;
+  }, 8000); // every 8 seconds like a radar pulse
 
-  // load sample blips
-  const radarData = await app.fetchJSON('data/radar_data.json') || {blips:[]};
-  let blips = radarData.blips || [];
+  // Blip random movement (gentle drift)
+  function moveBlips() {
+    blips.forEach(blip => {
+      const top = Math.random() * 80 + 10;
+      const left = Math.random() * 80 + 10;
+      blip.style.top = `${top}%`;
+      blip.style.left = `${left}%`;
+    });
+  }
+  setInterval(moveBlips, 5000);
 
-  // draw background rings
-  function drawRadar(){
-    ctx.clearRect(0,0,size,size);
-    // soft gradient
-    const g = ctx.createRadialGradient(center.x-10, center.y-10, center.r*0.1, center.x, center.y, center.r*1.05);
-    g.addColorStop(0,'rgba(250,250,251,1)');
-    g.addColorStop(1,'#f0f3f5');
-    ctx.fillStyle=g;
-    ctx.beginPath(); ctx.arc(center.x, center.y, center.r, 0, Math.PI*2); ctx.fill();
-
-    // rings
-    ctx.strokeStyle = 'rgba(9,26,38,0.06)';
-    ctx.lineWidth = 2;
-    for(let r=0.6; r>0.06; r-=0.18){
-      ctx.beginPath(); ctx.arc(center.x, center.y, center.r * r, 0, Math.PI*2);
-      ctx.stroke();
-    }
+  // Panic button effect
+  panicBtn.addEventListener("click", () => {
+    document.body.style.background = "#e60012";
+    panicBtn.innerText = "Alert Sent!";
+    setTimeout(() => {
+      document.body.style.background = "#f9f9f9";
+      panicBtn.innerText = "Panic";
+    }, 4000);
+  });
+});    }
   }
 
   // draw blips - positions are polar offsets in sample json
