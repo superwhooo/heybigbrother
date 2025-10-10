@@ -1,28 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Welcome | Big Brother</title>
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="stylesheet" href="assets/css/onboarding.css" />
-  <script type="module" src="assets/js/onboarding.js" defer></script>
+  <title>BIG BROTHER — Onboarding</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="onboard-page">
-  <div class="onboard-bg"></div>
-  <main id="onboard-root" class="onboard-root">
-    <header class="onboard-header">
-      <img src="assets/logo/bb_logo.svg" alt="BIG BROTHER logo" class="logo" />
-    </header>
+<body class="onboarding-page">
+  <div id="onboard-root" class="onboard-root">
+    <!-- left-up logo thumbnail -->
+    <img src="assets/logo.svg" class="logo-thumb" alt="big brother logo">
 
-    <section id="slide-container" class="slide-container">
-      <div class="loading">Loading…</div>
+    <!-- onboarding card (content injected via JS) -->
+    <section id="onboard-card" class="card red-card">
+      <h2 id="onboard-title" class="card-title">Welcome</h2>
+      <p id="onboard-copy" class="card-copy">Loading…</p>
+
+      <div class="cta-wrap">
+        <button id="prev-btn" class="btn ghost">Previous</button>
+        <button id="next-btn" class="btn primary">Next</button>
+      </div>
     </section>
+  </div>
 
-    <nav class="onboard-nav">
-      <button id="prevBtn" class="btn btn-secondary" hidden>Previous</button>
-      <button id="nextBtn" class="btn btn-primary">Next</button>
-    </nav>
-  </main>
+  <script src="js/main.js"></script>
+  <script src="js/onboarding.js"></script>
 </body>
 </html>
