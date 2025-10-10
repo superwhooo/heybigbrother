@@ -1,24 +1,14 @@
-// main.js - tiny helper + fetch wrapper for JSON-driven onboarding + simple router
-(function(){
-  window.app = window.app || {};
+// BIG BROTHER — Index redirect logic
+document.addEventListener("DOMContentLoaded", () => {
+  const splash = document.querySelector(".splash");
 
-  // helper: fetch JSON
-  app.fetchJSON = async function(path){
-    try {
-      const r = await fetch(path + '?t=' + Date.now());
-      return await r.json();
-    } catch(e){
-      console.error('fetchJSON', e);
-      return null;
-    }
-  };
+  // Add a simple fade-out effect
+  setTimeout(() => {
+    if (splash) splash.classList.add("fade-out");
+  }, 1800);
 
-  // tiny log
-  app.log = function(...args){ console.log('[BB]', ...args) };
-
-  // on document ready (simple)
-  document.addEventListener('DOMContentLoaded', ()=>{
-    app.log('main ready');
-  });
-
-})();
+  // Redirect after short delay
+  setTimeout(() => {
+    window.location.href = "onboarding.html";
+  }, 2500);
+});
