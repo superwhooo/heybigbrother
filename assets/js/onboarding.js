@@ -1,40 +1,54 @@
-// onboarding.js - drives onboarding.html using onboarding_en.json
-(async function(){
-  if (!document.body.classList.contains('onboarding-page')) return;
+// BIG BROTHER — Onboarding JS
+// Handles screen navigation and user pledge logic
 
-  const data = await app.fetchJSON('data/onboarding_en.json');
-  if (!data) {
-    document.getElementById('onboard-copy').textContent = 'Failed to load onboarding copy.';
-    return;
+document.addEventListener("DOMContentLoaded", () => {
+  const screens = document.querySelectorAll(".screen");
+  const ctas = document.querySelectorAll(".cta");
+
+  let currentScreen = 0;
+
+  // Hide all except first
+  screens.forEach((s, i) => {
+    if (i !== 0) s.classList.add("hidden");
+  });
+
+  // CTA navigation
+  ctas.forEach(button => {
+    button.addEventListener("click", (e) => {
+      const next = e.target.dataset.next;
+      if (next) showScreen(parseInt(next));
+    });
+  });
+
+  function showScreen(index) {
+    screens[currentScreen].classList.add("hidden");
+    screens[index].classList.remove("hidden");
+    screens[index].scrollIntoView({ behavior: "smooth" });
+    currentScreen = index;
   }
 
-  const steps = data.steps || [];
-  let i = 0;
+  // Handle pledge checkbox
+  const pledgeCheckbox = document.querySelector('#screen7 input[type="checkbox"]');
+  const pledgeButton = document.querySelector('#screen7 .cta');
 
-  const titleEl = document.getElementById('onboard-title');
-  const copyEl  = document.getElementById('onboard-copy');
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
+  if (pledgeCheckbox && pledgeButton) {
+    pledgeButton.disabled = true;
+    pledgeButton.style.opacity = "0.5";
 
-  function render(){
-    const step = steps[i];
-    titleEl.textContent = step.title;
-    copyEl.innerHTML = step.html || step.copy || '';
-    prevBtn.disabled = i === 0;
-    nextBtn.textContent = (i === steps.length - 1) ? 'Finish' : 'Next';
-    // special behaviours
-    if (step.id === 'pledge') {
-      // ensure checkbox appended if not present
-      if (!document.getElementById('pledge-check')) {
-        const cb = document.createElement('div');
-        cb.style.marginTop = '10px';
-        cb.innerHTML = `<label style="display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,0.95)">
-          <input id="pledge-check" type="checkbox"> I accept the pledge
-        </label>`;
-        copyEl.appendChild(cb);
-      }
-    }
+    pledgeCheckbox.addEventListener("change", () => {
+      pledgeButton.disabled = !pledgeCheckbox.checked;
+      pledgeButton.style.opacity = pledgeCheckbox.checked ? "1" : "0.5";
+    });
   }
+
+  // Heartbeat ripple animation for final screen
+  const heartbeat = document.getElementById("screen8");
+  if (heartbeat) {
+    heartbeat.addEventListener("transitionend", () => {
+      heartbeat.classList.add("pulse");
+    });
+  }
+});  }
 
   prevBtn.addEventListener('click', ()=>{
     if (i > 0) i--;
