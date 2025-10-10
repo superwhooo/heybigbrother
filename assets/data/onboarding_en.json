@@ -1,14 +1,55 @@
 {
-  "slides": [
-    {"title":"In case of an active emergency, dial 112.","body":"BIG BROTHER is not the police. We are a bridge — built to keep you safe and ensure help reaches you quickly."},
-    {"title":"Your Safety Is In Your Hands","body":"Trust your instincts. BIG BROTHER is your companion — a little more confidence for every step you take."},
-    {"title":"Our Promise","body":"We prioritise privacy. We share personal data only when you trigger an SOS. We do not sell personally identifiable information."},
-    {"title":"Your Part of the Promise","body":"Use this tool responsibly. False alerts divert help. Add guardians only with their consent."},
-    {"title":"Glossary","body":"Guardians: trusted contacts. Blips: community members visible during emergencies. Vault: secure evidence area."},
-    {"title":"Who Would You Like To Have Your Back?","body":"Add your guardians — the people who will be notified first if you need help."},
-    {"title":"The Blips Around You","body":"Blips are anonymous indicators of people who’ve opted in to be visible while stationary. You cannot identify them; they exist to reassure you."},
-    {"title":"Access Priming","body":"BIG BROTHER requests location and sensors to work effectively. We will ask you for permissions during onboarding."},
-    {"title":"The Pledge","body":"I promise to use BIG BROTHER responsibly. I will not misuse alerts and will act in the community's interest."},
-    {"title":"Welcome to Your Safe Place","body":"You are not alone. Take a breath. You’re on your way."}
+  "lang":"en",
+  "steps":[
+    {
+      "id":"disclaimer",
+      "title":"In case of an active emergency, dial 112.",
+      "copy":"BIG BROTHER is not the police system. We are a bridge — built to help you stay connected, and to make sure safety systems are never overloaded or out of reach. If you are ready, feeling safe and calm, say hey, BIG BROTHER."
+    },
+    {
+      "id":"safety-hands",
+      "title":"Your Safety Is In Your Hands",
+      "copy":"Your safety is in your hands — and always trust your instincts. Stay aware of your surroundings. BIG BROTHER is your quiet companion, helping keep you safe, step by step."
+    },
+    {
+      "id":"promise",
+      "title":"Our Promise",
+      "copy":"Our priority is to help keep you safe. We aren’t here to collect your personal life — we’re here to remind you that you are in control. Our purpose is to make the world safer for you, your loved ones, and everyone around us. BIG BROTHER is built on the idea of community as strength — using shared awareness and anonymous patterns to make your routes, your city, and your choices safer every day."
+    },
+    {
+      "id":"pledge",
+      "title":"Your Part of the Promise",
+      "html":"<p style='margin:0;color:rgba(255,255,255,0.95)'>By continuing, you agree to use BIG BROTHER responsibly:<ul style='text-align:left;margin-top:8px'><li>Respect privacy — you can’t access someone else’s info; we don’t either.</li><li>Use for genuine safety only — false alerts divert real help.</li><li>Add Guardians only with consent.</li><li>You may delete your account data anytime; no unwanted promotions.</li></ul></p>"
+    },
+    {
+      "id":"glossary",
+      "title":"Know Your Tools",
+      "copy":"SOS: triggers us to reach your Guardians and emergency services at once. Guardians: trusted people you choose. Blips: anonymous users visible only during emergencies. Vault: encrypted space for sensitive data. Down Time: a guided moment to steady your breath."
+    },
+    {
+      "id":"guardian-setup",
+      "title":"You Are Never Alone",
+      "copy":"BIG BROTHER is your circle of trust — built by you, around you, for you. Who would you like to have your back? Add at least one guardian to continue."
+    },
+    {
+      "id":"blips",
+      "title":"The Blips Around You",
+      "copy":"Blips are community markers — users who’ve opted in to be visible when someone nearby needs help. They’re anonymous and exist to reassure you."
+    },
+    {
+      "id":"access",
+      "title":"Access & Permissions",
+      "copy":"To help keep you safe, BIG BROTHER requests access to Location, Motion & Sensors, and Notifications. You remain in control of what’s shared and when."
+    },
+    {
+      "id":"walk-with-me",
+      "title":"Walk With Me",
+      "copy":"Walk With Me lets a Guardian view your route while you walk home. View access is enabled only while the session is active; you end it anytime."
+    },
+    {
+      "id":"heartbeat",
+      "title":"The Heartbeat",
+      "copy":"A pulsing heart sits at the center — you. Rings show layers of safety: Guardians, blips, emergency services. One ring can display 112 as a reminder. The visual breathes calm and focus."
+    }
   ]
 }
