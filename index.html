@@ -5,13 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BIG BROTHER | Safe Begins Here</title>
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
+  <script>
+    // Redirect after short delay (2.5s)
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        window.location.href = "onboarding.html";
+      }, 2500);
+    });
+  </script>
 </head>
+
 <body class="center onboarding">
-  <div>
-    <img src="assets/logo.svg" alt="BIG BROTHER logo" width="140">
-    <h1>BIG BROTHER</h1>
-    <p>Loading your safe space...</p>
+  <div style="text-align:center;">
+    <img src="assets/logo.svg" alt="BIG BROTHER logo" width="120" style="margin-bottom:1rem;">
+    <h1 style="font-weight:800;">BIG BROTHER</h1>
+    <p style="opacity:0.9;">Loading your safe space...</p>
   </div>
 </body>
 </html>
