@@ -1,32 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BIG BROTHER — Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIG BROTHER | Dashboard</title>
   <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/dashboard.js"></script>
 </head>
-<body class="dashboard-page">
-  <header class="topbar">
-    <img src="assets/logo.svg" alt="logo" class="logo-small">
-    <h1 class="brand">BIG BROTHER</h1>
-  </header>
 
-  <main class="dashboard-main">
-    <div class="radar-wrap">
-      <canvas id="radar-canvas" width="640" height="640"></canvas>
-      <div class="radar-center-heart" id="radar-heart" aria-hidden="true">❤</div>
-    </div>
-
-    <div class="controls">
-      <div class="nearest">Nearest: <span id="nearest-name">—</span></div>
-      <button id="panic-btn" class="panic-btn">PANIC</button>
-    </div>
-
-    <p class="muted note">If this is an active emergency, call 112.</p>
-  </main>
-
-  <script src="js/main.js"></script>
-  <script src="js/dashboard.js"></script>
+<body class="dashboard">
+  <h1>Welcome to Your Safe Place</h1>
+  <div class="radar" id="radar">
+    <div class="blip" style="top:40%; left:70%;"></div>
+    <div class="blip" style="top:70%; left:30%;"></div>
+  </div>
+  <button class="panic-btn">Panic</button>
+  <p class="footer">BIG BROTHER — built by you, around you, for you.</p>
 </body>
 </html>
