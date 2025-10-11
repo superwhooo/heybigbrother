@@ -1,37 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
   const app = document.getElementById("app");
 
-  setTimeout(() => {
-    loadOnboarding();
-  }, 1500);
+  fetch("data/onboarding.json")
+    .then(res => res.json())
+    .then(screens => {
+      let current = 0;
+      showScreen(current);
 
-  function loadOnboarding() {
-    fetch("data/onboarding.json")
-      .then((response) => response.json())
-      .then((data) => {
+      function showScreen(i) {
+        const s = screens[i];
         app.innerHTML = `
-          <section class="onboard">
-            <div class="screen active">
-              <h2>${data.slides[0].title}</h2>
-              <p>${data.slides[0].content}</p>
-              <button id="nextBtn">Say Hey, BIG BROTHER</button>
-            </div>
+          <section class="onboard fade show">
+            <h2>${s.title}</h2>
+            <p>${s.text}</p>
+            <button id="next">${s.cta}</button>
           </section>
         `;
 
-        const nextBtn = document.getElementById("nextBtn");
-        nextBtn.addEventListener("click", () => {
-          app.innerHTML = `
-            <section class="onboard">
-              <h2>Welcome to Your Safe Space</h2>
-              <p>${data.slides[1].content}</p>
-            </section>
-          `;
+        document.getElementById("next").addEventListener("click", () => {
+          if (i + 1 < screens.length) {
+            fadeOut(() => showScreen(i + 1));
+          } else {
+            fadeOut(() => window.location.href = "dashboard.html");
+          }
         });
-      })
-      .catch((error) => {
-        console.error("Error loading onboarding:", error);
-        app.innerHTML = "<p>Something went wrong. Please refresh.</p>";
-      });
-  }
+      }
+
+      function fadeOut(callback) {
+        const section = document.querySelector(".onboard");
+        section.classList.remove("show");
+        setTimeout(callback, 600);
+      }
+    });
 });
