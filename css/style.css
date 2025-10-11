@@ -170,3 +170,125 @@ button:hover {
   font-size: 0.8rem;
   opacity: 0.8;
 }
+
+
+/* --- EMERGENCY SCREEN STYLING --- */
+.emergency-screen {
+  background-color: #ff1e1e;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.emergency-screen::before {
+  content: "";
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  border: 3px dotted #fff;
+  border-radius: 50%;
+  top: -40%;
+  left: -40%;
+  opacity: 0.3;
+  animation: pulse 6s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.4; }
+}
+
+.emergency-screen h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.emergency-screen h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 1rem 0;
+}
+
+.emergency-screen p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+  color: #fff;
+  max-width: 600px;
+}
+
+.cta-btn {
+  background-color: #fff;
+  color: #111;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cta-btn:hover {
+  background-color: #111;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* --- DASHBOARD --- */
+.dashboard {
+  background-color: #fff;
+  color: #111;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.radar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,0,0,0.1) 40%, rgba(255,0,0,0.05) 70%);
+  border: 2px solid rgba(255,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.radar::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  border-radius: 50%;
+  background: rgba(255,0,0,0.2);
+  animation: radarPulse 3s infinite;
+}
+
+@keyframes radarPulse {
+  0% { transform: scale(0.5); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.status {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #555;
+  }
