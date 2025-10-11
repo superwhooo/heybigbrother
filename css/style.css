@@ -1,294 +1,297 @@
-/* --- BIG BROTHER: Mobile-first Styling --- */
-* {
-  margin: 0;
+/*  ---------------------------
+    BIG BROTHER — style.css
+    Mobile-first, accessible, clean
+    Replace existing css/style.css with this file
+    --------------------------- */
+
+/* ---------- Fonts (Google) ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
+/* ---------- CSS Variables ---------- */
+:root{
+  --bb-red: #e31b1b;        /* primary red */
+  --bb-red-deep: #c90f0f;   /* deeper red for accents */
+  --white: #ffffff;
+  --muted: #6b6b6b;
+  --text: #111111;
+  --glass: rgba(255,255,255,0.06);
+  --logo-opacity: 0.85;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+
+  --fw-regular: 400;
+  --fw-medium: 600;
+  --fw-bold: 800;
+
+  --max-content-width: 720px;
+}
+
+/* ---------- Simple reset ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body, #app { height: 100%; }
+html, body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  font-weight: var(--fw-regular);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Helpful utilities */
+.sr-only { /* accessible text only */ 
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Links & Buttons ---------- */
+a { color: inherit; text-decoration: underline; }
+a:focus { outline: 3px solid rgba(0,0,0,0.08); outline-offset: 3px; border-radius: 4px; }
+
+button, .btn {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* body::before {
-  content: "";
-  background: url("../assets/background.svg") no-repeat center center;
-  background-size: 120%;
-  opacity: 0.15;
-  position: fixed;
-  top: 0;
-  left: 0;
+/* CTA style */
+.cta-btn {
+  display: inline-block;
+  background: var(--white);
+  color: var(--text);
+  border-radius: 28px;
+  padding: 12px 26px;
+  font-weight: var(--fw-medium);
+  text-transform: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform .14s ease, box-shadow .14s ease;
+  border: 2px solid rgba(0,0,0,0.06);
+}
+.cta-btn:focus { outline: 3px solid rgba(255,255,255,0.18); outline-offset: 4px; }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.15); }
+
+/* ---------- EMERGENCY SCREEN (mobile-first) ---------- */
+.emergency-screen{
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-} */
-
-/* Persistent centered logo background */
-#logo-bg {
-  background: url("../assets/background.svg") no-repeat center center;
-  background-size: 70%;
-  opacity: 0.15;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  animation: pulse 6s ease-in-out infinite;
-}
-
-/* Faint watermark background */
-body::before {
-  content: "";
-  background: url("../assets/background.svg") no-repeat center center;
-  background-size: 120%;
-  opacity: 0.15;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Container for content */
-.onboard {
-  z-index: 1;
-  max-width: 600px;
-}
-
-/* Headline + Subheadline */
-h2 {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  letter-spacing: 0.03em;
-  margin-bottom: 1rem;
-}
-
-p {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-/* Button */
-button {
-  background-color: #ffffff;
-  color: #0a0a0a;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-button:hover {
-  background-color: #0a0a0a;
-  color: #ffffff;
-  transform: scale(1.05);
-}
-
-/* Responsive typography */
-@media (min-width: 480px) {
-  h2 {
-    font-size: 1.8rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-  }
-}
-
-/* Subtle pulsing effect for the background */
-@keyframes pulse {
-  0% { opacity: 0.15; transform: scale(1); }
-  50% { opacity: 0.25; transform: scale(1.02); }
-  100% { opacity: 0.15; transform: scale(1); }
-}
-
-body::before {
-  animation: pulse 6s ease-in-out infinite;
-}
-
-
-/* --- Onboarding Transitions --- */
-.fade {
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-}
-
-.fade.show {
-  opacity: 1;
-}
-
-/* --- Onboarding Card Layout --- */
-.onboard {
-  z-index: 1;
-  max-width: 600px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* --- Headings --- */
-h2 {
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-/* --- Paragraphs --- */
-p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* --- CTA Buttons --- */
-button {
-  background-color: #fff;
-  color: #111;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #111;
-  color: #fff;
-}
-
-/* --- Small Note Text --- */
-.note {
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-
-/* --- EMERGENCY SCREEN STYLING --- */
-.emergency-screen {
-  background-color: #ff1e1e;
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  height: 100vh;
+  background: var(--bb-red);
+  color: var(--white);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 2rem;
-  box-sizing: border-box;
+  justify-content: center;
+  padding: 2.0rem 1.25rem;
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
 
+/* dotted / dashed outer ring (decorative) */
 .emergency-screen::before {
   content: "";
   position: absolute;
-  width: 180%;
-  height: 180%;
-  border: 3px dotted #fff;
+  left: 50%;
+  top: -10%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 140%;
   border-radius: 50%;
-  top: -40%;
-  left: -40%;
-  opacity: 0.3;
-  animation: pulse 6s infinite ease-in-out;
+  border: 8px dotted rgba(255,255,255,0.95);
+  opacity: 0.95;
+  pointer-events: none;
+  mix-blend-mode: normal;
+  z-index: 0;
+  will-change: transform, opacity;
+  animation: ebounce 6s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.3; }
-  50% { transform: scale(1.1); opacity: 0.4; }
+/* gentle scale animation for ring */
+@keyframes ebounce {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.95; }
+  50% { transform: translateX(-50%) scale(1.02); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 0.95; }
 }
 
-.emergency-screen h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.5px;
+.emergency-screen .container {
+  position: relative;
+  z-index: 2; /* above decorative ring */
+  max-width: var(--max-content-width);
+  width: 100%;
+}
+
+/* small header line */
+.emergency-screen .kicker {
+  font-size: 0.92rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.4px;
   text-transform: uppercase;
+  opacity: 0.98;
+  margin-bottom: 0.4rem;
 }
 
-.emergency-screen h2 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin: 1rem 0;
+/* big dial text (DIAL 112) */
+.emergency-screen .dial {
+  font-weight: var(--fw-bold);
+  font-size: clamp(2.2rem, 8vw, 5.0rem);
+  margin: 0.3rem 0 0.6rem;
+  line-height: 0.9;
 }
 
-.emergency-screen p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 1rem 0;
-  color: #fff;
-  max-width: 600px;
+/* paragraph/support text */
+.emergency-screen p.lead {
+  font-weight: 300;
+  font-size: clamp(0.95rem, 3.2vw, 1.05rem);
+  margin: 0.6rem auto 1.6rem;
+  max-width: 54ch;
+  color: rgba(255,255,255,0.98);
 }
 
-.cta-btn {
-  background-color: #fff;
-  color: #111;
-  border: none;
-  border-radius: 1.5rem;
-  padding: 0.9rem 2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.cta-btn:hover {
-  background-color: #111;
-  color: #fff;
-  transform: scale(1.05);
-}
-
-/* --- DASHBOARD --- */
-.dashboard {
-  background-color: #fff;
-  color: #111;
-  height: 100vh;
+/* big 'Say Hey' button */
+.emergency-screen .start-wrap {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  margin-top: 1.4rem;
+}
+
+/* small logo watermark top-left (persistent) */
+.logo-watermark {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 9999;
+  opacity: var(--logo-opacity);
+  width: 64px;
+  height: 64px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Poppins', sans-serif;
+  pointer-events: none; /* decorative only */
+  filter: grayscale(1) contrast(1.1) brightness(0.98);
+}
+/* if it's an SVG, prefer outlining to full fill; the svg itself should be prepared as outlined black */
+.logo-watermark img, .logo-watermark svg {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  opacity: 0.95;
 }
 
+/* ---------- DASHBOARD / RADAR ---------- */
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: #fff;
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+/* radar container (responsive) */
 .radar {
-  width: 200px;
-  height: 200px;
+  width: clamp(200px, 60vw, 420px);
+  height: clamp(200px, 60vw, 420px);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,0,0,0.1) 40%, rgba(255,0,0,0.05) 70%);
-  border: 2px solid rgba(255,0,0,0.5);
+  background: radial-gradient(circle at 40% 40%, rgba(227,27,27,0.03) 10%, rgba(227,27,27,0.02) 30%, rgba(200,200,200,0.03) 80%, rgba(255,255,255,0.02) 100%);
+  border: 2px solid rgba(0,0,0,0.04);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+  display: block;
   position: relative;
   overflow: hidden;
 }
 
+/* inner soft center */
+.radar .center {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 20%;
+  height: 20%;
+  transform: translate(-50%,-50%);
+  background: radial-gradient(circle, #ff3b3b 0%, rgba(200,0,0,0.9) 30%, rgba(200,0,0,0.6) 100%);
+  border-radius: 50%;
+  box-shadow: 0 8px 30px rgba(227,27,27,0.35);
+}
+
+/* pulsating outer sweep (decorative) */
 .radar::after {
   content: "";
   position: absolute;
-  width: 60%;
-  height: 60%;
-  top: 20%;
-  left: 20%;
+  width: 120%;
+  height: 120%;
+  left: -10%;
+  top: -10%;
   border-radius: 50%;
-  background: rgba(255,0,0,0.2);
-  animation: radarPulse 3s infinite;
+  background: conic-gradient(rgba(227,27,27,0.06), transparent 20%);
+  transform-origin: 50% 50%;
+  animation: radar-spin 3.5s linear infinite;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+@keyframes radar-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-@keyframes radarPulse {
-  0% { transform: scale(0.5); opacity: 0.8; }
-  100% { transform: scale(1.4); opacity: 0; }
+/* small blip style (added via JS) */
+.blip {
+  position: absolute;
+  width: clamp(8px, 2.2vw, 12px);
+  height: clamp(8px, 2.2vw, 12px);
+  border-radius: 50%;
+  background: #0b82a7;
+  box-shadow: 0 4px 10px rgba(11,130,167,0.2);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
+/* status copy under radar */
 .status {
-  margin-top: 2rem;
-  font-size: 1rem;
-  color: #555;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Focus and accessibility ---------- */
+:focus { outline: none; }
+button:focus, a:focus, input:focus {
+  outline: 3px solid rgba(0,0,0,0.08);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .emergency-screen::before,
+  .radar::after { animation: none !important; }
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Responsive tweaks (larger screens) ---------- */
+@media (min-width: 720px) {
+  .emergency-screen {
+    padding: 3.5rem 2.5rem;
   }
+  .emergency-screen .kicker { font-size: 1rem; }
+  .emergency-screen .dial { font-size: clamp(3rem, 4.6vw, 6.4rem); }
+  .emergency-screen p.lead { font-size: 1.05rem; }
+  .logo-watermark { width: 84px; height: 84px; left: 2rem; top: 1rem; }
+}
+
+/* ---------- small util helpers ---------- */
+.container-narrow { max-width: var(--max-content-width); margin: 0 auto; padding: 0 1rem; }
+.center { text-align: center; }
+
+/* end of file */
