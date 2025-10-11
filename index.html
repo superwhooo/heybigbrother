@@ -3,19 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIG BROTHER</title>
+  <title>BIG BROTHER | Safety Companion</title>
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
 </head>
-<body>
-  <div id="logo-bg"></div>
 
-  <main id="app">
-    <div id="loading-screen">
-      <img src="assets/logo.svg" alt="Big Brother logo" class="logo" />
-      <h1>BIG BROTHER</h1>
-      <p>Loading your safe space...</p>
+<body>
+  <!-- persistent logo watermark -->
+  <div class="logo-watermark">
+    <img src="assets/logo.svg" alt="BIG BROTHER logo">
+  </div>
+
+  <!-- emergency intro screen -->
+  <section class="emergency-screen">
+    <div class="container">
+      <h1 class="kicker">IN THE CASE OF AN ACTIVE EMERGENCY</h1>
+      <h2 class="dial">DIAL 112</h2>
+      <p class="lead">
+        That’s India’s official emergency helpline. 
+        <strong>BIG BROTHER</strong> is not the police system — we’re an aid to their system, 
+        built to help you and your loved ones stay connected and get help faster.
+      </p>
+
+      <p class="lead">
+        If you’re safe right now, let’s get you set up to stay that way.
+      </p>
+
+      <div class="start-wrap">
+        <button class="cta-btn" onclick="window.location.href='onboarding.html'">
+          Say Hey, BIG BROTHER
+        </button>
+      </div>
     </div>
-  </main>
+  </section>
 </body>
 </html>
