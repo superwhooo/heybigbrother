@@ -111,3 +111,62 @@ button:hover {
 body::before {
   animation: pulse 6s ease-in-out infinite;
 }
+
+
+/* --- Onboarding Transitions --- */
+.fade {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.fade.show {
+  opacity: 1;
+}
+
+/* --- Onboarding Card Layout --- */
+.onboard {
+  z-index: 1;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Headings --- */
+h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* --- Paragraphs --- */
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* --- CTA Buttons --- */
+button {
+  background-color: #fff;
+  color: #111;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+/* --- Small Note Text --- */
+.note {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
