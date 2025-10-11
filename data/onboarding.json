@@ -16,5 +16,53 @@
     "title": "Our Promise",
     "text": "We’re not here to collect your personal life. Our priority is simple — to help keep you safe. We’re here to remind you that you are in control, and that feeling safe should never depend on constant monitoring. BIG BROTHER is built on the idea that safety comes from connection — that community is our greatest strength. Our purpose is to make the world a little safer, for you, your loved ones, and everyone else around us, a single heartbeat at a time.",
     "cta": "I Understand"
+  },
+  {
+    "id": 3,
+    "title": "Your Part of the Promise",
+    "text": "By continuing, you agree to use BIG BROTHER responsibly: With respect for privacy — you will not try to access anyone else’s information. You can’t. We don’t either. For genuine safety only — false alerts can divert real help. With consent — add Guardians only with their knowledge. With truth — the details you share during an alert help rescuers reach you faster. What we promise in return: We don’t collect or sell your data. Your information stays on your device, shared only when help must reach you. You can delete your account data at any time. No unwanted emails or promotions. Every feature exists only to keep you safe — nothing more, nothing less.",
+    "cta": "I Accept the Promise"
+  },
+  {
+    "id": 4,
+    "title": "Know Your Tools",
+    "text": "Learn how BIG BROTHER keeps you safe — one step at a time. Walk With Me: Lets your Guardian walk you home virtually, with view access enabled only until you choose to end it. Guardian Call: Connect instantly with a trusted Guardian. Panic Mode: Triggers immediate alerts and location sharing. SOS: Alerts emergency services and your Guardians at once. Vault: Keeps your data encrypted and secure. Down Time: Guided calm moments to help you steady your breath.",
+    "cta": "Next"
+  },
+  {
+    "id": 5,
+    "title": "Your Guardians",
+    "text": "You are never alone. BIG BROTHER is your circle of trust — built by you, around you, for you. Before we begin, think of the people who make you feel safe. Which one of yours will help us have your back? Add as many Guardians as you’d like — but to continue, start with your first. On your map, each Guardian appears as a small heart outlined in brackets — your anchor of safety.",
+    "cta": "Add My Guardian"
+  },
+  {
+    "id": 6,
+    "title": "Blips",
+    "text": "Blips are what make BIG BROTHER a community. They are users like you who’ve chosen to be visible only when someone nearby needs help. You’ll see them as gentle, glowing dots — quiet markers of safety, reminders that you’re never alone.",
+    "cta": "Continue"
+  },
+  {
+    "id": 7,
+    "title": "Access & Permissions",
+    "text": "Here’s what we’ll need to help keep you safe. Location: To guide responders and Guardians when you need help. Motion & Sensors: For Down Time feedback and detecting distress. Microphone: For guided breathing and monitoring pulse through touch. Notifications: To alert you in case someone nearby needs help, and to remind you to take your Down Time. You’ll always be in control of what’s shared and when.",
+    "cta": "Allow Access"
+  },
+  {
+    "id": 8,
+    "title": "The Pledge",
+    "text": "With respect for privacy, honesty, and safety — I pledge to use BIG BROTHER responsibly. I will never misuse the system, and I will help others when I can — without ever putting myself in harm’s way. I agree to this pledge and can choose to opt into the community program to assist others safely when needed.",
+    "cta": "Sign the Pledge"
+  },
+  {
+    "id": 9,
+    "title": "The Heartbeat",
+    "text": "The entire universe runs through you. The red screen ripples softly — zooming out to reveal the pulsing heart at the center: you. Rings expand gently outward, showing nearby Blips and your Guardians — all connected in calm motion. The world around you lights up as the heart beats. Welcome to your safe space.",
+    "cta": "Continue"
+  },
+  {
+    "id": 10,
+    "title": "Welcome Home",
+    "text": "A gentle pulse continues at the center — one ripple displays 112 faintly, grounding the design in purpose. The screen transitions smoothly into your live radar view. BIG BROTHER is ready — your safety, your circle, your control.",
+    "cta": "Enter Dashboard"
   }
 ]
