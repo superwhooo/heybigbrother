@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 400 400"
+     width="400" height="400"
+     role="img"
+     aria-label="Ticker: 112 in emergency — United Souls Guild">
+  <defs>
+    <!-- Circular path for ticker text -->
+    <path id="tickerPath"
+          d="M 200,50
+             A 150,150 0 1,1 199.999,50" />
+    <!-- soft drop shadow / glow for central area (optional) -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      /* pick brand fonts (Poppins primary, Kalam for cursive bits) */
+      .ticker-text {
+        font-family: "Poppins", "Kalam", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.2px;
+        fill: white;
+      }
+      /* use CSS variable for color so you can toggle states easily */
+      :root { --ticker-fill: #ffffff; }
+      .ticker-text { fill: var(--ticker-fill); }
+
+      /* hide glyph-overlap artefacts on some renderers */
+      textPath { text-anchor: middle; dominant-baseline: middle; }
+
+      /* optional: reduce contrast on very small screens */
+      @media (max-width: 360px) {
+        .ticker-text { font-size: 10px; }
+      }
+    </style>
+  </defs>
+
+  <!-- background circle (emergency state default = red). Change via CSS or replace fill. -->
+  <circle cx="200" cy="200" r="180" fill="#d93025" />
+
+  <!-- center area (white awareness field) -->
+  <circle cx="200" cy="200" r="60" fill="#ffffff" filter="url(#softGlow)" opacity="0.95"/>
+
+  <!-- Placeholder: central icon group. Replace contents with your heart/logo SVG. -->
+  <g id="center-icon" transform="translate(200, 200)">
+    <!-- Example red heart scaled to fit; replace with your full SVG -->
+    <path d="M0 -12
+             C -10 -32, -40 -32, -40 -4
+             C -40 14, -12 28, 0 36
+             C 12 28, 40 14, 40 -4
+             C 40 -32, 10 -32, 0 -12 Z"
+          fill="#E53935" stroke="#B71C1C" stroke-width="1"/>
+  </g>
+
+  <!-- group that holds the rotating ticker (so you can stop rotation by removing animateTransform) -->
+  <g id="rotating-ticker" transform="translate(0,0)">
+    <!-- The textPath uses the tickerPath defined above.
+         We repeat the message twice in a row to ensure comfortable spacing along the circle. -->
+    <text class="ticker-text" >
+      <textPath xlink:href="#tickerPath" startOffset="50%">
+        112 IN EMERGENCY · A MISSION SHAKTHI INITIATIVE · UNITED SOULS GUILD ©®™✓ · 112 ತುರ್ತು ಪರಿಸ್ಥಿತಿಯಲ್ಲಿ · ಮಿಷನ್ ಶಕ್ತಿ ಯೋಜನೆ · ಯುನೈಟೆಡ್ ಸೋಲ್ಸ್ ಗಿಲ್ಡ್ ©®™✓ ·
+        &nbsp;&nbsp;112 IN EMERGENCY · A MISSION SHAKTHI INITIATIVE · UNITED SOULS GUILD ©®™✓ · 112 ತುರ್ತು ಪರಿಸ್ಥಿತಿಯಲ್ಲಿ · ಮಿಷನ್ ಶಕ್ತಿ ಯೋಜನೆ · ಯುನೈಟೆಡ್ ಸೋಲ್ಸ್ ಗಿಲ್ಡ್ ©®™✓
+      </textPath>
+    </text>
+    <!-- slow rotation: adjust dur (e.g., 30s) or remove this <animateTransform> -->
+    <animateTransform attributeName="transform"
+                      attributeType="XML"
+                      type="rotate"
+                      from="0 200 200"
+                      to="360 200 200"
+                      dur="30s"
+                      repeatCount="indefinite"
+                      calcMode="linear"/>
+  </g>
+
+  <!-- subtle inner ring (gives the ticker a reading boundary) -->
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+</svg>
