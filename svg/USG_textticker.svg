@@ -1,70 +1,56 @@
-<!-- usg_ticker_with_usg_ring.svg -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Outer ticker path -->
-    <path id="tickerPath" d="M256,60 a196,196 0 1,1 0,392 a196,196 0 1,1 0,-392" fill="none"/>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-    <!-- Inner static USG path -->
-    <path id="usgPath" d="M256,120 a136,136 0 1,1 0,272 a136,136 0 1,1 0,-272" fill="none"/>
+      text {
+        font-family: 'Poppins', sans-serif;
+        fill: #0B0643;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
 
-    <style><![CDATA[
-      .ticker-text {
-        font-family: "Poppins", sans-serif;
-        font-size: 18px;
-        letter-spacing: 0.8px;
-        fill: #0B0643;
-        text-transform: uppercase;
+      /* Outer ticker rotation */
+      @keyframes rotateTicker {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
-      .usg-text {
-        font-family: "Poppins", sans-serif;
-        font-size: 20px;
-        letter-spacing: 2px;
-        fill: #0B0643;
-        font-weight: 600;
-        text-transform: uppercase;
+
+      #ticker-group {
+        transform-origin: 50% 50%;
+        animation: rotateTicker 21s linear infinite;
       }
-      .static-text {
-        font-family: "Poppins", sans-serif;
-        font-size: 26px;
-        font-weight: 700;
-        fill: #0B0643;
-        text-transform: uppercase;
-      }
-    ]]></style>
+    </style>
   </defs>
 
-  <!-- Transparent background -->
-  <rect width="512" height="512" fill="transparent"/>
+  <!-- Alignment circle (invisible in final) -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="none"/>
 
-  <!-- Animated circular ticker (outer ring) -->
-  <g id="ticker" transform-origin="256 256">
-    <text class="ticker-text">
+  <!-- Static bottom text -->
+  <text x="256" y="476" font-size="24" font-weight="700">CALL 112.</text>
+
+  <!-- Outer ticker rotating group -->
+  <g id="ticker-group">
+    <path id="tickerPath" d="M 256,36 a220,220 0 1,1 0,440 a220,220 0 1,1 0,-440" fill="none"/>
+
+    <text font-size="20" font-weight="600">
       <textPath href="#tickerPath" startOffset="0%">
-        ▣ IN EMERGENCY, CALL 112 ▣ ತುರ್ತು ಸನ್ನಿವೇಶದಲ್ಲಿ 112 ಕರೆ ಮಾಡಿ ▣ 緊急時は112に電話してください ▣ في حالات الطوارئ اتصل بالرقم 112 ▣ EN CAS D'URGENCE APPELEZ LE 112 ▣ EN EMERGENCIA LLAME AL 112 ▣
+        112 IN EMERGENCY · ತುರ್ತು ಸನ್ನಿವೇಶದಲ್ಲಿ 112 ಕರೆ ಮಾಡಿ · आपात स्थिति में 112 डायल करें · 
+        112 IN EMERGENCY · ತುರ್ತು ಸನ್ನಿವೇಶದಲ್ಲಿ 112 ಕರೆ ಮಾಡಿ · आपात स्थिति में 112 डायल करें · 
       </textPath>
     </text>
-
-    <!-- 21-second slow rotation -->
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="rotate"
-      from="0 256 256"
-      to="360 256 256"
-      dur="21s"
-      repeatCount="indefinite"/>
   </g>
 
-  <!-- Static middle circular band: UNITED SOULS GUILD -->
-  <text class="usg-text">
-    <textPath href="#usgPath" startOffset="50%" text-anchor="middle">
-      UNITED SOULS GUILD · UNITED SOULS GUILD · UNITED SOULS GUILD ·
+  <!-- Inner static ring -->
+  <path id="innerPath" d="M 256,106 a150,150 0 1,1 0,300 a150,150 0 1,1 0,-300" fill="none"/>
+  <text font-size="18" font-weight="600">
+    <textPath href="#innerPath" startOffset="0%">
+      A MISSION SHAKTHI INITIATIVE · UNITED SOULS GUILD ©®™✓ · A MISSION SHAKTHI INITIATIVE · UNITED SOULS GUILD ©®™✓ · 
     </textPath>
   </text>
 
-  <!-- Static top text -->
-  <text class="static-text" x="256" y="84" text-anchor="middle">CALL 112</text>
-
-  <!-- Placeholder circle for user_icon.svg center (optional visual guide) -->
-  <circle cx="256" cy="256" r="80" fill="none" stroke="#0B0643" stroke-opacity="0.05" stroke-width="1"/>
+  <!-- User icon import -->
+  <g transform="translate(156,156) scale(1.0)">
+    <use href="user_icon.svg#layer1"/>
+  </g>
 </svg>
