@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
-    <!-- Soft outer glow -->
+    <!-- Glow filter -->
     <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="20" result="blur"/>
       <feMerge>
@@ -9,25 +9,23 @@
     </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="200" height="200" fill="#C8102E"/>
-
   <!-- Diffused outer glow -->
-  <circle cx="100" cy="100" r="45" fill="white" opacity="0.12" filter="url(#soft-glow)">
-    <animate attributeName="r" values="45;47;45" dur="1s" repeatCount="indefinite"/>
+  <circle transform=" scale(1.42)"
+    cx="100" cy="100" r="50" fill="white" opacity="0.12" filter="url(#soft-glow)">
+    <animate attributeName="r" values="50;53;50" dur="1s" repeatCount="indefinite"/>
   </circle>
 
-  <!-- Solid safety field -->
+  <!-- Solid awareness field -->
   <circle cx="100" cy="100" r="30" fill="white"/>
 
-  <!-- Heart -->
-  <path transform="translate(100,106)"
-        d="M0 38 C -15 23, -50 3, -40 -27 C -30 -52, 0 -42, 0 -22
-           C 0 -42, 30 -52, 40 -27 C 50 3, 15 23, 0 38 Z"
+  <!-- Heart (approx 42px high) -->
+  <path transform="translate(100,100) scale(0.42)"
+        d="M0 90 C -35 60, -100 10, -80 -40 C -60 -80, 0 -60, 0 -30
+           C 0 -60, 60 -80, 80 -40 C 100 10, 35 60, 0 90 Z"
         fill="#E53935">
     <animateTransform attributeName="transform"
                       type="scale"
-                      values="1;1.05;1"
+                      values="0.42;0.45;0.42"
                       dur="1s"
                       repeatCount="indefinite"
                       additive="sum"/>
