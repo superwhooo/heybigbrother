@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guardian Icon Test</title>
+<style>
+  body {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+</style>
+</head>
+<body>
+
+<!-- Load your SVG from GitHub raw link -->
+<object type="image/svg+xml" data="guardian_icon.svg" width="400" height="400"></object>
+
+<!-- Optional: add the auto-state-cycle script -->
+<script>
+const states = ["offline", "contacted", "online", "enroute", "online_contacted"];
+let index = 0;
+
+setInterval(() => {
+  states.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute("visibility", "hidden");
+  });
+  const visible = document.getElementById(states[index]);
+  if (visible) visible.setAttribute("visibility", "visible");
+  index = (index + 1) % states.length;
+}, 3000);
+</script>
+
+</body>
+</html>
