@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="400" height="400"
+     viewBox="0 0 200 200"
+     aria-labelledby="title desc"
+     role="img">
+  <title id="title">Big Brother — Police Icon</title>
+  <desc id="desc">Dual-state icon representing Police Idle and Emergency modes.</desc>
+
+  <!-- Base Background (neutral) -->
+  <rect width="200" height="200" fill="#ffffff"/>
+
+  <!-- ============ STATE 1: NORMAL / IDLE ============ -->
+  <g id="police-idle">
+    <!-- Subtle lime ring -->
+    <circle cx="100" cy="88" r="52" fill="none" stroke="#C1FF72" stroke-width="4" stroke-opacity="0.9"/>
+
+    <!-- Shield -->
+    <path d="M100 34
+             C88 34 70 40 70 58
+             L70 88
+             C70 115 87 134 100 142
+             C113 134 130 115 130 88
+             L130 58
+             C130 40 112 34 100 34 Z"
+          fill="#0B0643" stroke="#0B0643" stroke-width="1"/>
+
+    <!-- Heart -->
+    <path d="M100 66
+             C95 58 84 58 79 66
+             C72 76 92 88 100 98
+             C108 88 128 76 121 66
+             C116 58 105 58 100 66 Z"
+          fill="#FFFFFF" stroke="#0B0643" stroke-width="2" stroke-linejoin="round"/>
+
+    <!-- Accent dots -->
+    <circle cx="100" cy="28" r="3" fill="#C1FF72"/>
+  </g>
+
+  <!-- ============ STATE 2: EMERGENCY ============ -->
+  <g id="police-emergency" display="none">
+    <!-- Red alert backdrop -->
+    <rect width="200" height="200" fill="#D62828"/>
+
+    <!-- Halo -->
+    <circle cx="100" cy="88" r="62" fill="none" stroke="#C1FF72" stroke-width="12" stroke-opacity="0.3"/>
+
+    <!-- Shield -->
+    <path d="M100 40
+             C90 40 74 45 74 60
+             L74 88
+             C74 110 88 126 100 132
+             C112 126 126 110 126 88
+             L126 60
+             C126 45 110 40 100 40 Z"
+          fill="#0B0643"/>
+
+    <!-- Heart (lime for life) -->
+    <path d="M100 68
+             C95 60 84 60 79 68
+             C72 78 92 90 100 100
+             C108 90 128 78 121 68
+             C116 60 105 60 100 68 Z"
+          fill="#C1FF72" stroke="#0B0643" stroke-width="2"/>
+
+    <!-- Lime beacon ring -->
+    <circle cx="100" cy="88" r="48" fill="none" stroke="#C1FF72" stroke-width="3"/>
+  </g>
+
+</svg>
