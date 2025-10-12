@@ -1,9 +1,9 @@
 <svg id="user_heart" xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 200 200" width="200" height="200"; 
-     display:block; margin:auto;">
+     viewBox="0 0 200 200" width="200" height="200"
+     style="background-color:#B71C1C; display:block; margin:auto;">
 
   <!-- Centering group, visually balanced lower -->
-  <g transform="translate(100,150)">
+  <g transform="translate(100,106)">
 
     <!-- Gradient Glow -->
     <defs>
@@ -36,7 +36,7 @@
     <!-- Core Heart Shape (final visual center) -->
     <path
   id="heart-shape"
-  transform="translate(0,60)"     <!-- ← moves the heart down 3 units -->
+  transform="translate(0,3)"     <!-- ← moves the heart down 3 units -->
   d="M0 38
      C -15 23, -50 3, -40 -27
      C -30 -52, 0 -42, 0 -22
