@@ -1,101 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" width="400" height="400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Transparent background -->
+  <rect width="100%" height="100%" fill="transparent"/>
 
-  <style>
-    /* Shared heart breathing animation */
-    @keyframes breathe {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.08); opacity: 0.85; }
-    }
-
-    /* Dot breathing for top/side */
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.25); opacity: 0.85; }
-    }
-
-    .heart, .dot {
-      transform-origin: center;
-      transform-box: fill-box;
-    }
-
-    .heart.breathe { animation: breathe 3s ease-in-out infinite; }
-    .dot.pulse { animation: pulse 3s ease-in-out infinite; }
-    .dot.bottom { animation: none; }
-
-    /* Halo pulse for online_contacted */
-    @keyframes haloGlow {
-      0%, 100% { r: 95; opacity: 0.2; }
-      50% { r: 105; opacity: 0.05; }
-    }
-    .halo { animation: haloGlow 3s ease-in-out infinite; }
-
-    /* Fade transitions (optional JS toggling support) */
-    g[visibility="hidden"] { opacity: 0; transition: opacity 0.5s ease-in-out; }
-    g[visibility="visible"] { opacity: 1; transition: opacity 0.5s ease-in-out; }
-  </style>
-
-  <!-- ===================== OFFLINE ===================== -->
-  <g id="offline" visibility="visible">
-    <path class="heart breathe" fill="#0b0643"
-      d="M187.5 150
-         c-14 0 -26 11 -26 24.5
-         0 13.5 12 26.5 26 34.5
-         14 -8 26 -21 26 -34.5
-         0 -13.5 -12 -24.5 -26 -24.5z"/>
-    <circle class="dot pulse" cx="187.5" cy="110" r="10" fill="#0b0643"/>
-    <circle class="dot pulse" cx="155" cy="180" r="6" fill="#0b0643"/>
-    <circle class="dot pulse" cx="220" cy="180" r="6" fill="#0b0643"/>
-    <circle class="dot bottom" cx="187.5" cy="235" r="6" fill="#0b0643"/>
+  <!-- 💙 Core Heart -->
+  <g id="heart" transform="translate(200,195)">
+    <path d="M -34 -20 C -34 -38 -12 -48 0 -34 C 12 -48 34 -38 34 -20 
+             C 34 -5 0 22 0 22 C 0 22 -34 -5 -34 -20 Z"
+          fill="#0B0643"/>
   </g>
 
-  <!-- ===================== CONTACTED ===================== -->
-  <g id="contacted" visibility="hidden">
-    <path fill="#0b0643"
-      d="M187.5 150
-         c-14 0 -26 11 -26 24.5
-         0 13.5 12 26.5 26 34.5
-         14 -8 26 -21 26 -34.5
-         0 -13.5 -12 -24.5 -26 -24.5z"/>
-    <path stroke="#c1ff72" stroke-width="8" fill="none"
-          d="M150 140 L225 140 L225 235 L150 235 Z"/>
+  <!-- 🛡️ Guardian Dots -->
+  <g id="offline" transform="translate(200,195)">
+    <!-- Head -->
+    <circle cx="0" cy="-58" r="14" fill="#0B0643"/> 
+    <!-- Base triangle -->
+    <circle cx="-45" cy="15" r="10" fill="#0B0643"/>  <!-- Left -->
+    <circle cx="45" cy="15" r="10" fill="#0B0643"/>   <!-- Right -->
+    <circle cx="0" cy="63" r="10" fill="#0B0643"/>    <!-- Bottom -->
   </g>
 
-  <!-- ===================== ONLINE ===================== -->
-  <g id="online" visibility="hidden">
-    <path fill="#0b0643"
-      d="M187.5 150
-         c-14 0 -26 11 -26 24.5
-         0 13.5 12 26.5 26 34.5
-         14 -8 26 -21 26 -34.5
-         0 -13.5 -12 -24.5 -26 -24.5z"/>
-    <circle cx="187.5" cy="187.5" r="60" stroke="#c1ff72" stroke-width="8" fill="none"/>
+  <!-- 2️⃣ CONTACTED -->
+  <g id="contacted" transform="translate(200,195)" style="display:none">
+    <path d="M -34 -20 C -34 -38 -12 -48 0 -34 C 12 -48 34 -38 34 -20 
+             C 34 -5 0 22 0 22 C 0 22 -34 -5 -34 -20 Z"
+          fill="#0B0643" stroke="#A4FF85" stroke-width="8" stroke-opacity="0.65"/>
   </g>
 
-  <!-- ===================== EN ROUTE ===================== -->
-  <g id="enroute" visibility="hidden">
-    <circle cx="187.5" cy="187.5" r="80" fill="#c1ff72"/>
-    <circle cx="187.5" cy="187.5" r="95"
-            stroke="#0b0643" stroke-width="3"
-            stroke-dasharray="4,4" fill="none"/>
-    <path fill="#0b0643"
-      d="M187.5 150
-         c-14 0 -26 11 -26 24.5
-         0 13.5 12 26.5 26 34.5
-         14 -8 26 -21 26 -34.5
-         0 -13.5 -12 -24.5 -26 -24.5z"/>
+  <!-- 3️⃣ ONLINE -->
+  <g id="online" transform="translate(200,195)" style="display:none">
+    <circle r="85" fill="none" stroke="#C1FF72" stroke-width="8"/>
   </g>
 
-  <!-- ===================== ONLINE CONTACTED ===================== -->
-  <g id="online_contacted" visibility="hidden">
-    <circle class="halo" cx="187.5" cy="187.5" r="95" fill="#c1ff72" opacity="0.2"/>
-    <circle cx="187.5" cy="187.5" r="70" fill="#c1ff72"/>
-    <path fill="#0b0643"
-      d="M187.5 150
-         c-14 0 -26 11 -26 24.5
-         0 13.5 12 26.5 26 34.5
-         14 -8 26 -21 26 -34.5
-         0 -13.5 -12 -24.5 -26 -24.5z"/>
+  <!-- 4️⃣ MESSAGED -->
+  <g id="messaged" transform="translate(200,195)" style="display:none">
+    <circle r="70" fill="none" stroke="#C1FF72" stroke-width="4" stroke-dasharray="8 8"/>
   </g>
 
+  <!-- 5️⃣ ENROUTE -->
+  <g id="enroute" transform="translate(200,195)" style="display:none">
+    <circle r="95" fill="#C1FF72" opacity="0.18"/>
+  </g>
 </svg>
