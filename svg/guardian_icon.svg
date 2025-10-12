@@ -1,21 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" preserveAspectRatio="xMidYMid meet">
-  <g id="guardian_offline" opacity="1">
-    <!-- Offline -->
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" zoomAndPan="magnify" viewBox="0 0 375 374.999991" height="500" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><g/><clipPath id="3d4c967f04"><path d="M 148.371094 152.179688 L 226.464844 152.179688 L 226.464844 222.820312 L 148.371094 222.820312 Z M 148.371094 152.179688 " clip-rule="nonzero"/></clipPath><clipPath id="c297def2ce"><path d="M 225.320312 167.105469 C 222.859375 158.757812 214.925781 152.179688 205.542969 152.179688 C 197.667969 152.179688 190.820312 156.625 187.363281 163.152344 C 183.902344 156.625 177.058594 152.179688 169.183594 152.179688 C 159.367188 152.179688 150.785156 158.757812 149.097656 168.308594 C 144.824219 192.527344 171.914062 211.484375 187.421875 222.820312 C 201.765625 212.339844 232.347656 190.972656 225.320312 167.105469 Z M 225.320312 167.105469 " clip-rule="nonzero"/></clipPath><clipPath id="36c62d5f81"><path d="M 0.558594 0.179688 L 78.464844 0.179688 L 78.464844 70.820312 L 0.558594 70.820312 Z M 0.558594 0.179688 " clip-rule="nonzero"/></clipPath><clipPath id="e94f906276"><path d="M 77.320312 15.105469 C 74.859375 6.757812 66.925781 0.179688 57.542969 0.179688 C 49.667969 0.179688 42.820312 4.625 39.363281 11.152344 C 35.902344 4.625 29.058594 0.179688 21.183594 0.179688 C 11.367188 0.179688 2.785156 6.757812 1.097656 16.308594 C -3.175781 40.527344 23.914062 59.484375 39.421875 70.820312 C 53.765625 60.339844 84.347656 38.972656 77.320312 15.105469 Z M 77.320312 15.105469 " clip-rule="nonzero"/></clipPath><clipPath id="6d4611eeb6"><rect x="0" width="79" y="0" height="71"/></clipPath><clipPath id="1eb344c5f4"><rect x="0" width="154" y="0" height="212"/></clipPath></defs><rect x="-37.5" width="450" fill="#ffffff" y="-37.499999" height="449.999989" fill-opacity="1"/><rect x="-37.5" width="450" fill="#ffffff" y="-37.499999" height="449.999989" fill-opacity="1"/><g clip-path="url(#3d4c967f04)"><g clip-path="url(#c297def2ce)"><g transform="matrix(1, 0, 0, 1, 148, 152)"><g clip-path="url(#6d4611eeb6)"><g clip-path="url(#36c62d5f81)"><g clip-path="url(#e94f906276)"><path fill="#0b0643" d="M 0.648438 0.179688 L 78.464844 0.179688 L 78.464844 70.820312 L 0.648438 70.820312 Z M 0.648438 0.179688 " fill-opacity="1" fill-rule="nonzero"/></g></g></g></g></g></g><g transform="matrix(1, 0, 0, 1, 111, 81)"><g clip-path="url(#1eb344c5f4)"><g fill="#0b0643" fill-opacity="1"><g transform="translate(0.617776, 158.64379)"><g><path d="M 41.09375 -140.609375 L 41.09375 -131.875 L 27.84375 -131.875 L 27.84375 19.125 L 41.09375 19.125 L 41.09375 28 L 17.921875 28 L 17.921875 -140.609375 Z M 41.09375 -140.609375 "/></g></g></g><g fill="#0b0643" fill-opacity="1"><g transform="translate(55.863064, 158.64379)"><g/></g></g><g fill="#0b0643" fill-opacity="1"><g transform="translate(97.108865, 158.64379)"><g><path d="M 37.328125 28 L 14.15625 28 L 14.15625 19.125 L 27.40625 19.125 L 27.40625 -131.875 L 14.15625 -131.875 L 14.15625 -140.609375 L 37.328125 -140.609375 Z M 37.328125 28 "/></g></g></g></g></g></svg>
+<svg id="guardian-core" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" width="400" height="400">
+  <rect width="375" height="375" fill="white"/>
+
+  <!-- ================= OFFLINE ================= -->
+  <g id="offline" style="display:block;">
+    <path d="M187.5 190 C167.5 160, 130 170, 130 200 C130 230, 170 260, 187.5 275 C205 260, 245 230, 245 200 C245 170, 207.5 160, 187.5 190Z" fill="#0B0643"/>
+    <circle cx="187.5" cy="135" r="13" fill="#0B0643"/>
+    <circle cx="117" cy="210" r="7" fill="#0B0643"/>
+    <circle cx="258" cy="210" r="7" fill="#0B0643"/>
+    <circle cx="187.5" cy="285" r="5" fill="#0B0643"/>
   </g>
 
-  <g id="guardian_messaged" opacity="0">
-    <!-- Messaged -->
-    <!-- Paste your full messaged SVG content here -->
+  <!-- ================= CONTACTED ================= -->
+  <g id="contacted" style="display:none;">
+    <path id="heart-contacted" d="M187.5 190 C167.5 160, 130 170, 130 200 C130 230, 170 260, 187.5 275 C205 260, 245 230, 245 200 C245 170, 207.5 160, 187.5 190Z" fill="#0B0643"/>
+    <circle id="pulse" cx="187.5" cy="210" r="50" fill="none" stroke="#C1FF72" stroke-width="5" opacity="0"/>
+    <circle cx="187.5" cy="135" r="13" fill="#0B0643"/>
+    <circle cx="117" cy="210" r="7" fill="#0B0643"/>
+    <circle cx="258" cy="210" r="7" fill="#0B0643"/>
+    <circle cx="187.5" cy="285" r="5" fill="#0B0643"/>
   </g>
 
-  <g id="guardian_online" opacity="0">
-    <!-- Online -->
-    <!-- Paste your full online SVG content here -->
+  <!-- ================= ONLINE ================= -->
+  <g id="online" style="display:none;">
+    <path d="M187.5 190 C167.5 160, 130 170, 130 200 C130 230, 170 260, 187.5 275 C205 260, 245 230, 245 200 C245 170, 207.5 160, 187.5 190Z"
+      fill="#0B0643" stroke="#C1FF72" stroke-width="4" stroke-opacity="0.8"/>
+    <circle cx="187.5" cy="135" r="13" fill="#C1FF72"/>
+    <circle cx="117" cy="210" r="7" fill="#C1FF72"/>
+    <circle cx="258" cy="210" r="7" fill="#C1FF72"/>
+    <circle cx="187.5" cy="285" r="5" fill="#C1FF72"/>
   </g>
 
-  <g id="guardian_enroute" opacity="0">
-    <!-- Enroute -->
-    <!-- Paste your full enroute SVG content here -->
+  <!-- ================= RESTING ================= -->
+  <g id="resting" style="display:none;">
+    <path d="M187.5 190 C167.5 160, 130 170, 130 200 C130 230, 170 260, 187.5 275 C205 260, 245 230, 245 200 C245 170, 207.5 160, 187.5 190Z"
+      fill="#0B0643" stroke="#9EEA63" stroke-width="3"/>
+    <circle cx="187.5" cy="135" r="13" fill="#9EEA63"/>
+    <circle cx="117" cy="210" r="7" fill="#9EEA63"/>
+    <circle cx="258" cy="210" r="7" fill="#9EEA63"/>
+    <circle cx="187.5" cy="285" r="5" fill="#9EEA63"/>
+  </g>
+
+  <!-- ================= ENROUTE ================= -->
+  <g id="enroute" style="display:none;">
+    <path d="M187.5 190 C167.5 160, 130 170, 130 200 C130 230, 170 260, 187.5 275 C205 260, 245 230, 245 200 C245 170, 207.5 160, 187.5 190Z"
+      fill="#0B0643"/>
+    <g id="orbit">
+      <circle cx="187.5" cy="135" r="13" fill="#C1FF72"/>
+      <circle cx="117" cy="210" r="7" fill="#C1FF72"/>
+      <circle cx="258" cy="210" r="7" fill="#C1FF72"/>
+      <circle cx="187.5" cy="285" r="5" fill="#C1FF72"/>
+    </g>
   </g>
 </svg>
+
+<!-- ================= ANIMATIONS ================= -->
+<style>
+/* Breathing - Offline */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+#offline circle {
+  animation: breathe 3.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Pulse - Contacted */
+@keyframes pulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  80% { opacity: 0; transform: scale(2.2); }
+  100% { opacity: 0; transform: scale(2.2); }
+}
+#contacted #pulse {
+  transform-origin: center;
+  animation: pulse 1.6s ease-out 1;
+}
+
+/* Online - Synced glow */
+@keyframes syncedBreath {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px #C1FF72); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 10px #C1FF72); }
+}
+#online path, #online circle {
+  animation: syncedBreath 2.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Resting - Dim slow breath */
+@keyframes slowBreath {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.03); opacity: 0.7; }
+}
+#resting path, #resting circle {
+  animation: slowBreath 5.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Enroute - Orbit */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+#enroute #orbit {
+  transform-origin: 187.5px 210px;
+  animation: rotate 4.5s linear infinite;
+}
+</style>
