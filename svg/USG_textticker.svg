@@ -1,69 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="title desc">
-  <title id="title">USG Emergency Ticker — Call 112</title>
-  <desc id="desc">Central emergency label '112 IN EMERGENCY' with rotating circular ticker showing translations in many languages. Rotation duration 21s.</desc>
-
-  <!-- Background (transparent so it layers nicely on red/cream dashboards) -->
-  <rect width="100%" height="100%" fill="transparent"/>
-
-  <!-- Definitions -->
+<!-- usg_ticker_with_usg_ring.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Text path circle -->
-    <path id="tickerPath" d="M256,48
-                              a208,208 0 1,1 0,416
-                              a208,208 0 1,1 0,-416" fill="none"/>
-    <style type="text/css"><![CDATA[
-      .ticker-text { font-family: "Poppins", sans-serif; font-size:16px; letter-spacing:0.6px; fill:#0B0643; text-transform:uppercase; }
-      .center-box { font-family: "Poppins", sans-serif; font-size:20px; font-weight:700; fill:#ffffff; }
-      .center-bg { fill:#0B0643; rx:8px; ry:8px; }
-      .sep { fill:#f2f2f2; }
-      .small { font-size:14px; }
+    <!-- Outer ticker path -->
+    <path id="tickerPath" d="M256,60 a196,196 0 1,1 0,392 a196,196 0 1,1 0,-392" fill="none"/>
+
+    <!-- Inner static USG path -->
+    <path id="usgPath" d="M256,120 a136,136 0 1,1 0,272 a136,136 0 1,1 0,-272" fill="none"/>
+
+    <style><![CDATA[
+      .ticker-text {
+        font-family: "Poppins", sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.8px;
+        fill: #0B0643;
+        text-transform: uppercase;
+      }
+      .usg-text {
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        letter-spacing: 2px;
+        fill: #0B0643;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .static-text {
+        font-family: "Poppins", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        fill: #0B0643;
+        text-transform: uppercase;
+      }
     ]]></style>
   </defs>
 
-  <!-- soft glow behind center to lift it from background -->
-  <g transform="translate(256,256)">
-    <circle r="110" fill="#0B0643" opacity="0.05"/>
-    <circle r="140" fill="#0B0643" opacity="0.02"/>
-  </g>
+  <!-- Transparent background -->
+  <rect width="512" height="512" fill="transparent"/>
 
-  <!-- Circular rotating ticker group -->
-  <g id="rotator" transform="translate(0,0)" transform-origin="256px 256px">
-    <!-- Visual path (for debugging / optional) -->
-    <!-- <use href="#tickerPath" stroke="#eee" stroke-width="0.5" fill="none"/> -->
-
-    <!-- Text along path. We use one long string with visual separators (▣) so it reads as chunks.
-         Boxes are used as visual breaks. The full string loops around the circle.
-         You can edit translations inside the text element. -->
-    <text class="ticker-text" >
-      <textPath href="#tickerPath" startOffset="0">
-        <!-- The order here: keep EN and KN early; add other languages for testing -->
-        ▣ EN: IN EMERGENCY CALL 112 ▣ KN: ತುರ್ತು ಸನ್ನಿವೇಶದಲ್ಲಿ 112 ಕರೆ ಮಾಡಿ ▣ HI: आपातकाल में 112 पर कॉल करें ▣ TA: அவசரநிலையில் 112 ஐ அழைக்கவும் ▣ TE: తక్షణ పరిస్థితుల్లో 112 కాల్ చేయండి ▣ ML: അപകടസ്ഥിതിയിൽ 112-നെ വിളിക്കുക ▣ BN: জরুরি অবস্থায় ১১২-এ কল করুন ▣ MR: आपत्कालीन परिस्थितीत 112 वर कॉल करा ▣ UR: ہنگامی صورتحال میں 112 پر کال کریں ▣ JP: 緊急時は112に電話してください ▣ AR: في حالات الطوارئ اتصل بالرقم 112 ▣ ES: EN EMERGENCIA LLAME AL 112 ▣ FR: EN CAS D'URGENCE APPELEZ LE 112 ▣
+  <!-- Animated circular ticker (outer ring) -->
+  <g id="ticker" transform-origin="256 256">
+    <text class="ticker-text">
+      <textPath href="#tickerPath" startOffset="0%">
+        ▣ IN EMERGENCY, CALL 112 ▣ ತುರ್ತು ಸನ್ನಿವೇಶದಲ್ಲಿ 112 ಕರೆ ಮಾಡಿ ▣ 緊急時は112に電話してください ▣ في حالات الطوارئ اتصل بالرقم 112 ▣ EN CAS D'URGENCE APPELEZ LE 112 ▣ EN EMERGENCIA LLAME AL 112 ▣
       </textPath>
     </text>
 
-    <!-- animate rotation: 21s full revolution clockwise -->
-    <animateTransform xlink:href="#rotator" attributeName="transform"
-                      attributeType="XML" type="rotate"
-                      from="0 256 256" to="360 256 256"
-                      dur="21s" repeatCount="indefinite"/>
+    <!-- 21-second slow rotation -->
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0 256 256"
+      to="360 256 256"
+      dur="21s"
+      repeatCount="indefinite"/>
   </g>
 
-  <!-- Center static label box (NOT on the circle) -->
-  <g transform="translate(256,256)" text-anchor="middle" dominant-baseline="middle">
-    <!-- background rounded rectangle -->
-    <rect x="-118" y="-30" width="236" height="60" class="center-bg"/>
-    <!-- left small badge '112' -->
-    <rect x="-118" y="-30" width="76" height="60" fill="#C1FF72" rx="6" ry="6"/>
-    <text x="-80" y="4" class="center-box" fill="#0B0643">112</text>
+  <!-- Static middle circular band: UNITED SOULS GUILD -->
+  <text class="usg-text">
+    <textPath href="#usgPath" startOffset="50%" text-anchor="middle">
+      UNITED SOULS GUILD · UNITED SOULS GUILD · UNITED SOULS GUILD ·
+    </textPath>
+  </text>
 
-    <!-- central message -->
-    <text x="20" y="4" class="center-box" fill="#ffffff">IN EMERGENCY</text>
-  </g>
+  <!-- Static top text -->
+  <text class="static-text" x="256" y="84" text-anchor="middle">CALL 112</text>
 
-  <!-- Accessibility/helper: faint tick markers to show start/end points (optional, hidden visually) -->
-  <g opacity="0.0" aria-hidden="true">
-    <circle cx="256" cy="48" r="3" fill="#000"/>
-    <circle cx="256" cy="464" r="3" fill="#000"/>
-  </g>
-
+  <!-- Placeholder circle for user_icon.svg center (optional visual guide) -->
+  <circle cx="256" cy="256" r="80" fill="none" stroke="#0B0643" stroke-opacity="0.05" stroke-width="1"/>
 </svg>
