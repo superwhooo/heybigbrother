@@ -3,7 +3,7 @@
      style="background-color:#B71C1C; display:block; margin:auto;">
 
   <!-- Centering group, visually balanced lower -->
-  <g transform="translate(100,120)">
+  <g transform="translate(100,150)">
 
     <!-- Gradient Glow -->
     <defs>
