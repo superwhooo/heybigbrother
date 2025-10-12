@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <defs>
-    <!-- Define the glow effect -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <!-- Soft outer glow -->
+    <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
@@ -13,9 +12,13 @@
   <!-- Background -->
   <rect width="200" height="200" fill="#C8102E"/>
 
-  <!-- Glowing Aura -->
-  <circle cx="100" cy="100" r="35" stroke="white" stroke-width="3" fill="none"
-          filter="url(#glow)" opacity="0.9"/>
+  <!-- Diffused outer glow -->
+  <circle cx="100" cy="100" r="45" fill="white" opacity="0.12" filter="url(#soft-glow)">
+    <animate attributeName="r" values="45;47;45" dur="1s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Solid safety field -->
+  <circle cx="100" cy="100" r="30" fill="white"/>
 
   <!-- Heart -->
   <path transform="translate(100,106)"
