@@ -1,64 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 400 400"
-     width="400" height="400" id="usg_textticker">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <style>
+    .base { fill: none; stroke: none; }
+    .call112 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 34px;
+      fill: #0B0643;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .ticker-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      fill: #0B0643;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .bullet {
+      fill: #0B0643;
+    }
+  </style>
 
+  <!-- Invisible guide circle -->
+  <circle cx="256" cy="256" r="250" class="base"/>
+
+  <!-- Top circular CALL 112 text -->
   <defs>
-    <!-- circular path for ticker text -->
-    <path id="tickerPath"
-          d="M 200,200 m -150,0 a 150,150 0 1,1 300,0 a 150,150 0 1,1 -300,0"
-          fill="none"/>
+    <path id="topArc" d="M156,120 A200,200 0 0,1 356,120" />
+    <path id="tickerPath" d="M256,256 m0,-220 a220,220 0 1,1 -0.1,0 z" />
   </defs>
 
-  <!-- background (transparent) -->
-  <rect width="100%" height="100%" fill="transparent"/>
+  <!-- Call 112 arc -->
+  <text class="call112" text-anchor="middle">
+    <textPath href="#topArc" startOffset="50%">CALL 112</textPath>
+  </text>
 
-  <!-- decorative inner rings (subtle) -->
-  <circle cx="200" cy="200" r="90" fill="none" stroke="#eeeeee" stroke-width="6" opacity="0.6"/>
-  <circle cx="200" cy="200" r="120" fill="none" stroke="#f6f6f6" stroke-width="10" opacity="0.45"/>
-
-  <!-- rotating group that contains the text on the path -->
-  <!-- rotates once every 42s; change dur if you want a different cycle -->
-  <g transform="translate(0,0)">
-    <animateTransform attributeName="transform"
-                      type="rotate"
-                      from="0 200 200"
-                      to="360 200 200"
-                      dur="42s"
-                      repeatCount="indefinite"/>
-
-    <!-- Visible, readable ticker text along the path.
-         For testing we're using machine-translated lines; replace with final copy later.
-         Separator " · " between phrases helps readability. -->
-    <text font-family="Arial, Helvetica, sans-serif"
-          font-size="14"
-          fill="#0B0643"
-          letter-spacing="0.5"
-          text-anchor="middle">
-      <textPath href="#tickerPath"
-                startOffset="0"
-                method="align"
-                spacing="auto">
-        <!-- English first, then Indian languages, then others -->
-        112 — IN EMERGENCY, CALL 112 ·
-        112 — ತುರ್ತು ಸನ್ನಿವೇಶದಲ್ಲಿ 112 ಕರೆ ಮಾಡಿ ·
-        112 — आपातकाल में 112 पर कॉल करें ·
-        112 — জরুরী পরিস্থিতিতে 112-এ কল করুন ·
-        112 — அவசரநிலையில் 112 க்கு அழைக்கவும் ·
-        112 — అత్యవసర పరిస్థితిలో 112కే కాల్ చేయండి ·
-        112 — आपत्कालीन परिस्थितीत 112 वर कॉल करा ·
-        112 — അടിയടുത്ത സാഹചര്യത്തിൽ 112-ൽ വിളിക്കുക ·
-        112 —જરૂરી સ્થિતિમાં 112 પર કોલ કરો ·
-        112 — ਐਮਰਜੈਂਸੀ ਵਿੱਚ 112 'ਤੇ ਫ਼ੋਨ ਕਰੋ ·
-        112 — ہنگامی صورت میں 112 پر کال کریں ·
-        112 — 緊急時は112に電話してください ·
-        112 — في حالة الطوارئ اتصل بالرقم 112 ·
-        112 — EN EMERGENCIA, LLAME AL 112 ·
-        112 — EN CAS D'URGENCE, APPELEZ LE 112
-      </textPath>
-    </text>
-  </g>
-
-  <!-- small marker/dot on top (optional visual anchor) -->
-  <circle cx="200" cy="50" r="6" fill="#0B0643"/>
+  <!-- Moving ticker text with separators -->
+  <text class="ticker-text">
+    <textPath href="#tickerPath" startOffset="0%">
+      IN EMERGENCY, CALL 112 
+      <tspan class="bullet">■</tspan> 
+      ತುರ್ತು ಸನ್ನಿವೇಶದಲ್ಲಿ 112 ಕರೆ ಮಾಡಿ 
+      <tspan class="bullet">■</tspan> 
+      緊急時は112に電話してください 
+      <tspan class="bullet">■</tspan> 
+      EN CAS D’URGENCE, APPELEZ 112 
+      <tspan class="bullet">■</tspan> 
+      EMERGENCIA, LLAME AL 112 
+      <tspan class="bullet">■</tspan> 
+      आपात स्थिति में 112 पर कॉल करें 
+      <tspan class="bullet">■</tspan> 
+      في حالة الطوارئ اتصل على ١١٢
+      <tspan class="bullet">■</tspan>
+    </textPath>
+    <animate attributeName="startOffset" from="0%" to="100%" dur="42s" repeatCount="indefinite" />
+  </text>
 </svg>
