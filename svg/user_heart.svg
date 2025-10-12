@@ -1,6 +1,6 @@
 <svg id="user_heart" xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 200 200" width="200" height="200"
-     style="background-color:#B71C1C; display:block; margin:auto;">
+     viewBox="0 0 200 200" width="200" height="200"; 
+     display:block; margin:auto;">
 
   <!-- Centering group, visually balanced lower -->
   <g transform="translate(100,150)">
@@ -35,21 +35,22 @@
 
     <!-- Core Heart Shape (final visual center) -->
     <path
-      id="heart-shape"
-      d="M0 38
-         C -15 23, -50 3, -40 -27
-         C -30 -52, 0 -42, 0 -22
-         C 0 -42, 30 -52, 40 -27
-         C 50 3, 15 23, 0 38 Z"
-      fill="#E53935">
-      <animateTransform
-        attributeName="transform"
-        type="scale"
-        values="1;1.04;1"
-        dur="1s"
-        repeatCount="indefinite"
-        additive="sum" />
-    </path>
+  id="heart-shape"
+  transform="translate(0,60)"     <!-- ← moves the heart down 3 units -->
+  d="M0 38
+     C -15 23, -50 3, -40 -27
+     C -30 -52, 0 -42, 0 -22
+     C 0 -42, 30 -52, 40 -27
+     C 50 3, 15 23, 0 38 Z"
+  fill="#E53935">
+  <animateTransform
+    attributeName="transform"
+    type="scale"
+    values="1;1.04;1"
+    dur="1s"
+    repeatCount="indefinite"
+    additive="sum" />
+</path>
   </g>
 
 </svg>
