@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" preserveAspectRatio="xMidYMid meet">
+  <g id="guardian_offline" opacity="1">
+    <!-- Offline -->
+    http://www.w3.org/1999/xlink
+  </g>
+
+  <g id="guardian_messaged" opacity="0">
+    <!-- Messaged -->
+    <!-- Paste your full messaged SVG content here -->
+  </g>
+
+  <g id="guardian_online" opacity="0">
+    <!-- Online -->
+    <!-- Paste your full online SVG content here -->
+  </g>
+
+  <g id="guardian_enroute" opacity="0">
+    <!-- Enroute -->
+    <!-- Paste your full enroute SVG content here -->
+  </g>
+</svg>
