@@ -1,144 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 375 375"
-     width="400"
-     height="400"
-     xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" width="400" height="400">
 
   <style>
-    /* breathing for offline */
+    /* Shared heart breathing animation */
     @keyframes breathe {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.08); opacity: 0.85; }
     }
 
-    .breathing circle {
-      animation: breathe 3s ease-in-out infinite;
-      transform-origin: center;
+    /* Dot breathing for top/side */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.85; }
     }
 
-    /* subtle pulsing halo for online_contacted */
-    @keyframes glow {
-      0%, 100% { r: 90; opacity: 0.3; }
-      50% { r: 100; opacity: 0.1; }
+    .heart, .dot {
+      transform-origin: center;
+      transform-box: fill-box;
     }
 
-    .glow circle.halo {
-      animation: glow 3s ease-in-out infinite;
-      transform-origin: center;
+    .heart.breathe { animation: breathe 3s ease-in-out infinite; }
+    .dot.pulse { animation: pulse 3s ease-in-out infinite; }
+    .dot.bottom { animation: none; }
+
+    /* Halo pulse for online_contacted */
+    @keyframes haloGlow {
+      0%, 100% { r: 95; opacity: 0.2; }
+      50% { r: 105; opacity: 0.05; }
     }
+    .halo { animation: haloGlow 3s ease-in-out infinite; }
+
+    /* Fade transitions (optional JS toggling support) */
+    g[visibility="hidden"] { opacity: 0; transition: opacity 0.5s ease-in-out; }
+    g[visibility="visible"] { opacity: 1; transition: opacity 0.5s ease-in-out; }
   </style>
 
-  <!-- ===== OFFLINE ===== -->
-  <g id="offline" class="breathing">
-    <path fill="#0b0643"
-          d="M187.5 150c-13 0-24 10.2-24 22.8 0 12.6 12 24.6 24 32.4 12-7.8 24-19.8 24-32.4 0-12.6-11-22.8-24-22.8z"/>
-    <circle cx="187.5" cy="115" r="10" fill="#0b0643"/>
-    <circle cx="157" cy="170" r="6" fill="#0b0643"/>
-    <circle cx="218" cy="170" r="6" fill="#0b0643"/>
-    <circle cx="187.5" cy="230" r="6" fill="#0b0643"/>
+  <!-- ===================== OFFLINE ===================== -->
+  <g id="offline" visibility="visible">
+    <path class="heart breathe" fill="#0b0643"
+      d="M187.5 150
+         c-14 0 -26 11 -26 24.5
+         0 13.5 12 26.5 26 34.5
+         14 -8 26 -21 26 -34.5
+         0 -13.5 -12 -24.5 -26 -24.5z"/>
+    <circle class="dot pulse" cx="187.5" cy="110" r="10" fill="#0b0643"/>
+    <circle class="dot pulse" cx="155" cy="180" r="6" fill="#0b0643"/>
+    <circle class="dot pulse" cx="220" cy="180" r="6" fill="#0b0643"/>
+    <circle class="dot bottom" cx="187.5" cy="235" r="6" fill="#0b0643"/>
   </g>
 
-  <!-- ===== CONTACTED ===== -->
+  <!-- ===================== CONTACTED ===================== -->
   <g id="contacted" visibility="hidden">
     <path fill="#0b0643"
-          d="M187.5 150c-13 0-24 10.2-24 22.8 0 12.6 12 24.6 24 32.4 12-7.8 24-19.8 24-32.4 0-12.6-11-22.8-24-22.8z"/>
+      d="M187.5 150
+         c-14 0 -26 11 -26 24.5
+         0 13.5 12 26.5 26 34.5
+         14 -8 26 -21 26 -34.5
+         0 -13.5 -12 -24.5 -26 -24.5z"/>
     <path stroke="#c1ff72" stroke-width="8" fill="none"
           d="M150 140 L225 140 L225 235 L150 235 Z"/>
   </g>
 
-  <!-- ===== ONLINE ===== -->
+  <!-- ===================== ONLINE ===================== -->
   <g id="online" visibility="hidden">
     <path fill="#0b0643"
-          d="M187.5 150c-13 0-24 10.2-24 22.8 0 12.6 12 24.6 24 32.4 12-7.8 24-19.8 24-32.4 0-12.6-11-22.8-24-22.8z"/>
+      d="M187.5 150
+         c-14 0 -26 11 -26 24.5
+         0 13.5 12 26.5 26 34.5
+         14 -8 26 -21 26 -34.5
+         0 -13.5 -12 -24.5 -26 -24.5z"/>
     <circle cx="187.5" cy="187.5" r="60" stroke="#c1ff72" stroke-width="8" fill="none"/>
   </g>
 
-  <!-- ===== EN ROUTE ===== -->
+  <!-- ===================== EN ROUTE ===================== -->
   <g id="enroute" visibility="hidden">
     <circle cx="187.5" cy="187.5" r="80" fill="#c1ff72"/>
-    <circle cx="187.5" cy="187.5" r="95" stroke="#0b0643" stroke-width="3" stroke-dasharray="4,4" fill="none"/>
+    <circle cx="187.5" cy="187.5" r="95"
+            stroke="#0b0643" stroke-width="3"
+            stroke-dasharray="4,4" fill="none"/>
     <path fill="#0b0643"
-          d="M187.5 150c-13 0-24 10.2-24 22.8 0 12.6 12 24.6 24 32.4 12-7.8 24-19.8 24-32.4 0-12.6-11-22.8-24-22.8z"/>
+      d="M187.5 150
+         c-14 0 -26 11 -26 24.5
+         0 13.5 12 26.5 26 34.5
+         14 -8 26 -21 26 -34.5
+         0 -13.5 -12 -24.5 -26 -24.5z"/>
   </g>
 
-  <!-- ===== ONLINE CONTACTED ===== -->
-  <g id="online_contacted" class="glow" visibility="hidden">
-    <circle class="halo" cx="187.5" cy="187.5" r="90" fill="#c1ff72" opacity="0.2"/>
+  <!-- ===================== ONLINE CONTACTED ===================== -->
+  <g id="online_contacted" visibility="hidden">
+    <circle class="halo" cx="187.5" cy="187.5" r="95" fill="#c1ff72" opacity="0.2"/>
     <circle cx="187.5" cy="187.5" r="70" fill="#c1ff72"/>
     <path fill="#0b0643"
-          d="M187.5 150c-13 0-24 10.2-24 22.8 0 12.6 12 24.6 24 32.4 12-7.8 24-19.8 24-32.4 0-12.6-11-22.8-24-22.8z"/>
+      d="M187.5 150
+         c-14 0 -26 11 -26 24.5
+         0 13.5 12 26.5 26 34.5
+         14 -8 26 -21 26 -34.5
+         0 -13.5 -12 -24.5 -26 -24.5z"/>
   </g>
 
-</svg>    <circle cx="187.5" cy="135" r="13" fill="#9EEA63"/>
-    <circle cx="117" cy="210" r="7" fill="#9EEA63"/>
-    <circle cx="258" cy="210" r="7" fill="#9EEA63"/>
-    <circle cx="187.5" cy="285" r="5" fill="#9EEA63"/>
-  </g>
-
-  <!-- ================= ENROUTE ================= -->
-  <g id="enroute" style="display:none;">
-    <path d="M187.5 190 C167.5 160, 130 170, 130 200 C130 230, 170 260, 187.5 275 C205 260, 245 230, 245 200 C245 170, 207.5 160, 187.5 190Z"
-      fill="#0B0643"/>
-    <g id="orbit">
-      <circle cx="187.5" cy="135" r="13" fill="#C1FF72"/>
-      <circle cx="117" cy="210" r="7" fill="#C1FF72"/>
-      <circle cx="258" cy="210" r="7" fill="#C1FF72"/>
-      <circle cx="187.5" cy="285" r="5" fill="#C1FF72"/>
-    </g>
-  </g>
-
-<!-- ================= ANIMATIONS ================= -->
-<style>
-/* Breathing - Offline */
-@keyframes breathe {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.08); opacity: 0.85; }
-}
-#offline circle {
-  animation: breathe 3.5s ease-in-out infinite;
-  transform-origin: center;
-}
-
-/* Pulse - Contacted */
-@keyframes pulse {
-  0% { opacity: 0.6; transform: scale(1); }
-  80% { opacity: 0; transform: scale(2.2); }
-  100% { opacity: 0; transform: scale(2.2); }
-}
-#contacted #pulse {
-  transform-origin: center;
-  animation: pulse 1.6s ease-out 1;
-}
-
-/* Online - Synced glow */
-@keyframes syncedBreath {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px #C1FF72); }
-  50% { transform: scale(1.05); filter: drop-shadow(0 0 10px #C1FF72); }
-}
-#online path, #online circle {
-  animation: syncedBreath 2.8s ease-in-out infinite;
-  transform-origin: center;
-}
-
-/* Resting - Dim slow breath */
-@keyframes slowBreath {
-  0%, 100% { transform: scale(1); opacity: 0.9; }
-  50% { transform: scale(1.03); opacity: 0.7; }
-}
-#resting path, #resting circle {
-  animation: slowBreath 5.5s ease-in-out infinite;
-  transform-origin: center;
-}
-
-/* Enroute - Orbit */
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-#enroute #orbit {
-  transform-origin: 187.5px 210px;
-  animation: rotate 4.5s linear infinite;
-}
-</style>
 </svg>
