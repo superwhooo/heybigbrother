@@ -1,3 +1,18 @@
+### 🕊️ UNITED SOULS GUILD — LEGAL NOTICE
+
+© 2025 United Souls Guild (U.S.G.). All rights reserved.  
+A Mission Shakthi Initiative.  
+
+United Souls Guild and its symbols are registered trademarks of their respective owners.  
+This project is governed by the U.S.G. Legal Framework under `/gold_standard/legal/` and the  
+U.S.G. Ethical Charter under `/gold_standard/ethics/`.
+
+For inquiries: (not live) 
+📩 legal@unitedsoulsguild.org | 🌐 https://unitedsoulsguild.org
+
+
+*Empathy. Dignity. Light.*
+
 ⚙️ U.S.G. App Structure — Features Overview
 
 🚦 Status	Feature Name	Description
