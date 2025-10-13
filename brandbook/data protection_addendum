@@ -1,0 +1,31 @@
+# U.S.G. DATA PROTECTION ADDENDUM (DPA)
+
+This DPA supplements all partner or vendor agreements.
+
+### 1. Purpose
+To protect personal data handled by U.S.G. or its partners in compliance with applicable privacy laws
+(IT Act 2000, PDP Bill 2023, GDPR equivalents, etc.).
+
+### 2. Definitions
+- **Data Subject:** Any person whose data is processed.
+- **Processor:** Any vendor, partner, or entity handling data on behalf of U.S.G.
+- **Controller:** United Souls Guild.
+
+### 3. Data Processing
+Processors may process data solely for the purposes defined by U.S.G. and must:
+- Use data only per documented instruction.
+- Keep strict access control and logging.
+- Ensure encryption in transit and at rest.
+- Delete data on request or upon end of contract.
+
+### 4. Sub-Processing
+No subcontractor may be engaged without written approval from U.S.G.
+
+### 5. Security Measures
+U.S.G. enforces AES-256 encryption, role-based access, MFA, and regular security audits.
+
+### 6. Breach Notification
+Processors must notify U.S.G. within 24 hours of becoming aware of a data breach.
+
+### 7. Termination
+Upon termination, Processor must securely delete or return all data and certify deletion in writing.
