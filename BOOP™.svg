@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- boop-uppercase.svg — Animated BOOP™ (primary) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 400 400" role="img" aria-labelledby="titleDesc">
+  <title id="titleDesc">BOOP logo — animated (uppercase)</title>
+  <defs>
+    <radialGradient id="glowGrad" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#72F0FF" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#00C2E8" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#00263A" stop-opacity="0.0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <g id="starShape"><path d="M0,-6 L1.5,-1.5 L6,0 L1.5,1.5 L0,6 L-1.5,1.5 L-6,0 L-1.5,-1.5 Z"/></g>
+    <rect id="pixel" width="6" height="6" x="-3" y="-3" rx="0.8" ry="0.8" />
+    <style>
+      .bg{fill:#04101a}.vignette{fill:url(#glowGrad);opacity:.05}.ring{fill:none;stroke:url(#glowGrad);stroke-width:6;filter:url(#softGlow);opacity:.98}
+      .pixel{fill:#64e6ff;opacity:.9}.pixel-2{fill:#b4f6ff;opacity:.85}.star{fill:#dffcff;opacity:.95}.bubble{fill:#aef1ff;opacity:.9}
+      .word{font-family:"Inter","Segoe UI",Roboto,Arial,sans-serif;font-weight:800;font-size:86px;letter-spacing:2px;fill:#bff7ff;paint-order:stroke fill}
+      .word-shadow{fill:none;stroke:rgba(0,0,0,0.18);stroke-width:6;stroke-linejoin:round;stroke-linecap:round;opacity:.25;filter:url(#softGlow)}
+      .tm{font-family:"Inter",Arial,sans-serif;font-size:14px;font-weight:700;fill:#dfffff}
+      @keyframes floatUp{0%{transform:translateY(18px) scale(.7);opacity:0}10%{opacity:.6}50%{opacity:.95;transform:translateY(-60px) scale(1.05)}100%{transform:translateY(-130px) scale(.9);opacity:0}}
+      @keyframes driftOut{0%{transform:translate(0,0) scale(.6);opacity:0}8%{opacity:.9}60%{transform:translate(var(--dx), var(--dy)) scale(1);opacity:.95}100%{transform:translate(calc(var(--dx)*1.7), calc(var(--dy)*1.7)) scale(.6);opacity:0}}
+      @keyframes twinkle{0%{opacity:.1;transform:scale(.8) rotate(0)}35%{opacity:1;transform:scale(1.15) rotate(10deg)}100%{opacity:.15;transform:scale(.9) rotate(-8deg)}}
+      .bubble-anim{animation:floatUp var(--dur) linear infinite;transform-box:fill-box}.pixel-anim{animation:driftOut var(--dur) linear infinite;transform-box:fill-box}.star-anim{animation:twinkle var(--dur) ease-in-out infinite;transform-box:fill-box}
+      .spin-slow{transform-origin:200px 200px;animation:spin 36s linear infinite}@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="400" height="400"/>
+  <circle class="vignette" cx="200" cy="200" r="180"/>
+  <circle class="ring" cx="200" cy="200" r="110"/>
+
+  <g id="particles" class="spin-slow">
+    <g transform="translate(140,120)">
+      <use href="#pixel" class="pixel pixel-anim" style="--dx:-40px; --dy:-18px; --dur:6.8s;" x="-20" y="-10"/>
+      <use href="#starShape" class="star star-anim" style="--dur:5.2s;" transform="scale(.8)"/>
+      <use href="#pixel" class="pixel-2 pixel-anim" style="--dx:-60px; --dy:6px; --dur:8.6s;" transform="translate(22,6)"/>
+    </g>
+    <g transform="translate(260,115)">
+      <use href="#pixel" class="pixel pixel-anim" style="--dx:46px; --dy:-8px; --dur:6.0s;" transform="translate(-6,2)"/>
+      <use href="#starShape" class="star star-anim" style="--dur:4.6s;" transform="scale(1)"/>
+      <use href="#pixel" class="pixel-2 pixel-anim" style="--dx:82px; --dy:24px; --dur:9.1s;" transform="translate(18,16)"/>
+    </g>
+    <g transform="translate(120,200)">
+      <use href="#pixel" class="pixel pixel-anim" style="--dx:-80px; --dy:14px; --dur:7.6s;" transform="translate(-10,4)"/>
+      <use href="#starShape" class="star star-anim" style="--dur:6.2s;" transform="scale(1.1)"/>
+      <use href="#pixel" class="pixel-2 pixel-anim" style="--dx:-36px; --dy:56px; --dur:8.8s;" transform="translate(12,28)"/>
+    </g>
+    <g transform="translate(280,210)">
+      <use href="#pixel" class="pixel pixel-anim" style="--dx:68px; --dy:36px; --dur:6.9s;" transform="translate(6,6)"/>
+      <use href="#starShape" class="star star-anim" style="--dur:5.8s;" transform="scale(.9)"/>
+      <use href="#pixel" class="pixel-2 pixel-anim" style="--dx:48px; --dy:-28px; --dur:7.9s;" transform="translate(-8,-6)"/>
+    </g>
+    <g transform="translate(200,300)">
+      <use href="#pixel" class="pixel pixel-anim" style="--dx:12px; --dy:86px; --dur:8.2s;" transform="translate(-6,10)"/>
+      <use href="#starShape" class="star star-anim" style="--dur:7.6s;" transform="scale(1.2)"/>
+      <use href="#pixel" class="pixel-2 pixel-anim" style="--dx:-28px; --dy:96px; --dur:9.8s;" transform="translate(24,18)"/>
+    </g>
+    <g>
+      <use href="#pixel" class="pixel pixel-anim" style="--dx:-12px; --dy:-88px; --dur:5.6s;" transform="translate(190,80) scale(.7)"/>
+      <use href="#pixel" class="pixel-2 pixel-anim" style="--dx:46px; --dy:-56px; --dur:6.4s;" transform="translate(230,100) scale(.6)"/>
+      <use href="#starShape" class="star star-anim" style="--dur:3.8s;" transform="translate(160,140) scale(.5)"/>
+      <use href="#starShape" class="star star-anim" style="--dur:5.0s;" transform="translate(245,155) scale(.45) rotate(25)"/>
+      <use href="#pixel" class="pixel pixel-anim" style="--dx:-96px; --dy:24px; --dur:10.6s;" transform="translate(120,220) scale(.5)"/>
+      <use href="#pixel" class="pixel-2 pixel-anim" style="--dx:84px; --dy:-18px; --dur:11.4s;" transform="translate(270,80) scale(.55)"/>
+    </g>
+  </g>
+
+  <defs><clipPath id="clipCircle"><circle cx="200" cy="200" r="98"/></clipPath></defs>
+  <g id="bubbles" clip-path="url(#clipCircle)">
+    <g transform="translate(200,220)">
+      <circle class="bubble bubble-anim" cx="-40" cy="40" r="6" style="--dur:3.6s;animation-delay:.15s"/>
+      <circle class="bubble bubble-anim" cx="0" cy="50" r="8" style="--dur:4.4s;animation-delay:.9s"/>
+      <circle class="bubble bubble-anim" cx="36" cy="46" r="5" style="--dur:2.8s;animation-delay:.45s"/>
+      <circle class="bubble bubble-anim" cx="-10" cy="70" r="4" style="--dur:3.2s;animation-delay:.05s"/>
+      <circle class="bubble bubble-anim" cx="56" cy="78" r="7" style="--dur:4.9s;animation-delay:.6s"/>
+      <circle class="bubble bubble-anim" cx="-64" cy="86" r="5.5" style="--dur:5.6s;animation-delay:.85s"/>
+      <circle class="bubble bubble-anim" cx="18" cy="88" r="3.5" style="--dur:2.9s;animation-delay:.25s"/>
+      <circle class="bubble bubble-anim" cx="84" cy="40" r="4.2" style="--dur:3.8s;animation-delay:1.05s"/>
+    </g>
+  </g>
+
+  <g transform="translate(0,0)" clip-path="url(#clipCircle)">
+    <use href="#starShape" class="star star-anim" transform="translate(210,150) scale(1.15) rotate(6)" style="--dur:3.4s"/>
+    <use href="#starShape" class="star star-anim" transform="translate(160,190) scale(.7) rotate(-12)" style="--dur:4.4s"/>
+    <use href="#starShape" class="star star-anim" transform="translate(245,220) scale(.9) rotate(18)" style="--dur:5.0s"/>
+    <use href="#starShape" class="star star-anim" transform="translate(200,240) scale(.6) rotate(30)" style="--dur:4.0s"/>
+    <use href="#starShape" class="star star-anim" transform="translate(178,155) scale(.5) rotate(-22)" style="--dur:3.0s"/>
+  </g>
+
+  <g opacity=".06"><ellipse cx="200" cy="200" rx="75" ry="75" fill="#baf6ff"/></g>
+
+  <g aria-hidden="true"><text class="word-shadow" x="200" y="218" text-anchor="middle" dominant-baseline="middle">BOOP</text></g>
+  <g><text class="word" x="200" y="214" text-anchor="middle" dominant-baseline="middle">BOOP</text>
+    <text class="tm" x="255" y="180" text-anchor="start" dominant-baseline="middle">™</text></g>
+
+  <g opacity=".18"><circle cx="200" cy="200" r="132" fill="none" stroke="#00384a" stroke-width="1" stroke-dasharray="2 12"/></g>
+  <desc>Animated logo: BOOP trademark text centered within a glowing circular emblem; pixel squares and star-like sparkles float outward and twinkle while small bubbles rise inside the circle like a fizzy drink.</desc>
+</svg>
